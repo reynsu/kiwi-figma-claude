@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiwi — Onboarding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f0f5;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      padding: 40px;
+    }
+
+    /* ── Android Frame ── */
+    .android-frame {
+      position: relative;
+      width: 412px;
+      background: #1C1C1C;
+      border-radius: 48px;
+      padding: 12px;
+      box-shadow: 0 0 0 1px #333, 0 0 0 3px #111, 0 40px 80px rgba(0,0,0,0.7), inset 0 0 12px rgba(255,255,255,0.04);
+    }
+    .android-frame::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      background: #111;
+      border-radius: 50%;
+      z-index: 10;
+      border: 1px solid #333;
+    }
+    .btn-side { position: absolute; background: #2A2A2A; border-radius: 2px; }
+    .btn-vol-up  { left: -3px; top: 100px; width: 3px; height: 36px; }
+    .btn-vol-dn  { left: -3px; top: 148px; width: 3px; height: 36px; }
+    .btn-power   { right: -3px; top: 130px; width: 3px; height: 60px; }
+
+    .android-inner {
+      background: #fff;
+      border-radius: 38px;
+      overflow: hidden;
+    }
+
+    /* ── Status bar ── */
+    .android-status {
+      height: 36px;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    .android-time { font-size: 12px; font-weight: 500; color: #fff; }
+    .android-icons { display: flex; align-items: center; gap: 6px; }
+
+    /* ── Screen ── */
+    .screen {
+      width: 100%;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      min-height: 760px;
+    }
+
+    /* ── Logo ── */
+    .logo {
+      position: absolute;
+      top: 49px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 160px;
+      height: 24px;
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ── Illustration ── */
+    .illustration {
+      position: absolute;
+      top: 113px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 360px;
+      height: 237px;
+    }
+    .illustration > * {
+      position: absolute;
+    }
+    .illus-bg {
+      inset: 22.53% 22.25% 8.81% 18.31%;
+    }
+    .illus-device {
+      inset: 0 32.25% 1.51% 35.1%;
+    }
+    .illus-bubbles {
+      inset: 29.18% 19.73% 14.21% 24.11%;
+    }
+    .illus-char2 {
+      inset: 14.1% 18% 49.53% 64.3%;
+    }
+    .illus-char1 {
+      inset: 45.1% 59.95% 19.05% 23.03%;
+    }
+    .illustration img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ── Info section ── */
+    .info {
+      position: absolute;
+      top: 390px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 328px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+    .eye-icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+    .eye-icon img { width: 100%; height: 100%; }
+    .info-title {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px;
+      color: #101010;
+    }
+    .info-body {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      color: #686873;
+    }
+
+    /* ── Pagination dots ── */
+    .dots {
+      position: absolute;
+      top: 634px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #D0C8F5;
+    }
+    .dot.active {
+      width: 20px;
+      border-radius: 3px;
+      background: #7247EC;
+    }
+
+    /* ── CTA Button ── */
+    .btn-cta {
+      position: absolute;
+      top: 664px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 328px;
+      height: 48px;
+      background: #7247EC;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* ── Home bar ── */
+    .home-bar {
+      height: 24px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home-bar-pill {
+      width: 120px;
+      height: 4px;
+      background: #111;
+      border-radius: 2px;
+      opacity: 0.2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="android-frame">
+    <div class="btn-side btn-vol-up"></div>
+    <div class="btn-side btn-vol-dn"></div>
+    <div class="btn-side btn-power"></div>
+
+    <div class="android-inner">
+      <!-- Status bar -->
+      <div class="android-status">
+        <span class="android-time">9:41</span>
+        <div class="android-icons">
+          <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff">
+            <rect x="0" y="5" width="2.5" height="5" rx="0.5"/>
+            <rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/>
+            <rect x="7" y="1" width="2.5" height="9" rx="0.5"/>
+            <rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/>
+          </svg>
+          <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
+            <path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/>
+            <path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/>
+            <circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/>
+          </svg>
+          <svg width="22" height="11" viewBox="0 0 22 11" fill="none">
+            <rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/>
+            <rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/>
+            <path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Screen content -->
+      <div class="screen">
+
+        <!-- Logo -->
+        <div class="logo">
+          <img src="https://www.figma.com/api/mcp/asset/7de21508-9871-4d54-8855-bc6a7c869bcf" alt="kiwichat" />
+        </div>
+
+        <!-- Illustration -->
+        <div class="illustration">
+          <div class="illus-bg">
+            <img src="https://www.figma.com/api/mcp/asset/50d6a268-6093-48a1-a436-78116b98cc5b" alt="" />
+          </div>
+          <div class="illus-device">
+            <img src="https://www.figma.com/api/mcp/asset/83cc3392-6fcf-43fe-80be-ea16fc4aed5a" alt="" />
+          </div>
+          <div class="illus-bubbles">
+            <img src="https://www.figma.com/api/mcp/asset/4a850174-3bb6-4235-b943-385ab522d9bb" alt="" />
+          </div>
+          <div class="illus-char2">
+            <img src="https://www.figma.com/api/mcp/asset/09d795a8-33cb-4c7a-8a7d-75fb3a81cf3f" alt="" />
+          </div>
+          <div class="illus-char1">
+            <img src="https://www.figma.com/api/mcp/asset/dc6b9e4c-ac06-4353-8231-6ec889950ab0" alt="" />
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="info">
+          <div class="eye-icon">
+            <img src="https://www.figma.com/api/mcp/asset/465e2b84-25f5-4d95-b76b-22db6f6c7405" alt="" />
+          </div>
+          <div>
+            <p class="info-title">Chat with people in prison</p>
+          </div>
+          <p class="info-body">
+            Conversations with people in prison are not private and are subject to monitoring by the Department of Corrections (DOC) for security purposes.
+          </p>
+        </div>
+
+        <!-- Pagination dots -->
+        <div class="dots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+        </div>
+
+        <!-- CTA Button -->
+        <button class="btn-cta">Get started</button>
+
+      </div><!-- /screen -->
+
+      <!-- Home bar -->
+      <div class="home-bar">
+        <div class="home-bar-pill"></div>
+      </div>
+    </div><!-- /android-inner -->
+  </div><!-- /android-frame -->
+
+</body>
+</html>
