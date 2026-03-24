@@ -216,6 +216,53 @@
     /* Chat rows inside android (full width) */
     .android-screen .chat-row { width: 100%; }
 
+    /* ── Android Tablet Frame ── */
+    .android-tablet-frame {
+      position: relative;
+      width: 578px;
+      background: #1C1C1C;
+      border-radius: 20px;
+      padding: 14px;
+      box-shadow: 0 0 0 1px #333, 0 0 0 3px #111, 0 40px 80px rgba(0,0,0,0.6), inset 0 0 12px rgba(255,255,255,0.03);
+    }
+    .android-tablet-frame::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 6px;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: #111;
+      border-radius: 50%;
+      z-index: 20;
+      border: 1px solid #333;
+    }
+    .btn-tablet-vol-up  { left: -3px; top: 80px;  width: 3px; height: 48px; }
+    .btn-tablet-vol-dn  { left: -3px; top: 140px; width: 3px; height: 48px; }
+    .btn-tablet-power   { top: -3px;  left: 180px; width: 60px; height: 3px; }
+    .tablet-inner {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .tablet-status {
+      height: 28px;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+    .tablet-screen {
+      width: 100%;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      min-height: 824px;
+      font-family: 'DM Sans', system-ui, sans-serif;
+    }
+
     /* ── Chat Conversation Screen (V5, V6) ── */
     .chat-screen {
       width: 360px;
@@ -387,6 +434,7 @@
     <button class="tab-btn" data-target="v6" title="ID: chat-photo-voice-android-v6">V6 — Android</button>
     <button class="tab-btn" data-target="v7" title="ID: onboarding-android-v7">V7 — Onboarding</button>
     <button class="tab-btn" data-target="v8" title="ID: chats-empty-state-android-v8">V8 — Empty State</button>
+    <button class="tab-btn" data-target="v9" title="ID: inmate-invite-tablet-v9">V9 — Inmate Invite (Tablet)</button>
   </nav>
 
   <div class="main">
@@ -1405,6 +1453,163 @@
           <div class="home-bar"><div class="home-bar-pill"></div></div>
         </div><!-- /android-inner -->
       </div><!-- /android-frame -->
+    </div>
+
+    <!-- ════════════════════════════════
+         V9 — Inmate Invite (Android Tablet)
+    ════════════════════════════════ -->
+    <div id="v9" class="variant" data-variant-id="inmate-invite-tablet-v9">
+      <div class="android-tablet-frame">
+        <div class="btn-side btn-tablet-vol-up"></div>
+        <div class="btn-side btn-tablet-vol-dn"></div>
+        <div class="btn-side btn-tablet-power"></div>
+
+        <div class="tablet-inner">
+          <!-- Status bar -->
+          <div class="tablet-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff">
+                <rect x="0" y="5" width="2.5" height="5" rx="0.5"/>
+                <rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/>
+                <rect x="7" y="1" width="2.5" height="9" rx="0.5"/>
+                <rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/>
+              </svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
+                <path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/>
+                <path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/>
+                <circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/>
+              </svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none">
+                <rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/>
+                <rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/>
+                <path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Screen -->
+          <div class="tablet-screen">
+
+            <!-- Left nav sidebar -->
+            <div style="position:absolute;left:0;top:0;bottom:0;width:56px;background:#7247EC;display:flex;flex-direction:column;align-items:center;padding-top:16px;gap:4px;z-index:2;">
+              <!-- Logo -->
+              <div style="width:28px;height:28px;margin-bottom:8px;">
+                <img src="https://www.figma.com/api/mcp/asset/d720be15-48ef-4295-bfd9-e76bb7873dab" alt="" style="width:100%;height:100%;object-fit:contain;" />
+              </div>
+              <!-- Chats icon (active) -->
+              <div style="width:56px;height:48px;display:flex;align-items:center;justify-content:center;position:relative;">
+                <div style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:2px;height:40px;background:#fff;border-radius:0 4px 4px 0;"></div>
+                <img src="https://www.figma.com/api/mcp/asset/68350fb1-2daf-4e13-be3b-e7619f3563f2" alt="" style="width:24px;height:24px;object-fit:contain;" />
+              </div>
+              <!-- Video icon -->
+              <div style="width:56px;height:48px;display:flex;align-items:center;justify-content:center;">
+                <img src="https://www.figma.com/api/mcp/asset/213f83d1-0a2b-4064-89c0-034e991b6702" alt="" style="width:24px;height:24px;object-fit:contain;" />
+              </div>
+              <!-- Notifications icon -->
+              <div style="width:56px;height:48px;display:flex;align-items:center;justify-content:center;">
+                <img src="https://www.figma.com/api/mcp/asset/b13f163f-5945-4feb-81d9-62827712cc1b" alt="" style="width:24px;height:24px;object-fit:contain;" />
+              </div>
+            </div>
+
+            <!-- Main content (offset by left nav) -->
+            <div style="position:absolute;left:56px;top:0;right:0;bottom:0;">
+
+              <!-- Header -->
+              <div style="position:absolute;top:0;left:0;right:0;height:70px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;align-items:center;padding:0 24px;gap:16px;">
+                <!-- Back arrow -->
+                <div style="width:24px;height:24px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                  <img src="https://www.figma.com/api/mcp/asset/8dff96a0-dfd2-42f6-96e5-069024033e78" alt="" style="width:16px;height:16px;object-fit:contain;" />
+                </div>
+                <!-- Phone number input -->
+                <div style="flex:1;height:40px;border:1.5px solid #7247EC;border-radius:8px;position:relative;display:flex;align-items:center;padding:0 12px;gap:8px;">
+                  <div style="position:absolute;top:-10px;left:10px;background:#fff;padding:0 4px;">
+                    <span style="font-size:12px;font-weight:400;line-height:20px;color:#7247EC;">Phone number</span>
+                  </div>
+                  <img src="https://www.figma.com/api/mcp/asset/7916e66b-dc1c-4de9-831e-06f7d98f16aa" alt="" style="width:24px;height:16px;object-fit:cover;border-radius:2px;flex-shrink:0;" />
+                  <div style="width:1px;height:20px;background:#e0e0e0;flex-shrink:0;"></div>
+                  <span style="font-size:16px;font-weight:400;line-height:24px;color:#101010;">305-445-6776</span>
+                </div>
+                <!-- Invite button -->
+                <button style="height:40px;padding:0 20px;background:#7247EC;border:none;border-radius:8px;font-size:16px;font-weight:500;color:#fff;cursor:pointer;font-family:'DM Sans',system-ui,sans-serif;white-space:nowrap;">Invite</button>
+              </div>
+
+              <!-- Empty state (vertically centered) -->
+              <div style="position:absolute;top:70px;left:0;right:0;bottom:198px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;text-align:center;">
+                <div style="position:relative;width:220px;height:140px;">
+                  <img src="https://www.figma.com/api/mcp/asset/e408a6c1-30a1-4bb5-b825-bb1c153bc92f" alt="" style="position:absolute;inset:-0.26% 23.18% -0.29% 0.09%;width:76.73%;height:100.55%;object-fit:contain;" />
+                  <img src="https://www.figma.com/api/mcp/asset/1c9636e6-8584-470f-b177-1e12b05208cc" alt="" style="position:absolute;inset:40.65% 0.11% 18.6% 37.83%;width:62.06%;height:40.75%;object-fit:contain;" />
+                </div>
+                <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+                  <p style="font-size:20px;font-weight:700;line-height:28px;color:#101010;">No chats yet</p>
+                  <p style="font-size:16px;font-weight:400;line-height:24px;color:#686873;width:328px;">Start by inviting someone</p>
+                </div>
+              </div>
+
+              <!-- Android Tablet Keyboard -->
+              <div style="position:absolute;bottom:0;left:0;right:0;height:198px;background:#F2F4F4;padding:8px 6px;">
+                <!-- Row 1: q w e r t y u i o p -->
+                <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
+                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/23f18312-8298-464d-b2a1-467525e4f507" alt="q" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/c7fb0e39-20e5-4eb3-949e-e3a2ad3678df" alt="w" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/b1da8454-a8b5-4a6e-b32d-aa953973abac" alt="e" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/d25ada46-56c6-4172-8334-b84fbe3785b8" alt="r" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/c6ffdf9b-1034-4656-8dba-883df9414dc6" alt="t" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/7364e619-42d0-4b4a-95e2-3883a468ce4d" alt="y" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/3cd323a4-dea0-4eef-b610-8456109a5850" alt="u" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/8e28e23b-66dc-44f7-a9b8-feed1b0b6faa" alt="i" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/276a1b55-fcae-4313-b3aa-a1b00600095e" alt="o" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/272824b7-a91d-4cdd-b8ff-ff2372b8bb92" alt="p" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/e16a87eb-e07c-4d40-9da4-add07d2a2900" alt="⌫" style="height:16px;object-fit:contain;" /></div>
+                </div>
+                <!-- Row 2: a s d f g h j k l → -->
+                <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
+                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/1fa476b0-8aee-47d2-ad08-2889d33d62bd" alt="⇧" style="height:16px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/ada7378a-2048-425a-a776-bf4b84fb94f0" alt="a" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/8bc6bf15-4bb9-414d-9c71-a1cd2a6c2430" alt="s" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/3009d2b1-33bd-4459-ab08-1c61f409c0b3" alt="d" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/5b41172b-e912-49f2-99d0-099309a7d868" alt="f" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/81b9028d-59f6-4750-af71-5263f8f2f910" alt="g" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/548e7498-6215-41f7-b370-e346980f51f9" alt="h" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/1cfb0abc-3f55-479b-a906-eab61ca582e5" alt="j" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/f80631cd-4afd-40e1-a374-13dbf5a376ea" alt="k" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/fb22db1e-85d3-430e-a28d-1635d2b328aa" alt="l" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/1fa476b0-8aee-47d2-ad08-2889d33d62bd" alt="⇧" style="height:16px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#7247EC;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/2c46e1aa-ccba-499d-81de-484f7fd94c93" alt="→" style="height:16px;object-fit:contain;filter:brightness(0) invert(1);" /></div>
+                </div>
+                <!-- Row 3: z x c v b n m ! ? -->
+                <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
+                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/ea451d6d-6ab7-4c9d-b343-9604e82d9126" alt="z" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">x</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">c</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">v</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">b</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">n</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">m</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">!</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">?</div>
+                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/28df4973-2f0a-419a-98f4-e4a494747916" alt="⇧" style="height:16px;object-fit:contain;" /></div>
+                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/e16a87eb-e07c-4d40-9da4-add07d2a2900" alt="⌫" style="height:16px;object-fit:contain;" /></div>
+                </div>
+                <!-- Row 4: ?123 , [space] . ?123 emoji -->
+                <div style="display:flex;gap:3px;height:44px;">
+                  <div style="flex:1.2;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                  <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">,</div>
+                  <div style="flex:5;background:#fff;border-radius:4px;"></div>
+                  <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">.</div>
+                  <div style="flex:1.2;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/9e11cbaa-9a45-43a3-bffb-f627347f7601" alt="😊" style="height:20px;object-fit:contain;" /></div>
+                  <div style="flex:1.2;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                </div>
+              </div>
+
+            </div><!-- /main content -->
+          </div><!-- /tablet-screen -->
+
+          <div class="home-bar" style="background:#f2f4f4;"><div class="home-bar-pill"></div></div>
+        </div><!-- /tablet-inner -->
+      </div><!-- /android-tablet-frame -->
     </div>
 
   </div><!-- /main -->
