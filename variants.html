@@ -225,19 +225,7 @@
       padding: 14px;
       box-shadow: 0 0 0 1px #333, 0 0 0 3px #111, 0 40px 80px rgba(0,0,0,0.6), inset 0 0 12px rgba(255,255,255,0.03);
     }
-    .android-tablet-frame::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: 6px;
-      transform: translateY(-50%);
-      width: 8px;
-      height: 8px;
-      background: #111;
-      border-radius: 50%;
-      z-index: 20;
-      border: 1px solid #333;
-    }
+    .android-tablet-frame::before { display: none; }
     .btn-tablet-vol-up  { left: -3px; top: 80px;  width: 3px; height: 48px; }
     .btn-tablet-vol-dn  { left: -3px; top: 140px; width: 3px; height: 48px; }
     .btn-tablet-power   { top: -3px;  left: 180px; width: 60px; height: 3px; }
@@ -1491,29 +1479,8 @@
           <!-- Screen -->
           <div class="tablet-screen">
 
-            <!-- Left nav sidebar -->
-            <div style="position:absolute;left:0;top:0;bottom:0;width:56px;background:#7247EC;display:flex;flex-direction:column;align-items:center;padding-top:16px;gap:4px;z-index:2;">
-              <!-- Logo -->
-              <div style="width:28px;height:28px;margin-bottom:8px;">
-                <img src="https://www.figma.com/api/mcp/asset/d720be15-48ef-4295-bfd9-e76bb7873dab" alt="" style="width:100%;height:100%;object-fit:contain;" />
-              </div>
-              <!-- Chats icon (active) -->
-              <div style="width:56px;height:48px;display:flex;align-items:center;justify-content:center;position:relative;">
-                <div style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:2px;height:40px;background:#fff;border-radius:0 4px 4px 0;"></div>
-                <img src="https://www.figma.com/api/mcp/asset/68350fb1-2daf-4e13-be3b-e7619f3563f2" alt="" style="width:24px;height:24px;object-fit:contain;" />
-              </div>
-              <!-- Video icon -->
-              <div style="width:56px;height:48px;display:flex;align-items:center;justify-content:center;">
-                <img src="https://www.figma.com/api/mcp/asset/213f83d1-0a2b-4064-89c0-034e991b6702" alt="" style="width:24px;height:24px;object-fit:contain;" />
-              </div>
-              <!-- Notifications icon -->
-              <div style="width:56px;height:48px;display:flex;align-items:center;justify-content:center;">
-                <img src="https://www.figma.com/api/mcp/asset/b13f163f-5945-4feb-81d9-62827712cc1b" alt="" style="width:24px;height:24px;object-fit:contain;" />
-              </div>
-            </div>
-
-            <!-- Main content (offset by left nav) -->
-            <div style="position:absolute;left:56px;top:0;right:0;bottom:0;">
+            <!-- Main content -->
+            <div style="position:absolute;left:0;top:0;right:0;bottom:0;">
 
               <!-- Header -->
               <div style="position:absolute;top:0;left:0;right:0;height:70px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;align-items:center;padding:0 24px;gap:16px;">
@@ -1547,41 +1514,41 @@
               </div>
 
               <!-- Android Tablet Keyboard -->
-              <div style="position:absolute;bottom:0;left:0;right:0;height:198px;background:#F2F4F4;padding:8px 6px;">
-                <!-- Row 1: q w e r t y u i o p -->
+              <div style="position:absolute;bottom:0;left:0;right:0;height:198px;background:#F2F4F4;padding:8px 6px;font-family:'DM Sans',system-ui,sans-serif;">
+                <!-- Row 1: ?123 q w e r t y u i o p ⌫ -->
                 <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
-                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/23f18312-8298-464d-b2a1-467525e4f507" alt="q" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/c7fb0e39-20e5-4eb3-949e-e3a2ad3678df" alt="w" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/b1da8454-a8b5-4a6e-b32d-aa953973abac" alt="e" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/d25ada46-56c6-4172-8334-b84fbe3785b8" alt="r" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/c6ffdf9b-1034-4656-8dba-883df9414dc6" alt="t" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/7364e619-42d0-4b4a-95e2-3883a468ce4d" alt="y" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/3cd323a4-dea0-4eef-b610-8456109a5850" alt="u" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/8e28e23b-66dc-44f7-a9b8-feed1b0b6faa" alt="i" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/276a1b55-fcae-4313-b3aa-a1b00600095e" alt="o" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/272824b7-a91d-4cdd-b8ff-ff2372b8bb92" alt="p" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/e16a87eb-e07c-4d40-9da4-add07d2a2900" alt="⌫" style="height:16px;object-fit:contain;" /></div>
+                  <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">q</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">w</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">e</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">r</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">t</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">y</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">u</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">i</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">o</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">p</div>
+                  <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⌫</div>
                 </div>
-                <!-- Row 2: a s d f g h j k l → -->
+                <!-- Row 2: ⇧ a s d f g h j k l ⇧ → -->
                 <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
-                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/1fa476b0-8aee-47d2-ad08-2889d33d62bd" alt="⇧" style="height:16px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/ada7378a-2048-425a-a776-bf4b84fb94f0" alt="a" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/8bc6bf15-4bb9-414d-9c71-a1cd2a6c2430" alt="s" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/3009d2b1-33bd-4459-ab08-1c61f409c0b3" alt="d" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/5b41172b-e912-49f2-99d0-099309a7d868" alt="f" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/81b9028d-59f6-4750-af71-5263f8f2f910" alt="g" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/548e7498-6215-41f7-b370-e346980f51f9" alt="h" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/1cfb0abc-3f55-479b-a906-eab61ca582e5" alt="j" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/f80631cd-4afd-40e1-a374-13dbf5a376ea" alt="k" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/fb22db1e-85d3-430e-a28d-1635d2b328aa" alt="l" style="height:14px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/1fa476b0-8aee-47d2-ad08-2889d33d62bd" alt="⇧" style="height:16px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#7247EC;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/2c46e1aa-ccba-499d-81de-484f7fd94c93" alt="→" style="height:16px;object-fit:contain;filter:brightness(0) invert(1);" /></div>
+                  <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⇧</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">a</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">s</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">d</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">f</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">g</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">h</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">j</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">k</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">l</div>
+                  <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⇧</div>
+                  <div style="flex:1.5;background:#7247EC;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;">→</div>
                 </div>
-                <!-- Row 3: z x c v b n m ! ? -->
+                <!-- Row 3: ?123 z x c v b n m ! ? ⇧ ⌫ -->
                 <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
-                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
-                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/ea451d6d-6ab7-4c9d-b343-9604e82d9126" alt="z" style="height:14px;object-fit:contain;" /></div>
+                  <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                  <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">z</div>
                   <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">x</div>
                   <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">c</div>
                   <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">v</div>
@@ -1590,17 +1557,17 @@
                   <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">m</div>
                   <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">!</div>
                   <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">?</div>
-                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/28df4973-2f0a-419a-98f4-e4a494747916" alt="⇧" style="height:16px;object-fit:contain;" /></div>
-                  <div style="flex:1;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/e16a87eb-e07c-4d40-9da4-add07d2a2900" alt="⌫" style="height:16px;object-fit:contain;" /></div>
+                  <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⇧</div>
+                  <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⌫</div>
                 </div>
-                <!-- Row 4: ?123 , [space] . ?123 emoji -->
+                <!-- Row 4: ?123 , [space] . 😊 ?123 -->
                 <div style="display:flex;gap:3px;height:44px;">
-                  <div style="flex:1.2;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
-                  <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">,</div>
+                  <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                  <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#555;">,</div>
                   <div style="flex:5;background:#fff;border-radius:4px;"></div>
-                  <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">.</div>
-                  <div style="flex:1.2;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;"><img src="https://www.figma.com/api/mcp/asset/9e11cbaa-9a45-43a3-bffb-f627347f7601" alt="😊" style="height:20px;object-fit:contain;" /></div>
-                  <div style="flex:1.2;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                  <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#555;">.</div>
+                  <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px;">😊</div>
+                  <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
                 </div>
               </div>
 
