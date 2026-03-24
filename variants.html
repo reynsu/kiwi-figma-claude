@@ -385,6 +385,7 @@
     <button class="tab-btn" data-target="v4" title="ID: chat-list-top-nav-v4">V4 — Top Nav</button>
     <button class="tab-btn" data-target="v5" title="ID: chat-photo-voice-v5">V5 — Photo+Voice Chat</button>
     <button class="tab-btn" data-target="v6" title="ID: chat-photo-voice-android-v6">V6 — Android</button>
+    <button class="tab-btn" data-target="v7" title="ID: onboarding-android-v7">V7 — Onboarding</button>
   </nav>
 
   <div class="main">
@@ -1243,6 +1244,88 @@
           <div class="home-bar"><div class="home-bar-pill"></div></div>
         </div>
       </div>
+    </div>
+
+    <!-- ════════════════════════════════
+         V7 — Onboarding (Android)
+    ════════════════════════════════ -->
+    <div id="v7" class="variant" data-variant-id="onboarding-android-v7">
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+        <div class="android-inner">
+          <div class="android-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff">
+                <rect x="0" y="5" width="2.5" height="5" rx="0.5"/>
+                <rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/>
+                <rect x="7" y="1" width="2.5" height="9" rx="0.5"/>
+                <rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/>
+              </svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
+                <path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/>
+                <path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/>
+                <circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/>
+              </svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none">
+                <rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/>
+                <rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/>
+                <path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="android-screen" style="background:#fff;font-family:'DM Sans',system-ui,sans-serif;min-height:760px;">
+
+            <!-- Logo -->
+            <div style="position:absolute;top:49px;left:50%;transform:translateX(-50%);width:160px;height:24px;">
+              <img src="https://www.figma.com/api/mcp/asset/7de21508-9871-4d54-8855-bc6a7c869bcf" alt="kiwichat" style="width:100%;height:100%;object-fit:contain;" />
+            </div>
+
+            <!-- Illustration -->
+            <div style="position:absolute;top:113px;left:50%;transform:translateX(-50%);width:360px;height:237px;">
+              <div style="position:absolute;inset:22.53% 22.25% 8.81% 18.31%;">
+                <img src="https://www.figma.com/api/mcp/asset/50d6a268-6093-48a1-a436-78116b98cc5b" alt="" style="width:100%;height:100%;object-fit:contain;" />
+              </div>
+              <div style="position:absolute;inset:0 32.25% 1.51% 35.1%;">
+                <img src="https://www.figma.com/api/mcp/asset/83cc3392-6fcf-43fe-80be-ea16fc4aed5a" alt="" style="width:100%;height:100%;object-fit:contain;" />
+              </div>
+              <div style="position:absolute;inset:29.18% 19.73% 14.21% 24.11%;">
+                <img src="https://www.figma.com/api/mcp/asset/4a850174-3bb6-4235-b943-385ab522d9bb" alt="" style="width:100%;height:100%;object-fit:contain;" />
+              </div>
+              <div style="position:absolute;inset:14.1% 18% 49.53% 64.3%;">
+                <img src="https://www.figma.com/api/mcp/asset/09d795a8-33cb-4c7a-8a7d-75fb3a81cf3f" alt="" style="width:100%;height:100%;object-fit:contain;" />
+              </div>
+              <div style="position:absolute;inset:45.1% 59.95% 19.05% 23.03%;">
+                <img src="https://www.figma.com/api/mcp/asset/dc6b9e4c-ac06-4353-8231-6ec889950ab0" alt="" style="width:100%;height:100%;object-fit:contain;" />
+              </div>
+            </div>
+
+            <!-- Info -->
+            <div style="position:absolute;top:390px;left:50%;transform:translateX(-50%);width:328px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;">
+              <div style="width:32px;height:32px;flex-shrink:0;">
+                <img src="https://www.figma.com/api/mcp/asset/465e2b84-25f5-4d95-b76b-22db6f6c7405" alt="" style="width:100%;height:100%;" />
+              </div>
+              <p style="font-size:24px;font-weight:500;line-height:32px;color:#101010;">Chat with people in prison</p>
+              <p style="font-size:14px;font-weight:400;line-height:22px;color:#686873;">Conversations with people in prison are not private and are subject to monitoring by the Department of Corrections (DOC) for security purposes.</p>
+            </div>
+
+            <!-- Dots -->
+            <div style="position:absolute;top:634px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;">
+              <div style="width:20px;height:6px;border-radius:3px;background:#7247EC;"></div>
+              <div style="width:6px;height:6px;border-radius:50%;background:#D0C8F5;"></div>
+            </div>
+
+            <!-- CTA -->
+            <button style="position:absolute;top:664px;left:50%;transform:translateX(-50%);width:328px;height:48px;background:#7247EC;border-radius:8px;border:none;font-size:16px;font-weight:500;line-height:24px;color:#fff;cursor:pointer;font-family:'DM Sans',system-ui,sans-serif;">Get started</button>
+
+          </div><!-- /android-screen -->
+
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div><!-- /android-inner -->
+      </div><!-- /android-frame -->
     </div>
 
   </div><!-- /main -->
