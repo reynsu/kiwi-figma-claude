@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V19 — Import Prison Chats Flow</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+    .variant { display: flex !important; min-height: 100vh; align-items: flex-start; justify-content: center; padding: 40px; flex-direction: row; flex-wrap: nowrap; gap: 32px; overflow-x: auto; }
+
+    .screen-label { font-family:'DM Sans',sans-serif; font-size:24px; color:#374151; font-weight:400; margin-bottom:32px; margin-top:0; text-align:center; }
+
+    /* nav header for back-arrow screens */
+    .nav-header-v19 { height:56px; background:#fff; display:flex; align-items:center; padding:0 16px; border-bottom:1px solid #EBEBEF; flex-shrink:0; position:relative; }
+    .nav-header-title-v19 { position:absolute; left:50%; transform:translateX(-50%); font-family:'DM Sans',sans-serif; font-size:16px; font-weight:400; color:#101010; white-space:nowrap; }
+
+    /* info card */
+    .info-card-v19 { background:#F4F1FD; border:1px solid #E3DAFB; border-radius:12px; padding:15px; width:100%; box-sizing:border-box; }
+
+    /* thin divider */
+    .divider-v19 { height:1px; background:#EBEBEF; width:100%; }
+
+    /* settings row */
+    .srow-v19 { display:flex; align-items:center; justify-content:space-between; padding:10px 0; }
+  </style>
+</head>
+<body>
+<div class="variant active" data-variant-id="import-chats-flow-v19">
+
+  <!-- ── Screen 1: Settings + "Did you use KiwiChat" modal ── -->
+  <div style="display:flex;flex-direction:column;align-items:center;">
+    <span class="screen-label">F&amp;f Menu</span>
+    <div class="android-frame">
+      <div class="btn-side btn-vol-up"></div>
+      <div class="btn-side btn-vol-dn"></div>
+      <div class="btn-side btn-power"></div>
+      <div class="android-inner">
+        <div class="android-status">
+          <span class="android-time">9:41</span>
+          <div class="android-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+        <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;">
+          <!-- Header -->
+          <div style="height:56px;background:#fff;display:flex;align-items:center;padding:0 16px;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,0.06);flex-shrink:0;z-index:1;">
+            <img src="https://www.figma.com/api/mcp/asset/42e12073-cd66-40df-8fca-91c10b06300b" style="width:24px;height:24px;object-fit:contain;" alt="" />
+            <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#101010;">Settings</span>
+          </div>
+          <!-- Content -->
+          <div style="flex:1;padding:16px;overflow:hidden;">
+            <!-- Profile row -->
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <div style="width:60px;height:60px;border-radius:50%;overflow:hidden;flex-shrink:0;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUnGPwa0yZcs_6EdsyFAwXJjLhmm1C6gbEATXLaBJ3AQ&s" style="width:100%;height:100%;object-fit:cover;" alt="Marcus Johnson" />
+              </div>
+              <div style="flex:1;margin-left:12px;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;">Marcus Johnson</span>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9191A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+            <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#9191A1;line-height:22px;margin-bottom:14px;">Your profile name and photo can be seen by your chat contacts.</p>
+            <!-- Settings rows -->
+            <div class="srow-v19">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <img src="https://www.figma.com/api/mcp/asset/044d769c-2d89-477a-be34-fdb4e650da34" style="width:16px;height:16px;object-fit:contain;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;color:#764BE2;">Subscriptions</span>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9191A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+            <div class="divider-v19"></div>
+            <div class="srow-v19">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <img src="https://www.figma.com/api/mcp/asset/342bc2f1-3aed-479b-af98-8efdef1d6821" style="width:16px;height:16px;object-fit:contain;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;">Help</span>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9191A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+            <div class="divider-v19"></div>
+            <div class="srow-v19">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <img src="https://www.figma.com/api/mcp/asset/8edb146b-bec4-4f20-a280-196687186cc7" style="width:16px;height:16px;object-fit:contain;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;">Access prior chats</span>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9191A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+            <div class="divider-v19"></div>
+            <div class="srow-v19">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <img src="https://www.figma.com/api/mcp/asset/d7f1bde4-eb6d-41a7-9efd-36e4968ad32f" style="width:16px;height:16px;object-fit:contain;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;">Visitation form</span>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9191A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+            <div class="divider-v19"></div>
+          </div>
+          <!-- Tab bar -->
+          <div class="tab-bar" style="flex-shrink:0;z-index:1;">
+            <div class="btab">
+              <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/6954abbf-d59a-4d9e-8879-acd2e28e166c" alt="" /></div>
+              <span class="btab-label">Chats</span>
+            </div>
+            <div class="btab">
+              <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/131a911c-7ecc-4465-bee4-03e8b025eb5c" alt="" /></div>
+              <span class="btab-label" style="color:#7247EC;">Settings</span>
+            </div>
+          </div>
+          <!-- Dark overlay -->
+          <div style="position:absolute;inset:0;z-index:2;">
+            <img src="https://www.figma.com/api/mcp/asset/4fec4862-2e1d-44a0-8e04-212d26ba88b5" style="width:100%;height:100%;object-fit:cover;" alt="" />
+          </div>
+          <!-- Bottom modal -->
+          <div style="position:absolute;bottom:0;left:0;right:0;background:#fff;border-radius:8px 8px 0 0;padding:24px 16px;z-index:3;">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;">
+              <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;flex:1;margin-right:8px;">Did you use KiwiChat while in prison?</p>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="1.5" stroke-linecap="round" style="flex-shrink:0;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <p style="font-family:'DM Sans',sans-serif;font-size:16px;color:#686873;line-height:24px;margin-bottom:16px;">Quickly move contacts and conversations over to this account</p>
+            <button style="width:100%;height:48px;background:#7247EC;border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;border:none;cursor:pointer;">Get started</button>
+          </div>
+        </div>
+        <div class="home-bar"><div class="home-bar-pill"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Screen 2: Import Prison Chats — login form ── -->
+  <div style="display:flex;flex-direction:column;align-items:center;">
+    <span class="screen-label">Authentication</span>
+    <div class="android-frame">
+      <div class="btn-side btn-vol-up"></div>
+      <div class="btn-side btn-vol-dn"></div>
+      <div class="btn-side btn-power"></div>
+      <div class="android-inner">
+        <div class="android-status">
+          <span class="android-time">9:41</span>
+          <div class="android-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+        <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;">
+          <!-- Header -->
+          <div class="nav-header-v19">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+            <span class="nav-header-title-v19">Import Prison Chats</span>
+          </div>
+          <!-- Content -->
+          <div style="padding:16px;display:flex;flex-direction:column;gap:16px;flex:1;">
+            <p style="font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;">Enter the Login information associated with your prison KiwiChat account</p>
+            <!-- Input 1: ID -->
+            <div style="border:1px solid #EBEBEF;border-radius:8px;height:44px;display:flex;align-items:center;padding:0 15px;">
+              <span style="font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;">12345</span>
+            </div>
+            <!-- Input 2: Password -->
+            <div style="border:1px solid #EBEBEF;border-radius:8px;height:44px;display:flex;align-items:center;padding:0 15px;position:relative;">
+              <span style="display:flex;gap:5px;align-items:center;">
+                <span style="width:7px;height:7px;background:#101010;border-radius:50%;display:inline-block;"></span>
+                <span style="width:7px;height:7px;background:#101010;border-radius:50%;display:inline-block;"></span>
+                <span style="width:7px;height:7px;background:#101010;border-radius:50%;display:inline-block;"></span>
+                <span style="width:7px;height:7px;background:#101010;border-radius:50%;display:inline-block;"></span>
+                <span style="width:7px;height:7px;background:#101010;border-radius:50%;display:inline-block;"></span>
+                <span style="width:7px;height:7px;background:#101010;border-radius:50%;display:inline-block;"></span>
+                <span style="width:7px;height:7px;background:#101010;border-radius:50%;display:inline-block;"></span>
+                <span style="width:7px;height:7px;background:#101010;border-radius:50%;display:inline-block;"></span>
+              </span>
+              <div style="position:absolute;right:15px;top:50%;transform:translateY(-50%);">
+                <img src="https://www.figma.com/api/mcp/asset/3fc25ccc-575a-4493-991f-790f0955c322" style="width:20px;height:20px;object-fit:contain;" alt="" />
+              </div>
+            </div>
+            <!-- Forgot password -->
+            <p style="font-family:'DM Sans',sans-serif;font-size:16px;line-height:24px;">
+              <span style="color:#9191A1;">Forgot password? </span><span style="color:#7247EC;">Contact support</span>
+            </p>
+          </div>
+          <!-- Next button -->
+          <div style="padding:12px 16px;flex-shrink:0;">
+            <button style="width:100%;height:48px;background:#7247EC;border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;border:none;cursor:pointer;">Next</button>
+          </div>
+        </div>
+        <div class="home-bar"><div class="home-bar-pill"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Screen 3: Import Prison Chats — success modal ── -->
+  <div style="display:flex;flex-direction:column;align-items:center;">
+    <span class="screen-label">Succes</span>
+    <div class="android-frame">
+      <div class="btn-side btn-vol-up"></div>
+      <div class="btn-side btn-vol-dn"></div>
+      <div class="btn-side btn-power"></div>
+      <div class="android-inner">
+        <div class="android-status">
+          <span class="android-time">9:41</span>
+          <div class="android-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+        <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;">
+          <!-- Header (z:1 so it stays above overlay) -->
+          <div class="nav-header-v19" style="z-index:1;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+            <span class="nav-header-title-v19">Import Prison Chats</span>
+          </div>
+          <!-- Background content -->
+          <div style="padding:16px;display:flex;flex-direction:column;gap:12px;flex:1;">
+            <div class="info-card-v19">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;">Marcus Johnson</span>
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;">8 Chats</span>
+              </div>
+              <div style="margin-bottom:8px;">
+                <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:300;color:#686873;line-height:24px;margin:0;">Facility</p>
+                <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:300;color:#101010;line-height:24px;margin:0;">Transition Center of St Louis</p>
+              </div>
+              <div>
+                <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:300;color:#686873;line-height:24px;margin:0;">Release date</p>
+                <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:300;color:#101010;line-height:24px;margin:0;">05/20/25</p>
+              </div>
+            </div>
+            <p style="font-family:'DM Sans',sans-serif;font-size:16px;color:#686873;line-height:24px;margin:0;">Your chats will be imported and stored in the archive folder</p>
+          </div>
+          <div style="padding:12px 16px;flex-shrink:0;z-index:1;">
+            <button style="width:100%;height:48px;background:#7247EC;border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;border:none;">Import chats</button>
+          </div>
+          <!-- Dark overlay -->
+          <div style="position:absolute;inset:0;z-index:2;">
+            <img src="https://www.figma.com/api/mcp/asset/dd9e74c9-f19a-4cab-b9bb-297afa961091" style="width:100%;height:100%;object-fit:cover;" alt="" />
+          </div>
+          <!-- Success modal -->
+          <div style="position:absolute;bottom:0;left:0;right:0;background:#fff;border-radius:8px 8px 0 0;padding:24px 16px;z-index:3;display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" style="flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><image href="https://www.figma.com/api/mcp/asset/403c4c3a-27cc-45c8-978a-0edecea3958a" x="0.5" y="3" width="23.5" height="17.336"/></svg>
+              <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;flex:1;margin:0;">Chats imported successfully</p>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="1.5" stroke-linecap="round" style="flex-shrink:0;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <p style="font-family:'DM Sans',sans-serif;font-size:16px;color:#686873;line-height:24px;margin:0;">You can start chatting now</p>
+            <button style="width:100%;height:48px;background:#fff;border:1px solid #EBEBEF;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;cursor:pointer;">Ok</button>
+          </div>
+        </div>
+        <div class="home-bar"><div class="home-bar-pill"></div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

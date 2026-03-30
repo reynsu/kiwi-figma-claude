@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V32 — New Contact Block Flow</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #fff; font-family: 'DM Sans', sans-serif; }
+
+    .v32-wrap {
+      display: flex; flex-direction: column; align-items: center;
+      min-height: 100vh; padding: 48px 40px 56px; overflow-x: auto;
+    }
+    .v32-row { display: flex; align-items: flex-start; gap: 24px; justify-content: center; }
+
+    /* ── Tablet outer frame ────────────────────────────── */
+    .v32-phone {
+      position: relative; flex-shrink: 0;
+      background: #1C1C1E; border-radius: 20px; padding: 10px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.09);
+    }
+    .v32-btn { position: absolute; background: #2C2C2E; }
+    .v32-btn-volu { left: -3px; top: 80px;  width: 3px; height: 28px; border-radius: 2px 0 0 2px; }
+    .v32-btn-vold { left: -3px; top: 118px; width: 3px; height: 28px; border-radius: 2px 0 0 2px; }
+    .v32-btn-pwr  { right: -3px; top: 90px; width: 3px; height: 48px; border-radius: 0 2px 2px 0; }
+
+    /* ── Inner white shell ─────────────────────────────── */
+    .v32-inner { background: #fff; border-radius: 12px; overflow: hidden; width: 550px; }
+
+    /* ── Status bar ────────────────────────────────────── */
+    .v32-status {
+      height: 28px; background: #000;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
+    }
+    .v32-time { font-size: 12px; font-weight: 600; color: #fff; }
+    .v32-icons { display: flex; align-items: center; gap: 4px; }
+
+    /* ── Screen ────────────────────────────────────────── */
+    .v32-screen {
+      width: 550px; height: 750px;
+      position: relative; overflow: hidden;
+    }
+
+    /* ── Chat header ───────────────────────────────────── */
+    .v32-hdr {
+      position: absolute; top: 0; left: 0; right: 0; height: 56px;
+      background: #fff; border-bottom: 1px solid #EBEBEF;
+      display: flex; align-items: center; padding: 0 12px; gap: 10px;
+      z-index: 3;
+    }
+
+    /* ── Home bar ──────────────────────────────────────── */
+    .v32-home {
+      height: 20px; background: #fff;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .v32-pill { width: 120px; height: 4px; background: #D1D5DB; border-radius: 2px; }
+
+    /* ── Page label ────────────────────────────────────── */
+    .v32-label { margin-bottom: 32px; font-size: 24px; font-weight: 400; color: #374151; text-align: center; }
+  </style>
+</head>
+<body>
+<div class="v32-wrap">
+  <div class="v32-row">
+
+    <!-- ════════════════════════════════════════════════════
+         SCREEN 1 — Chat_New Contact
+    ═════════════════════════════════════════════════════ -->
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="v32-label">New Contact</div>
+      <div class="v32-phone">
+        <div class="v32-btn v32-btn-volu"></div>
+        <div class="v32-btn v32-btn-vold"></div>
+        <div class="v32-btn v32-btn-pwr"></div>
+        <div class="v32-inner">
+
+          <!-- Status bar -->
+          <div class="v32-status">
+            <span class="v32-time">9:41</span>
+            <div class="v32-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+
+          <!-- Screen -->
+          <div class="v32-screen" style="background-image:url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA5L2dyYWRpYW50LWV5LTA5Ny1jLWIuanBn.jpg');background-size:cover;background-position:center;">
+
+            <!-- Chat header -->
+            <div class="v32-hdr" style="background:#fff;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+              <!-- Avatar + Name -->
+              <div style="width:36px;height:36px;border-radius:50%;background:#F4F1FD;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;">
+                <img src="https://www.figma.com/api/mcp/asset/7c939d24-497d-4b41-9865-926521711502" style="width:100%;height:100%;object-fit:cover;" alt="" />
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:16px;font-weight:500;color:#101010;line-height:1.2;">Billy</div>
+                <div style="font-size:12px;color:#9191A1;line-height:1.3;">+1 (786) 111-1111</div>
+              </div>
+              <!-- More icon -->
+              <div style="width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="4" height="18" viewBox="0 0 4 18" fill="#101010"><circle cx="2" cy="2" r="1.5"/><circle cx="2" cy="9" r="1.5"/><circle cx="2" cy="16" r="1.5"/></svg>
+              </div>
+            </div>
+
+            <!-- Privacy chip -->
+            <div style="position:absolute;top:89px;left:35px;right:35px;background:#FFEEC3;border-radius:8px;padding:12px 0;">
+              <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;color:#303036;line-height:20px;display:block;text-align:center;">You have been invited to chat from a unknown contact</span>
+            </div>
+
+            <!-- Contact card -->
+            <div style="position:absolute;top:157px;left:50%;transform:translateX(-50%);width:350px;height:267px;background:#fff;border:1px solid #EBEBEF;border-radius:8px;">
+
+              <!-- Avatar: top 15px, centered -->
+              <div style="position:absolute;top:15px;left:50%;transform:translateX(-50%);width:84px;height:84px;border-radius:50%;overflow:hidden;">
+                <img src="https://www.figma.com/api/mcp/asset/98318dfd-8def-49cc-b3f0-ac3fc17f08ae" style="width:100%;height:100%;object-fit:cover;display:block;" alt="" />
+              </div>
+
+              <!-- Phone number: center at top 122px -->
+              <div style="position:absolute;top:122px;left:0;right:0;transform:translateY(-50%);text-align:center;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:#101010;line-height:22px;white-space:nowrap;">+1 (786) 111-1111</span>
+              </div>
+
+              <!-- Name + "Not a contact": top 145px, centered -->
+              <div style="position:absolute;top:145px;left:50%;transform:translateX(-50%);width:258px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Billy</span>
+                <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;color:#686873;line-height:22px;">Not a contact</span>
+              </div>
+
+              <!-- Buttons: top 215px, left 15px -->
+              <div style="position:absolute;top:215px;left:15px;display:flex;gap:16px;align-items:center;">
+                <div style="width:121px;height:36px;border:1px solid #DF093C;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;"><circle cx="12" cy="12" r="8.5" stroke="#DF093C" stroke-width="1.5"/><line x1="6.7" y1="17.3" x2="17.3" y2="6.7" stroke="#DF093C" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#DF093C;line-height:24px;">Block</span>
+                </div>
+                <div style="width:121px;height:36px;border:1px solid #038768;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;"><path d="M20 6L9 17L4 12" stroke="#038768" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#038768;line-height:24px;">OK</span>
+                </div>
+              </div>
+
+            </div><!-- /contact card -->
+
+            <!-- Input bar (v22 style) -->
+            <div style="position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #EBEBEF;display:flex;align-items:center;padding:10px 16px 10px 10px;gap:16px;">
+              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" style="flex-shrink:0;"><path d="M9.95863 4.70463L5.2453 9.4188C5.16571 9.49567 5.10222 9.58763 5.05855 9.6893C5.01487 9.79097 4.99188 9.90032 4.99092 10.011C4.98996 10.1216 5.01105 10.2313 5.05295 10.3338C5.09485 10.4362 5.15672 10.5292 5.23497 10.6075C5.31321 10.6857 5.40626 10.7476 5.50867 10.7895C5.61108 10.8314 5.72082 10.8525 5.83147 10.8515C5.94211 10.8505 6.05146 10.8276 6.15313 10.7839C6.2548 10.7402 6.34676 10.6767 6.42363 10.5971L11.1378 5.8838C11.6067 5.41492 11.8701 4.77898 11.8701 4.11588C11.8701 3.45279 11.6067 2.81685 11.1378 2.34797C10.6689 1.87909 10.033 1.61567 9.36988 1.61567C8.70678 1.61567 8.07084 1.87909 7.60196 2.34797L2.8878 7.06213C2.49286 7.44724 2.17832 7.90693 1.96243 8.41455C1.74654 8.92216 1.63358 9.46759 1.63013 10.0192C1.62667 10.5708 1.73278 11.1176 1.9423 11.6279C2.15181 12.1382 2.46056 12.6018 2.85064 12.9918C3.24072 13.3818 3.70437 13.6905 4.21468 13.8999C4.72499 14.1094 5.2718 14.2154 5.82341 14.2119C6.37502 14.2084 6.92043 14.0953 7.42801 13.8794C7.9356 13.6634 8.39525 13.3488 8.7803 12.9538L13.4945 8.24047L14.6728 9.4188L9.95863 14.133C9.41693 14.6747 8.77383 15.1044 8.06606 15.3975C7.3583 15.6907 6.59971 15.8416 5.83363 15.8416C5.06755 15.8416 4.30897 15.6907 3.6012 15.3975C2.89343 15.1044 2.25033 14.6747 1.70863 14.133C1.16693 13.5913 0.737226 12.9482 0.444059 12.2404C0.150891 11.5326 -5.70776e-09 10.774 0 10.008C5.70777e-09 9.24188 0.150891 8.4833 0.444059 7.77553C0.737226 7.06776 1.16693 6.42467 1.70863 5.88297L6.42363 1.16963C7.20947 0.410641 8.26198 -0.0093359 9.35447 0.000157511C10.447 0.00965092 11.492 0.447855 12.2645 1.22039C13.0371 1.99292 13.4753 3.03797 13.4848 4.13046C13.4943 5.22295 13.0743 6.27546 12.3153 7.0613L7.60196 11.7771C7.36974 12.0093 7.09407 12.1935 6.79068 12.3191C6.48729 12.4447 6.16212 12.5093 5.83375 12.5093C5.50538 12.5093 5.18023 12.4446 4.87687 12.3189C4.57351 12.1932 4.29788 12.0089 4.06571 11.7767C3.83355 11.5445 3.64939 11.2688 3.52377 10.9654C3.39814 10.662 3.3335 10.3369 3.33354 10.0085C3.33358 9.68013 3.3983 9.35499 3.52399 9.05163C3.64969 8.74826 3.83391 8.47263 4.06613 8.24047L8.7803 3.5263L9.95863 4.70463Z" fill="#7247EC"/></svg>
+              <span style="flex:1;font-family:'DM Sans',sans-serif;font-size:16px;color:#9191A1;line-height:24px;">Message</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;"><mask id="msk-v32-cam" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20"><path d="M19 19V1H1V19H19Z" fill="white" stroke="white" stroke-width="2"/></mask><g mask="url(#msk-v32-cam)"><path d="M14.7826 2H5.43618C3.53841 2 2 3.53841 2 5.43618V14.7826C2 16.6803 3.53841 18.2188 5.43618 18.2188H14.7826C16.6803 18.2188 18.2187 16.6803 18.2187 14.7826V5.43618C18.2187 3.53841 16.6803 2 14.7826 2Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.1094 6.33104C8.02187 6.33104 6.32959 8.02332 6.32959 10.1108C6.32959 12.1983 8.02187 13.8906 10.1094 13.8906C12.1969 13.8906 13.8892 12.1983 13.8892 10.1108C13.8892 8.02332 12.1969 6.33104 10.1094 6.33104Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+              <img src="https://www.figma.com/api/mcp/asset/e534d2bd-bbe0-445d-bede-e9c4a51da24d" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;" alt="" />
+            </div>
+
+          </div><!-- /screen -->
+
+          <!-- Home bar -->
+          <div class="v32-home"><div class="v32-pill"></div></div>
+
+        </div><!-- /inner -->
+      </div><!-- /phone -->
+    </div>
+
+    <!-- ════════════════════════════════════════════════════
+         SCREEN 2 — Block Pop Up
+    ═════════════════════════════════════════════════════ -->
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="v32-label">Block Pop Up</div>
+      <div class="v32-phone">
+        <div class="v32-btn v32-btn-volu"></div>
+        <div class="v32-btn v32-btn-vold"></div>
+        <div class="v32-btn v32-btn-pwr"></div>
+        <div class="v32-inner">
+
+          <!-- Status bar -->
+          <div class="v32-status">
+            <span class="v32-time">9:41</span>
+            <div class="v32-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+
+          <!-- Screen -->
+          <div class="v32-screen" style="background-image:url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA5L2dyYWRpYW50LWV5LTA5Ny1jLWIuanBn.jpg');background-size:cover;background-position:center;">
+
+            <!-- Chat header (same as screen 1) -->
+            <div class="v32-hdr" style="background:#fff;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+              <div style="width:36px;height:36px;border-radius:50%;background:#F4F1FD;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;">
+                <img src="https://www.figma.com/api/mcp/asset/7c939d24-497d-4b41-9865-926521711502" style="width:100%;height:100%;object-fit:cover;" alt="" />
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:16px;font-weight:500;color:#101010;line-height:1.2;">Billy</div>
+                <div style="font-size:12px;color:#9191A1;line-height:1.3;">+1 (786) 111-1111</div>
+              </div>
+              <div style="width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="4" height="18" viewBox="0 0 4 18" fill="#101010"><circle cx="2" cy="2" r="1.5"/><circle cx="2" cy="9" r="1.5"/><circle cx="2" cy="16" r="1.5"/></svg>
+              </div>
+            </div>
+
+            <!-- Privacy chip -->
+            <div style="position:absolute;top:89px;left:35px;right:35px;background:#FFEEC3;border-radius:8px;padding:12px 0;">
+              <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;color:#303036;line-height:20px;display:block;text-align:center;">You have been invited to chat from a unknown contact</span>
+            </div>
+
+            <!-- Contact card (same as screen 1) -->
+            <div style="position:absolute;top:157px;left:50%;transform:translateX(-50%);width:350px;height:267px;background:#fff;border:1px solid #EBEBEF;border-radius:8px;">
+
+              <!-- Avatar: top 15px, centered -->
+              <div style="position:absolute;top:15px;left:50%;transform:translateX(-50%);width:84px;height:84px;border-radius:50%;overflow:hidden;">
+                <img src="https://www.figma.com/api/mcp/asset/98318dfd-8def-49cc-b3f0-ac3fc17f08ae" style="width:100%;height:100%;object-fit:cover;display:block;" alt="" />
+              </div>
+
+              <!-- Phone number: center at top 122px -->
+              <div style="position:absolute;top:122px;left:0;right:0;transform:translateY(-50%);text-align:center;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:#101010;line-height:22px;white-space:nowrap;">+1 (786) 111-1111</span>
+              </div>
+
+              <!-- Name + "Not a contact": top 145px, centered -->
+              <div style="position:absolute;top:145px;left:50%;transform:translateX(-50%);width:258px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Billy</span>
+                <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;color:#686873;line-height:22px;">Not a contact</span>
+              </div>
+
+              <!-- Buttons: top 215px, left 15px -->
+              <div style="position:absolute;top:215px;left:15px;display:flex;gap:16px;align-items:center;">
+                <div style="width:121px;height:36px;border:1px solid #DF093C;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;"><circle cx="12" cy="12" r="8.5" stroke="#DF093C" stroke-width="1.5"/><line x1="6.7" y1="17.3" x2="17.3" y2="6.7" stroke="#DF093C" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#DF093C;line-height:24px;">Block</span>
+                </div>
+                <div style="width:121px;height:36px;border:1px solid #038768;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;"><path d="M20 6L9 17L4 12" stroke="#038768" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#038768;line-height:24px;">OK</span>
+                </div>
+              </div>
+
+            </div><!-- /contact card -->
+
+            <!-- Keyboard footer (v9 style) -->
+            <div style="position:absolute;bottom:0;left:0;right:0;height:198px;background:#F2F4F4;padding:8px 6px;font-family:'DM Sans',system-ui,sans-serif;">
+              <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">q</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">w</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">e</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">r</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">t</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">y</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">u</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">i</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">o</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">p</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⌫</div>
+              </div>
+              <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⇧</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">a</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">s</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">d</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">f</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">g</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">h</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">j</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">k</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">l</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⇧</div>
+                <div style="flex:1.5;background:#7247EC;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;">→</div>
+              </div>
+              <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">z</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">x</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">c</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">v</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">b</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">n</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">m</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">!</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">?</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⇧</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⌫</div>
+              </div>
+              <div style="display:flex;gap:3px;height:44px;">
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#555;">,</div>
+                <div style="flex:5;background:#fff;border-radius:4px;"></div>
+                <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#555;">.</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px;">😊</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+              </div>
+            </div>
+
+            <!-- Dim overlay -->
+            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:5;"></div>
+
+            <!-- Bottom sheet modal -->
+            <div style="position:absolute;bottom:0;left:0;right:0;background:#fff;border-radius:8px 8px 0 0;z-index:10;">
+              <div style="padding:24px 16px 16px;display:flex;flex-direction:column;gap:16px;">
+
+                <!-- Header: title + close -->
+                <div style="display:flex;flex-direction:column;gap:0;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                    <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Block Billy</span>
+                    <div style="width:24px;height:24px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.875 6.50923L13.3842 12L18.875 17.4908L17.4908 18.875L12 13.3842L6.50923 18.875L5.125 17.4908L10.6158 12L5.125 6.50923L6.50923 5.125L12 10.6158L17.4908 5.125L18.875 6.50923Z" fill="#101010"/></svg>
+                    </div>
+                  </div>
+                  <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:400;color:#686873;line-height:24px;">Blocked contacts cannot send you messages. This contact will not be notified.</span>
+                </div>
+
+                <!-- Checkboxes + button -->
+                <div style="display:flex;flex-direction:column;gap:20px;padding-top:12px;">
+                  <!-- Report as spam -->
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <img src="https://www.figma.com/api/mcp/asset/1542cf30-1a2f-494f-b24e-c9b16dfcfb2e" style="width:16px;height:16px;object-fit:contain;flex-shrink:0;" alt="" />
+                    <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Report as spam</span>
+                  </div>
+                  <!-- Delete this chat -->
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <img src="https://www.figma.com/api/mcp/asset/1542cf30-1a2f-494f-b24e-c9b16dfcfb2e" style="width:16px;height:16px;object-fit:contain;flex-shrink:0;" alt="" />
+                    <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Delete this chat</span>
+                  </div>
+                  <!-- Block button -->
+                  <button style="width:100%;height:48px;border:1px solid #EBEBEF;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                    <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Block</span>
+                  </button>
+                </div>
+
+              </div>
+            </div><!-- /bottom sheet -->
+
+          </div><!-- /screen -->
+
+          <!-- Home bar -->
+          <div class="v32-home"><div class="v32-pill"></div></div>
+
+        </div><!-- /inner -->
+      </div><!-- /phone -->
+    </div>
+
+  </div><!-- /row -->
+</div><!-- /wrap -->
+</body>
+</html>

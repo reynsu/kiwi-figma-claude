@@ -192,7 +192,6 @@
     .android-frame {
       position: relative; width: 412px;
       background: #1C1C1C; border-radius: 48px; padding: 12px;
-      box-shadow: 0 0 0 1px #333, 0 0 0 3px #111, 0 40px 80px rgba(0,0,0,0.7), inset 0 0 12px rgba(255,255,255,0.04);
     }
     .android-frame::before {
       content: ''; position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
@@ -223,7 +222,6 @@
       background: #1C1C1C;
       border-radius: 20px;
       padding: 14px;
-      box-shadow: 0 0 0 1px #333, 0 0 0 3px #111, 0 40px 80px rgba(0,0,0,0.6), inset 0 0 12px rgba(255,255,255,0.03);
     }
     .android-tablet-frame::before { display: none; }
     .btn-tablet-vol-up  { left: -3px; top: 80px;  width: 3px; height: 48px; }
@@ -423,6 +421,11 @@
     <button class="tab-btn" data-target="v7" title="ID: onboarding-android-v7">V7 — Onboarding</button>
     <button class="tab-btn" data-target="v8" title="ID: chats-empty-state-android-v8">V8 — Empty State</button>
     <button class="tab-btn" data-target="v9" title="ID: inmate-invite-tablet-v9">V9 — Inmate Invite (Tablet)</button>
+    <button class="tab-btn" data-target="v10" title="ID: chats-invitation-sent-tablet-v10">V10 — Invitation Sent (Tablet)</button>
+    <button class="tab-btn" data-target="v11" title="ID: sms-invitation-android-v11">V11 — SMS Invitation</button>
+    <button class="tab-btn" data-target="v12" title="ID: chat-list-top-nav-android-v12">V12 — Top Nav (Android)</button>
+    <button class="tab-btn" data-target="v13" title="ID: gallery-tablet-v13">V13 — Gallery (Tablet)</button>
+    <button class="tab-btn" data-target="v14" title="ID: inmate-invite-rugged-v14">V14 — Rugged Tablet</button>
   </nav>
 
   <div class="main">
@@ -1578,6 +1581,790 @@
         </div><!-- /tablet-inner -->
       </div><!-- /android-tablet-frame -->
     </div>
+
+    <!-- ════════════════════════════════
+         V10 — Chats Tab. Invitation Sent. Phone number (Tablet)
+         ════════════════════════════════ -->
+    <div id="v10" class="variant" data-variant-id="chats-invitation-sent-tablet-v10">
+      <div class="android-tablet-frame">
+        <div class="btn-side btn-tablet-vol-up"></div>
+        <div class="btn-side btn-tablet-vol-dn"></div>
+        <div class="btn-side btn-tablet-power"></div>
+
+        <div class="tablet-inner">
+          <!-- Status bar -->
+          <div class="tablet-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+
+          <!-- Screen -->
+          <div class="tablet-screen" style="min-height:780px;position:relative;">
+
+            <!-- Header -->
+            <div style="position:absolute;top:0;left:0;right:0;height:56px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;align-items:center;padding:0 24px;justify-content:space-between;">
+              <!-- Logo + Chats -->
+              <div style="display:flex;align-items:center;gap:8px;">
+                <img src="https://www.figma.com/api/mcp/asset/be688379-2630-4fca-a3ce-d1366237c6d4" width="24" height="24" style="object-fit:contain;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;">Chats</span>
+              </div>
+              <!-- Search icon -->
+              <div style="width:24px;height:24px;position:relative;display:flex;align-items:center;justify-content:center;">
+                <img src="https://www.figma.com/api/mcp/asset/35ff52f9-ed4b-4898-931a-a45e4c164428" width="14" height="14" style="object-fit:contain;" alt="" />
+                <img src="https://www.figma.com/api/mcp/asset/8d5116da-9a04-4cdf-a55a-d103eb1b631d" width="6" height="6" style="object-fit:contain;position:absolute;bottom:2px;right:2px;" alt="" />
+              </div>
+            </div>
+
+            <!-- Chat row -->
+            <div style="position:absolute;top:72px;left:0;right:0;height:60px;display:flex;align-items:center;padding:0 24px;gap:12px;background:#fff;">
+              <!-- Avatar: purple circle + person icon -->
+              <div style="position:relative;width:46px;height:48px;flex-shrink:0;">
+                <div style="position:absolute;left:0;top:2px;width:46px;height:46px;">
+                  <img src="https://www.figma.com/api/mcp/asset/4c4ddb7e-eefc-4c03-8346-bf8700a0ace1" style="width:100%;height:100%;object-fit:contain;display:block;" alt="" />
+                </div>
+                <div style="position:absolute;left:14px;top:17px;width:18px;display:flex;flex-direction:column;gap:2px;align-items:center;">
+                  <img src="https://www.figma.com/api/mcp/asset/ff14550d-4fce-402c-825b-af6e8ff213e1" style="width:10px;height:10px;object-fit:contain;display:block;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/0994bdb5-c63f-4322-97f5-a0674c4911e2" style="width:18px;height:8px;object-fit:contain;display:block;" alt="" />
+                </div>
+              </div>
+              <!-- Name + status -->
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:#101010;line-height:22px;">305-445-6776</span>
+                <div style="display:flex;align-items:center;gap:4px;">
+                  <!-- Clock icon -->
+                  <div style="position:relative;width:18px;height:18px;flex-shrink:0;overflow:hidden;">
+                    <img src="https://www.figma.com/api/mcp/asset/163160c5-3fe4-42f0-83d9-13faed3b9468" style="position:absolute;top:1.5px;left:1.5px;width:15px;height:15px;object-fit:contain;" alt="" />
+                    <div style="position:absolute;top:5.25px;left:7.5px;width:3.5px;height:6.5px;">
+                      <img src="https://www.figma.com/api/mcp/asset/f8d55ab4-04ab-455a-8cf7-def99237f8db" style="width:100%;height:100%;object-fit:contain;display:block;" alt="" />
+                    </div>
+                  </div>
+                  <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:#7247EC;line-height:24px;">Invitation Sent</span>
+                </div>
+              </div>
+              <!-- Time -->
+              <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#9191A1;white-space:nowrap;align-self:flex-start;margin-top:4px;">5:00PM</span>
+            </div>
+
+            <!-- FAB -->
+            <div style="position:absolute;bottom:72px;right:24px;width:56px;height:56px;background:#7247EC;border-radius:100px;box-shadow:0 4px 8px #BFA8FF;">
+              <div style="position:absolute;left:16px;top:16px;width:24px;height:24px;overflow:hidden;">
+                <div style="position:absolute;top:14.58%;right:8.33%;bottom:14.58%;left:8.33%;">
+                  <img src="https://www.figma.com/api/mcp/asset/282c2bd7-e6c0-4e99-8e60-55b431e54995" style="width:100%;height:100%;object-fit:contain;display:block;" alt="" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab bar -->
+            <div style="position:absolute;bottom:0;left:0;right:0;height:56px;background:#fff;border-top:1px solid #F2F4F4;display:flex;">
+              <!-- Chats tab (active) -->
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 0;">
+                <img src="https://www.figma.com/api/mcp/asset/25f58866-6cf8-406d-b3b3-fc360af3e9ca" width="24" height="24" style="object-fit:contain;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#7247EC;">Chats</span>
+              </div>
+              <!-- Settings tab (inactive) -->
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 0;">
+                <img src="https://www.figma.com/api/mcp/asset/57b7cf12-e220-4c53-9824-51ff009842be" width="24" height="24" style="object-fit:contain;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#9191A1;">Settings</span>
+              </div>
+            </div>
+
+          </div><!-- /tablet-screen -->
+
+          <div class="home-bar" style="background:#f2f4f4;"><div class="home-bar-pill"></div></div>
+        </div><!-- /tablet-inner -->
+      </div><!-- /android-tablet-frame -->
+    </div>
+
+    <!-- ════════════════════════════════
+         V11 — SMS Invitation (Android Phone, Light Theme)
+         ════════════════════════════════ -->
+    <div id="v11" class="variant" data-variant-id="sms-invitation-android-v11">
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+
+        <div class="android-inner">
+          <!-- Status bar (light) -->
+          <div style="height:36px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px;">
+            <span style="font-size:12px;font-weight:600;color:#111;font-family:'DM Sans',sans-serif;">9:41</span>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="font-size:11px;font-weight:700;color:#111;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;">5G</span>
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#111"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#111"/><rect x="1.5" y="1.5" width="17" height="8" rx="1.5" fill="#111"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#111"/></svg>
+            </div>
+          </div>
+
+          <!-- Screen -->
+          <div style="background:#F5F5F5;min-height:780px;position:relative;font-family:'DM Sans',system-ui,sans-serif;display:flex;flex-direction:column;">
+
+            <!-- Android App Bar (Material 3) -->
+            <div style="height:64px;background:#fff;display:flex;align-items:center;padding:0 4px 0 4px;gap:2px;flex-shrink:0;elevation:2;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+              <!-- Back arrow -->
+              <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;flex-shrink:0;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="#1C1B1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <!-- Avatar + name block -->
+              <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;padding-left:4px;">
+                <div style="width:40px;height:40px;border-radius:50%;background:#7247EC;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;">
+                  <svg width="22" height="22" viewBox="0 0 18 18" fill="none"><path d="M15.3689 2.64164C13.6721 0.946075 11.3852 0 9 0H0V8.99386C0 11.3775 0.959016 13.6628 2.64344 15.3461C4.32787 17.0416 6.61475 17.9877 9 18H18V8.99386C18 6.61024 17.0533 4.32491 15.3689 2.64164ZM7.2541 13.2082C6.70082 12.9747 6.19672 12.643 5.77869 12.2253C5.36066 11.8075 5.01639 11.3038 4.79508 10.7509C4.56148 10.198 4.45082 9.60819 4.45082 9.00614C4.43852 6.48737 6.47951 4.41092 9 4.41092C9.60246 4.41092 10.1926 4.53379 10.7459 4.75495C11.2992 4.9884 11.8033 5.32014 12.2213 5.73788C12.6393 6.15563 12.9836 6.65939 13.2049 7.21229C13.4385 7.76519 13.5492 8.35495 13.5492 8.957V13.4908V13.5154V13.5522H9C8.39754 13.5522 7.80738 13.4294 7.2541 13.2082Z" fill="white"/></svg>
+                </div>
+                <div style="display:flex;flex-direction:column;min-width:0;">
+                  <span style="font-size:15px;font-weight:500;color:#1C1B1F;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:20px;">KiwiChat</span>
+                  <span style="font-size:12px;color:#49454F;line-height:16px;">Mobile</span>
+                </div>
+              </div>
+              <!-- Action icons -->
+              <div style="display:flex;align-items:center;gap:0;flex-shrink:0;">
+                <!-- More (⋮) -->
+                <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#49454F"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Message area -->
+            <div style="flex:1;padding:12px 12px 80px;display:flex;flex-direction:column;gap:4px;overflow:hidden;">
+              <!-- Timestamp chip (Android Messages style) -->
+              <div style="display:flex;justify-content:center;margin:8px 0 12px;">
+                <span style="font-size:11px;color:#49454F;background:#E8E0F0;padding:4px 12px;border-radius:20px;font-family:'DM Sans',sans-serif;">Today 6:30 PM</span>
+              </div>
+
+              <!-- Received SMS bubble (Android style) -->
+              <div style="display:flex;align-items:flex-end;gap:8px;">
+                <!-- Small avatar -->
+                <div style="width:28px;height:28px;border-radius:50%;background:#7247EC;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:2px;">
+                  <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M15.3689 2.64164C13.6721 0.946075 11.3852 0 9 0H0V8.99386C0 11.3775 0.959016 13.6628 2.64344 15.3461C4.32787 17.0416 6.61475 17.9877 9 18H18V8.99386C18 6.61024 17.0533 4.32491 15.3689 2.64164ZM7.2541 13.2082C6.70082 12.9747 6.19672 12.643 5.77869 12.2253C5.36066 11.8075 5.01639 11.3038 4.79508 10.7509C4.56148 10.198 4.45082 9.60819 4.45082 9.00614C4.43852 6.48737 6.47951 4.41092 9 4.41092C9.60246 4.41092 10.1926 4.53379 10.7459 4.75495C11.2992 4.9884 11.8033 5.32014 12.2213 5.73788C12.6393 6.15563 12.9836 6.65939 13.2049 7.21229C13.4385 7.76519 13.5492 8.35495 13.5492 8.957V13.4908V13.5154V13.5522H9C8.39754 13.5522 7.80738 13.4294 7.2541 13.2082Z" fill="white"/></svg>
+                </div>
+                <div style="max-width:264px;">
+                  <div style="background:#E8E0F0;border-radius:4px 20px 20px 20px;padding:12px 16px;">
+                    <p style="font-size:14px;line-height:20px;color:#1C1B1F;margin:0;font-family:'DM Sans',sans-serif;">James Robinson has invited you to chat on KiwiChat. Download the app from Google Play Store or Apple App Store.</p>
+                    <p style="font-size:14px;line-height:20px;color:#1C1B1F;margin:12px 0 0;font-family:'DM Sans',sans-serif;">James (DOC ID: 482917) is currently housed at Jefferson City Correctional Center.</p>
+                  </div>
+                  <!-- SMS label -->
+                  <span style="font-size:11px;color:#49454F;margin-left:4px;margin-top:4px;display:block;font-family:'DM Sans',sans-serif;">SMS · Not delivered to chat</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Android Input bar (Material 3) -->
+            <div style="position:absolute;bottom:0;left:0;right:0;background:#fff;padding:8px 12px 12px;">
+              <div style="display:flex;align-items:center;gap:4px;background:#F3EDF7;border-radius:28px;padding:4px 4px 4px 16px;">
+                <!-- Emoji -->
+                <div style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#49454F" stroke-width="1.8"/><path d="M8.5 14s1 1.5 3.5 1.5 3.5-1.5 3.5-1.5" stroke="#49454F" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="10" r="1" fill="#49454F"/><circle cx="15" cy="10" r="1" fill="#49454F"/></svg>
+                </div>
+                <!-- Text field -->
+                <div style="flex:1;font-size:15px;color:#49454F;line-height:20px;padding:8px 4px;font-family:'DM Sans',sans-serif;">Message</div>
+                <!-- Attach -->
+                <div style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" stroke="#49454F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <!-- Mic / Send -->
+                <div style="width:40px;height:40px;border-radius:50%;background:#7247EC;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 1a3 3 0 013 3v8a3 3 0 01-6 0V4a3 3 0 013-3z" stroke="#fff" stroke-width="1.8"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /screen -->
+
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div><!-- /android-inner -->
+      </div><!-- /android-frame -->
+    </div>
+
+    <!-- ════════════════════════════════
+         V12 — Top Nav (Android Phone Frame)
+         ID: chat-list-top-nav-android-v12
+         ════════════════════════════════ -->
+    <div id="v12" class="variant" data-variant-id="chat-list-top-nav-android-v12">
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+
+        <div class="android-inner">
+          <!-- Dark status bar -->
+          <div class="android-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+
+          <!-- Screen -->
+          <div class="android-screen">
+            <!-- Header -->
+            <div class="app-header">
+              <div class="top-bar-v4">
+                <img src="https://www.figma.com/api/mcp/asset/2c5aa9f9-0553-4721-9d42-3e1fdbb4ac9f" width="24" height="24" style="object-fit:contain" alt="" />
+                <h1>Chats</h1>
+              </div>
+            </div>
+
+            <div class="chat-list">
+              <!-- 01 Zaire Madsen -->
+              <div class="chat-row">
+                <div class="avatar-wrap"><div class="avatar-initials av-orange">ZM</div></div>
+                <div class="chat-info">
+                  <div class="chat-name">Zaire Madsen</div>
+                  <div class="chat-preview purple">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7247EC" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+                    Invitation to chat
+                  </div>
+                </div>
+                <div class="chat-meta"><span class="chat-time">2:58 PM</span></div>
+              </div>
+
+              <!-- 02 Charlie Saris + online -->
+              <div class="chat-row">
+                <div class="avatar-wrap">
+                  <div class="avatar-initials av-yellow">CS</div>
+                  <div class="online-dot-top"></div>
+                </div>
+                <div class="chat-info">
+                  <div class="chat-name">Charlie Saris</div>
+                  <div class="typing">
+                    <div class="typing-dots"><span></span><span></span><span class="big"></span></div>
+                    <span class="typing-text">typing</span>
+                  </div>
+                </div>
+                <div class="chat-meta"><span class="chat-time">3:00 PM</span></div>
+              </div>
+
+              <!-- 03 Wilson Baptista -->
+              <div class="chat-row">
+                <div class="avatar-wrap"><div class="avatar-initials av-orange">WB</div></div>
+                <div class="chat-info">
+                  <div class="chat-name">Wilson Baptista</div>
+                  <div class="chat-preview">That's really cheering. Thanks dear</div>
+                </div>
+                <div class="chat-meta"><span class="chat-time">3:21 PM</span></div>
+              </div>
+
+              <!-- 04 Cheyenne Schleifer -->
+              <div class="chat-row">
+                <div class="avatar-wrap">
+                  <div class="avatar-photo"><img src="https://i.pravatar.cc/80?img=47" alt="" /></div>
+                  <div class="online-dot-top"></div>
+                </div>
+                <div class="chat-info">
+                  <div class="chat-name">Cheyenne Schleifer</div>
+                  <div class="chat-preview">That's really cheering. Thanks dear</div>
+                </div>
+                <div class="chat-meta">
+                  <span class="chat-time">12/06/25</span>
+                  <div class="unread-badge">4</div>
+                </div>
+              </div>
+
+              <!-- 05 Haylie Franci -->
+              <div class="chat-row">
+                <div class="avatar-wrap"><div class="avatar-initials av-orange">HF</div></div>
+                <div class="chat-info">
+                  <div class="chat-name">Haylie Franci</div>
+                  <div class="chat-preview purple">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7247EC" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Send your first message
+                  </div>
+                </div>
+                <div class="chat-meta"><span class="chat-time">12/06/25</span></div>
+              </div>
+
+              <!-- 06 Omar Levin -->
+              <div class="chat-row">
+                <div class="avatar-wrap"><div class="avatar-initials av-yellow">OL</div></div>
+                <div class="chat-info">
+                  <div class="chat-name">Omar Levin</div>
+                  <div class="chat-preview">Sure, why not</div>
+                </div>
+                <div class="chat-meta"><span class="chat-time">12/07/25</span></div>
+              </div>
+
+              <!-- 07 James Kenter -->
+              <div class="chat-row">
+                <div class="avatar-wrap"><div class="avatar-initials av-yellow">JK</div></div>
+                <div class="chat-info">
+                  <div class="chat-name">James Kenter</div>
+                  <div class="chat-preview">Yeah, I was thinking about it lately</div>
+                </div>
+                <div class="chat-meta"><span class="chat-time">11/07/25</span></div>
+              </div>
+            </div>
+
+            <!-- FAB -->
+            <div class="fab">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
+              </svg>
+            </div>
+
+            <!-- Bottom tab bar -->
+            <div class="tab-bar">
+              <div class="btab">
+                <div class="btab-icon">
+                  <img src="https://www.figma.com/api/mcp/asset/36737a71-b7c6-4856-958e-005d656faabe" alt="" />
+                  <div class="btab-badge">4</div>
+                </div>
+                <span class="btab-label" style="color:#7247EC">Chats</span>
+              </div>
+              <div class="btab">
+                <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/fb593a5e-796e-45ba-8e38-69e864423c70" alt="" /></div>
+                <span class="btab-label">Notifications</span>
+              </div>
+              <div class="btab">
+                <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/844550eb-b0ee-43aa-9057-ed229b988339" alt="" /></div>
+                <span class="btab-label">Settings</span>
+              </div>
+            </div>
+          </div><!-- /android-screen -->
+
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div><!-- /android-inner -->
+      </div><!-- /android-frame -->
+    </div>
+
+    <!-- ════════════════════════════════
+         V13 — Gallery Screens (Tablet)
+         ════════════════════════════════ -->
+    <div id="v13" class="variant" data-variant-id="gallery-tablet-v13" style="flex-direction:row;align-items:flex-start;justify-content:flex-start;gap:32px;overflow-x:auto;">
+
+      <!-- ── Screen A: Normal gallery ── -->
+      <div class="android-tablet-frame">
+        <div class="btn-side btn-tablet-vol-up"></div>
+        <div class="btn-side btn-tablet-vol-dn"></div>
+        <div class="btn-side btn-tablet-power"></div>
+        <div class="tablet-inner">
+          <div class="tablet-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="tablet-screen" style="display:flex;flex-direction:column;height:824px;">
+            <!-- Header -->
+            <div style="height:56px;background:#fff;border-bottom:1px solid #EBEBEF;display:flex;align-items:center;padding:0 24px;gap:10px;flex-shrink:0;">
+              <div style="width:24px;height:24px;position:relative;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/51d23335-0d9c-4dc9-8f00-e57d081ac4f6" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" alt="" /></div>
+              <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;">Gallery</span>
+            </div>
+            <!-- Media / Documents tab pill -->
+            <div style="padding:8px 24px;flex-shrink:0;">
+              <div style="border:1px solid #DADAE2;border-radius:12px;padding:3px;display:flex;gap:3px;">
+                <div style="flex:1;background:#fff;border:1px solid #7247EC;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:6px 0;"><span style="font-family:'DM Sans',sans-serif;font-size:14px;color:#7247EC;line-height:22px;">Media</span></div>
+                <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:6px 0;"><span style="font-family:'DM Sans',sans-serif;font-size:14px;color:#9191A1;line-height:22px;">Documents</span></div>
+              </div>
+            </div>
+            <!-- Photo content -->
+            <div style="flex:1;overflow:hidden;padding:4px 24px 0;">
+              <!-- April -->
+              <div style="margin-bottom:12px;">
+                <span style="display:block;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;margin-bottom:8px;">April</span>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                  <img src="https://www.figma.com/api/mcp/asset/42bb13f7-5218-4607-8653-19e4bcc6d5b1" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/d8d3cf25-a6e8-4c69-b599-cfc418eb0fde" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/3dbd95ce-b0cf-4f5f-b26a-0e3b39b384d5" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/0d245c81-a04d-482c-b802-1105e8b36242" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/4030b9cf-ee37-4131-be24-4510cf1b51de" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/717f577a-e8a0-4b49-8e09-70403a930ee8" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/4bac11ae-7b04-42b8-816d-897f4fba03da" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/0a04cf98-ca7d-41ab-929d-72594bc41b55" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/109d83ed-574f-44a0-aa24-e5f1ba480b36" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/0dd0a3c2-14f1-4390-8fe5-7265a68965eb" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                </div>
+              </div>
+              <!-- March -->
+              <div style="margin-bottom:12px;">
+                <span style="display:block;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;margin-bottom:8px;">March</span>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                  <img src="https://www.figma.com/api/mcp/asset/78664588-ab4c-4565-887b-39cde0c667ac" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/3d546a00-aca0-4219-8547-8f55f76e8b76" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/884fac3d-9ff0-4a7a-b373-53f13aa39091" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/39dd17d1-fe2f-40de-b8be-afd263cf39b8" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/8d65db68-cc1d-4a6a-aa8b-273f66f6d549" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/ceae21c4-2377-4a38-abda-cf621252313b" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/1cda7e9f-f927-43bf-a7a7-23d78105e172" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/e6ef6cb1-0559-4fb6-8527-848e4a42ecbf" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/4e728294-b2fc-4958-b7ea-32ab7aee9211" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/86933206-a36d-4209-a0a2-4102ece74462" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                </div>
+              </div>
+              <!-- February -->
+              <div>
+                <span style="display:block;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;margin-bottom:8px;">February</span>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                  <img src="https://www.figma.com/api/mcp/asset/7768cf73-1eaa-412e-bc01-da6491af2e13" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/717f577a-e8a0-4b49-8e09-70403a930ee8" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/d0aba616-793b-45e2-ac09-119f4c4957a5" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/0d245c81-a04d-482c-b802-1105e8b36242" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <img src="https://www.figma.com/api/mcp/asset/7d17558b-fe82-4024-864a-8d6b57cb7d8d" style="width:90px;height:90px;border-radius:8px;object-fit:cover;flex-shrink:0;" alt="" />
+                </div>
+              </div>
+            </div>
+            <!-- Tab bar -->
+            <div style="height:56px;background:#fff;border-top:1px solid #F2F4F4;display:flex;align-items:stretch;flex-shrink:0;">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+                <img src="https://www.figma.com/api/mcp/asset/eacf1123-8e8c-43d3-9db0-866cb3dcada7" style="width:24px;height:24px;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#9191A1;line-height:16px;">Chats</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+                <img src="https://www.figma.com/api/mcp/asset/b73fc330-07e0-49c6-80f2-ccc64e73b33c" style="width:24px;height:24px;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#7247EC;line-height:16px;">Gallery</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+                <img src="https://www.figma.com/api/mcp/asset/85beb15c-fc91-4460-9d21-0e9425c25541" style="width:24px;height:24px;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#9191A1;line-height:16px;">Settings</span>
+              </div>
+            </div>
+          </div><!-- /tablet-screen A -->
+        </div><!-- /tablet-inner -->
+      </div><!-- /android-tablet-frame Screen A -->
+
+      <!-- ── Screen B: Selection mode ── -->
+      <div class="android-tablet-frame">
+        <div class="btn-side btn-tablet-vol-up"></div>
+        <div class="btn-side btn-tablet-vol-dn"></div>
+        <div class="btn-side btn-tablet-power"></div>
+        <div class="tablet-inner">
+          <div class="tablet-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="tablet-screen" style="display:flex;flex-direction:column;height:824px;">
+            <!-- Header -->
+            <div style="height:56px;background:#fff;border-bottom:1px solid #EBEBEF;display:flex;align-items:center;padding:0 24px;gap:10px;flex-shrink:0;">
+              <div style="width:24px;height:24px;position:relative;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/4fcd4be5-db08-49a8-b174-f5ce8e58fe37" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" alt="" /></div>
+              <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;">Gallery</span>
+            </div>
+            <!-- Media / Documents tab pill -->
+            <div style="padding:8px 24px;flex-shrink:0;">
+              <div style="border:1px solid #DADAE2;border-radius:12px;padding:3px;display:flex;gap:3px;">
+                <div style="flex:1;background:#fff;border:1px solid #7247EC;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:6px 0;"><span style="font-family:'DM Sans',sans-serif;font-size:14px;color:#7247EC;line-height:22px;">Media</span></div>
+                <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:6px 0;"><span style="font-family:'DM Sans',sans-serif;font-size:14px;color:#9191A1;line-height:22px;">Documents</span></div>
+              </div>
+            </div>
+            <!-- Photo content — selection mode with X badges -->
+            <div style="flex:1;overflow:hidden;padding:4px 24px 0;">
+              <!-- April -->
+              <div style="margin-bottom:12px;">
+                <span style="display:block;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;margin-bottom:8px;">April</span>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;padding-top:10px;">
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/d79e8932-dd07-408e-a241-a2d87f344810" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/2a812a9a-f16e-4206-8a1b-cad2b6003bd8" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/9f94f57b-c411-4499-b506-8f3eca6bc55c" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/896b217b-8120-4709-97b4-b6a16322a79e" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/b38291f6-726a-45b9-8e21-f05e64f95203" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/9106e94a-a84f-4385-84b8-3281ee3d199c" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/1ae42e67-bc33-4d0b-b211-67c5d58ac1ac" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/76892770-3a8f-408c-8f19-eac648995e33" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/2d11f938-c2a3-4c1e-a264-089c4ba67b6b" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/640e8956-ca0b-41f1-a6e9-e286ab17e776" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                </div>
+              </div>
+              <!-- March -->
+              <div style="margin-bottom:12px;">
+                <span style="display:block;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;margin-bottom:8px;">March</span>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;padding-top:10px;">
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/51e66e10-16af-49fb-99b2-da8f6cecf74e" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/11e9750b-39fe-44a1-b399-c692cb7710bc" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/dd39adbc-394d-4059-90d6-946cce885fa3" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/68ae91d1-f71d-42f8-b5d9-122e2b5a4968" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/1f3c14ad-de28-42f9-b062-14aa1f14d0b9" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/66a7fe0e-e52e-4317-8ab9-02323b497645" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/3136bc23-4bc6-4b20-b348-9b524374c025" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/bf734711-5f37-4805-a96a-8e3cf27fb1af" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/bbabe48c-1bb6-47a4-9679-9c1bb4fbc931" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/879b311a-2953-49a0-844f-84e2a395ea93" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                </div>
+              </div>
+              <!-- February -->
+              <div>
+                <span style="display:block;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;margin-bottom:8px;">February</span>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;padding-top:10px;">
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/ea39d6fc-ca9c-40c6-9965-e3e4882eb3e6" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/9106e94a-a84f-4385-84b8-3281ee3d199c" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/12ea5682-de09-4296-bf73-d727b5af2ad8" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/896b217b-8120-4709-97b4-b6a16322a79e" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/5aa3efd5-2ac1-4cbd-9f63-9011073b3594" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                </div>
+              </div>
+            </div>
+            <!-- Tab bar -->
+            <div style="height:56px;background:#fff;border-top:1px solid #F2F4F4;display:flex;align-items:stretch;flex-shrink:0;">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+                <img src="https://www.figma.com/api/mcp/asset/08b89b5f-98ae-424a-aa2b-d54ccf2910ac" style="width:24px;height:24px;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#9191A1;line-height:16px;">Chats</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+                <img src="https://www.figma.com/api/mcp/asset/2826f806-a67b-4c6b-b440-5a8d9cb9545e" style="width:24px;height:24px;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#7247EC;line-height:16px;">Gallery</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+                <img src="https://www.figma.com/api/mcp/asset/f434a287-0a22-4762-93a0-09f64938ca49" style="width:24px;height:24px;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#9191A1;line-height:16px;">Settings</span>
+              </div>
+            </div>
+          </div><!-- /tablet-screen B -->
+        </div><!-- /tablet-inner -->
+      </div><!-- /android-tablet-frame Screen B -->
+
+      <!-- ── Screen C: Delete modal ── -->
+      <div class="android-tablet-frame">
+        <div class="btn-side btn-tablet-vol-up"></div>
+        <div class="btn-side btn-tablet-vol-dn"></div>
+        <div class="btn-side btn-tablet-power"></div>
+        <div class="tablet-inner">
+          <div class="tablet-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="tablet-screen" style="display:flex;flex-direction:column;height:824px;">
+            <!-- Header -->
+            <div style="height:56px;background:#fff;border-bottom:1px solid #EBEBEF;display:flex;align-items:center;padding:0 24px;gap:10px;flex-shrink:0;">
+              <div style="width:24px;height:24px;position:relative;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/8e91a354-1ac1-4bdf-a869-f0f6d9786e58" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" alt="" /></div>
+              <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;">Gallery</span>
+            </div>
+            <!-- Media / Documents tab pill -->
+            <div style="padding:8px 24px;flex-shrink:0;">
+              <div style="border:1px solid #DADAE2;border-radius:12px;padding:3px;display:flex;gap:3px;">
+                <div style="flex:1;background:#fff;border:1px solid #7247EC;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:6px 0;"><span style="font-family:'DM Sans',sans-serif;font-size:14px;color:#7247EC;line-height:22px;">Media</span></div>
+                <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:6px 0;"><span style="font-family:'DM Sans',sans-serif;font-size:14px;color:#9191A1;line-height:22px;">Documents</span></div>
+              </div>
+            </div>
+            <!-- Photo content — same as Screen B -->
+            <div style="flex:1;overflow:hidden;padding:4px 24px 0;">
+              <!-- April -->
+              <div style="margin-bottom:12px;">
+                <span style="display:block;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;margin-bottom:8px;">April</span>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;padding-top:10px;">
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/e11b5394-0113-4a81-b676-45e773c77a1b" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/80af424c-c145-430b-8ab4-e6a5d0d44a6c" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/047bc20c-c0bc-42dd-b540-a42cfbcd2876" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/b95d458d-afa3-4926-8c63-0dd8309ab96d" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/abd5fa4b-e0be-40e3-bafd-e48ac9a68bf9" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/10644d3e-fd46-449c-b476-d5cb044994f8" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/c26f6eac-6ace-49c6-bd5b-61bde2539323" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/57daec4a-fabf-43cb-b7f1-30dcc99f7383" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/61928af5-5d87-441a-a8f1-7688c908b49d" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/efe8beef-8e50-499f-a99f-afc38965ee18" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                </div>
+              </div>
+              <!-- March -->
+              <div style="margin-bottom:12px;">
+                <span style="display:block;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;margin-bottom:8px;">March</span>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;padding-top:10px;">
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/2df12602-9ffe-4adf-b7a1-5df774645a44" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/1f6d9fc1-9749-4332-b14e-0ca36e5db58f" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/41aff44e-22be-481c-92cf-dd5dde2f0e36" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/7ad6e842-3431-48ca-b68e-1d60d94c8e6d" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/1cb4afa5-a9c9-410a-8a63-ee15b64fc804" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/67878a7f-a0a3-4dba-b7cd-ff3cc7278ce3" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/b0e1de70-b9fe-4542-bbe9-d3683f978651" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/19334513-4f4c-4399-a7a3-eb3b14277184" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/b9dcc751-db98-4531-92ca-911b1e0d9063" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/f08b333b-eafa-4ba1-a254-83b042ccc85c" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                </div>
+              </div>
+              <!-- February -->
+              <div>
+                <span style="display:block;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;margin-bottom:8px;">February</span>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;padding-top:10px;">
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/e5f99a3f-1a98-45e6-a35e-0b0db4227066" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/10644d3e-fd46-449c-b476-d5cb044994f8" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/4ff22113-5c6d-4986-a8b4-ca691f46654f" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/b95d458d-afa3-4926-8c63-0dd8309ab96d" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                  <div style="position:relative;width:90px;height:90px;flex-shrink:0;"><img src="https://www.figma.com/api/mcp/asset/a71e1c79-05b1-4f7b-ae00-1876d6d90282" style="position:absolute;inset:0;width:90px;height:90px;border-radius:8px;object-fit:cover;" alt="" /><img src="https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a" style="position:absolute;top:-8px;right:0;width:20px;height:20px;object-fit:contain;" alt="" /></div>
+                </div>
+              </div>
+            </div>
+            <!-- Tab bar -->
+            <div style="height:56px;background:#fff;border-top:1px solid #F2F4F4;display:flex;align-items:stretch;flex-shrink:0;">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+                <img src="https://www.figma.com/api/mcp/asset/c1a01c19-7fae-4cb1-8088-37726113872d" style="width:24px;height:24px;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#9191A1;line-height:16px;">Chats</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+                <img src="https://www.figma.com/api/mcp/asset/1a7317ca-ef40-4647-9ca8-592754498dc8" style="width:24px;height:24px;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#7247EC;line-height:16px;">Gallery</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+                <img src="https://www.figma.com/api/mcp/asset/49b89937-6280-44b1-84c1-e9d5dbc2012c" style="width:24px;height:24px;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#9191A1;line-height:16px;">Settings</span>
+              </div>
+            </div>
+            <!-- Dark overlay -->
+            <div style="position:absolute;inset:0;z-index:10;">
+              <img src="https://www.figma.com/api/mcp/asset/447026ef-8159-419a-b57f-376463614cc1" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="" />
+            </div>
+            <!-- Delete photo modal -->
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:20;background:#fff;border-radius:16px;width:374px;padding:24px;">
+              <!-- Modal header: thumbnail + title + close -->
+              <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;">
+                <img src="https://www.figma.com/api/mcp/asset/e11b5394-0113-4a81-b676-45e773c77a1b" style="width:28px;height:28px;border-radius:2px;object-fit:cover;flex-shrink:0;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#101010;line-height:28px;flex:1;">Delete photo</span>
+                <div style="width:24px;height:24px;flex-shrink:0;position:relative;overflow:hidden;">
+                  <div style="position:absolute;inset:21.35%;"><img src="https://www.figma.com/api/mcp/asset/08afafb7-9941-4372-b309-4dd796e6385c" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" alt="" /></div>
+                </div>
+              </div>
+              <!-- Modal body -->
+              <p style="font-family:'DM Sans',sans-serif;font-size:16px;color:#686873;line-height:24px;margin-bottom:32px;">Are you sure you want to delete this photo from your gallery?</p>
+              <!-- Buttons -->
+              <div style="display:flex;flex-direction:column;gap:12px;">
+                <div style="height:48px;background:#7247EC;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#fff;line-height:24px;">Confirm</span>
+                </div>
+                <div style="height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Cancel</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- /tablet-screen C -->
+        </div><!-- /tablet-inner -->
+      </div><!-- /android-tablet-frame Screen C -->
+
+    </div><!-- /v13 -->
+
+    <!-- ════════════════════════════════
+         V14 — Inmate Invite (Rugged Tablet)
+         ════════════════════════════════ -->
+    <div id="v14" class="variant" data-variant-id="inmate-invite-rugged-v14">
+      <!-- Rugged tablet wrapper — landscape device frame via PNG overlay -->
+      <div style="position:relative;width:900px;flex-shrink:0;">
+
+        <!-- Device frame image -->
+        <img src="rugged-tablet.png" style="width:900px;height:auto;display:block;" alt="Rugged tablet" />
+
+        <!-- Screen overlay — positioned over the dark screen area of the device image -->
+        <div style="
+          position:absolute;
+          left:8.25%; top:8.37%;
+          width:82.5%; height:80.14%;
+          background:#fff;
+          overflow:hidden;
+          border-radius:6px;
+          display:flex;
+          flex-direction:column;
+          font-family:'DM Sans',system-ui,sans-serif;
+        ">
+
+          <!-- Status bar -->
+          <div style="height:24px;background:#111;display:flex;align-items:center;justify-content:space-between;padding:0 16px;flex-shrink:0;">
+            <span style="font-size:11px;font-weight:500;color:#fff;">9:41</span>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <svg width="13" height="9" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="14" height="10" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="20" height="10" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+
+          <!-- Header bar: back + phone input + invite -->
+          <div style="height:56px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;align-items:center;padding:0 20px;gap:12px;flex-shrink:0;">
+            <!-- Back arrow -->
+            <div style="width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+              <img src="https://www.figma.com/api/mcp/asset/8dff96a0-dfd2-42f6-96e5-069024033e78" alt="" style="width:14px;height:14px;object-fit:contain;" />
+            </div>
+            <!-- Phone number input -->
+            <div style="flex:1;height:36px;border:1.5px solid #7247EC;border-radius:8px;position:relative;display:flex;align-items:center;padding:0 10px;gap:8px;">
+              <div style="position:absolute;top:-9px;left:10px;background:#fff;padding:0 4px;">
+                <span style="font-size:11px;font-weight:400;color:#7247EC;">Phone number</span>
+              </div>
+              <img src="https://www.figma.com/api/mcp/asset/7916e66b-dc1c-4de9-831e-06f7d98f16aa" alt="" style="width:22px;height:15px;object-fit:cover;border-radius:2px;flex-shrink:0;" />
+              <div style="width:1px;height:18px;background:#e0e0e0;flex-shrink:0;"></div>
+              <span style="font-size:15px;font-weight:400;line-height:22px;color:#101010;">305-445-6776</span>
+            </div>
+            <!-- Invite button -->
+            <button style="height:36px;padding:0 18px;background:#7247EC;border:none;border-radius:8px;font-size:15px;font-weight:500;color:#fff;cursor:pointer;font-family:'DM Sans',system-ui,sans-serif;white-space:nowrap;">Invite</button>
+          </div>
+
+          <!-- Empty state -->
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:8px 0;">
+            <div style="position:relative;width:180px;height:114px;">
+              <img src="https://www.figma.com/api/mcp/asset/e408a6c1-30a1-4bb5-b825-bb1c153bc92f" alt="" style="position:absolute;inset:-0.26% 23.18% -0.29% 0.09%;width:76.73%;height:100.55%;object-fit:contain;" />
+              <img src="https://www.figma.com/api/mcp/asset/1c9636e6-8584-470f-b177-1e12b05208cc" alt="" style="position:absolute;inset:40.65% 0.11% 18.6% 37.83%;width:62.06%;height:40.75%;object-fit:contain;" />
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;align-items:center;">
+              <p style="font-size:18px;font-weight:700;line-height:26px;color:#101010;margin:0;">No chats yet</p>
+              <p style="font-size:14px;font-weight:400;line-height:22px;color:#686873;margin:0;">Start by inviting someone</p>
+            </div>
+          </div>
+
+          <!-- Landscape keyboard -->
+          <div style="background:#F2F4F4;padding:6px 5px;font-family:'DM Sans',system-ui,sans-serif;flex-shrink:0;">
+            <!-- Row 1: ?123 q w e r t y u i o p ⌫ -->
+            <div style="display:flex;gap:3px;margin-bottom:3px;height:36px;">
+              <div style="flex:1.4;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#555;">?123</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">q</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">w</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">e</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">r</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">t</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">y</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">u</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">i</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">o</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">p</div>
+              <div style="flex:1.4;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#555;">⌫</div>
+            </div>
+            <!-- Row 2: ⇧ a s d f g h j k l ⇧ → -->
+            <div style="display:flex;gap:3px;margin-bottom:3px;height:36px;">
+              <div style="flex:1.4;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#555;">⇧</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">a</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">s</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">d</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">f</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">g</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">h</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">j</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">k</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">l</div>
+              <div style="flex:1.4;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#555;">⇧</div>
+              <div style="flex:1.4;background:#7247EC;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;">→</div>
+            </div>
+            <!-- Row 3: ?123 z x c v b n m ! ? ⇧ ⌫ -->
+            <div style="display:flex;gap:3px;margin-bottom:3px;height:36px;">
+              <div style="flex:1.4;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#555;">?123</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">z</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">x</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">c</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">v</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">b</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">n</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">m</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">!</div>
+              <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#333;">?</div>
+              <div style="flex:1.4;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#555;">⇧</div>
+              <div style="flex:1.4;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#555;">⌫</div>
+            </div>
+            <!-- Row 4: ?123 , [space] . 😊 ?123 -->
+            <div style="display:flex;gap:3px;height:36px;">
+              <div style="flex:1.4;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#555;">?123</div>
+              <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#555;">,</div>
+              <div style="flex:5;background:#fff;border-radius:4px;"></div>
+              <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#555;">.</div>
+              <div style="flex:1.4;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:16px;">😊</div>
+              <div style="flex:1.4;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#555;">?123</div>
+            </div>
+          </div>
+
+        </div><!-- /screen overlay -->
+      </div><!-- /rugged tablet wrapper -->
+    </div><!-- /v14 -->
 
   </div><!-- /main -->
 

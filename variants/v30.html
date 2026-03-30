@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V30 — Block Contact Flow</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #fff; font-family: 'DM Sans', sans-serif; }
+
+    .v30-wrap {
+      display: flex; flex-direction: column; align-items: center;
+      min-height: 100vh; padding: 48px 40px 56px; overflow-x: auto;
+    }
+    .v30-row { display: flex; align-items: flex-start; gap: 24px; }
+
+    /* ── Phone outer frame ─────────────────────────────── */
+    .v30-phone {
+      position: relative; flex-shrink: 0;
+      background: #1C1C1E; border-radius: 44px; padding: 12px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.09);
+    }
+    .v30-btn { position: absolute; background: #2C2C2E; }
+    .v30-btn-volu { left: -3px; top: 100px; width: 3px; height: 32px; border-radius: 2px 0 0 2px; }
+    .v30-btn-vold { left: -3px; top: 143px; width: 3px; height: 32px; border-radius: 2px 0 0 2px; }
+    .v30-btn-pwr  { right: -3px; top: 120px; width: 3px; height: 56px; border-radius: 0 2px 2px 0; }
+
+    /* ── Inner white shell ─────────────────────────────── */
+    .v30-inner { background: #fff; border-radius: 34px; overflow: hidden; width: 360px; }
+
+    /* ── Status bar ────────────────────────────────────── */
+    .v30-status {
+      height: 28px; background: #000;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
+    }
+    .v30-time { font-size: 12px; font-weight: 600; color: #fff; }
+    .v30-icons { display: flex; align-items: center; gap: 4px; }
+
+    /* ── Screen ────────────────────────────────────────── */
+    .v30-screen {
+      width: 360px; height: 732px;
+      position: relative; overflow: hidden; background: #fff;
+    }
+
+    /* ── Chat header ───────────────────────────────────── */
+    .v30-hdr {
+      position: absolute; top: 0; left: 0; right: 0; height: 56px;
+      background: #fff; border-bottom: 1px solid #EBEBEF;
+      display: flex; align-items: center; padding: 0 12px; gap: 10px;
+      z-index: 3;
+    }
+
+    /* ── Bubbles ───────────────────────────────────────── */
+    .bsent {
+      position: absolute; background: #E3DAFB;
+      border-radius: 8px 8px 2px 8px;
+      padding: 8px 12px; display: flex; gap: 8px; align-items: flex-end;
+    }
+    .brecv {
+      position: absolute; background: #F2F4F4;
+      border-radius: 8px 8px 8px 2px;
+      padding: 8px 12px; display: flex; gap: 8px; align-items: flex-end;
+    }
+    .bt { font-size: 16px; color: #101010; line-height: 24px; flex: 1; min-width: 0; }
+    .bts { font-size: 10px; color: #686873; white-space: nowrap; flex-shrink: 0; line-height: normal; }
+
+    /* ── Home bar ──────────────────────────────────────── */
+    .v30-home {
+      height: 20px; background: #fff;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .v30-pill { width: 120px; height: 4px; background: #D1D5DB; border-radius: 2px; }
+
+    /* ── Page label ────────────────────────────────────── */
+    .v30-label { margin-bottom: 32px; font-size: 24px; font-weight: 400; color: #374151; text-align: center; }
+
+    /* ── v38 conversation classes ───────────────────────── */
+    .bs { background:#F2F4F4; border-radius:8px 8px 8px 2px; padding:8px 12px; align-self:flex-start; display:flex; align-items:flex-end; gap:8px; max-width:300px; }
+    .br { background:#E3DAFB; border-radius:8px 8px 2px 8px; padding:8px 12px; align-self:flex-end; display:flex; align-items:flex-end; gap:8px; max-width:300px; }
+    .ts { font-size:10px; color:#686873; white-space:nowrap; flex-shrink:0; }
+    .tr { font-size:10px; color:#9191A1; white-space:nowrap; flex-shrink:0; }
+    .tschip { display:flex; justify-content:center; margin:4px 0 10px; }
+    .tschip span { font-size:11px; color:#686873; background:rgba(255,255,255,0.85); padding:3px 10px; border-radius:12px; font-family:'DM Sans',sans-serif; }
+    .fn-l { align-self:flex-end; display:flex; align-items:center; gap:4px; }
+    .fn-t { font-size:12px; color:#F8A80C; }
+    .typing { display:flex; align-items:center; gap:4px; }
+    .typing-dots { display:flex; align-items:center; gap:2px; }
+    .typing-dots span { width:4px; height:4px; background:#9191A1; border-radius:50%; animation:tdot 1.2s infinite ease-in-out; }
+    .typing-dots span:nth-child(2) { animation-delay:0.2s; }
+    .typing-dots span.big { width:5px; height:5px; animation-delay:0.4s; }
+    .typing-text { font-size:12px; color:#9191A1; }
+    @keyframes tdot { 0%,80%,100%{transform:scale(0.6);opacity:0.4} 40%{transform:scale(1);opacity:1} }
+    .online-dot-top { position:absolute; top:0; right:0; width:10px; height:10px; background:#22C55E; border-radius:50%; border:2px solid #fff; }
+  </style>
+</head>
+<body>
+<div class="v30-wrap">
+  <p class="v30-label">Block &amp; Unblock Contact Flow</p>
+  <div class="v30-row">
+
+    <!-- ══════════════════════════════════════════════════
+         SCREEN 1 — Chat · Menu (with Block user option)
+         ══════════════════════════════════════════════════ -->
+    <div class="v30-phone">
+      <div class="v30-btn v30-btn-volu"></div>
+      <div class="v30-btn v30-btn-vold"></div>
+      <div class="v30-btn v30-btn-pwr"></div>
+      <div class="v30-inner">
+
+        <div class="v30-status">
+          <span class="v30-time">9:41</span>
+          <div class="v30-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+
+        <div class="v30-screen">
+          <!-- Header -->
+          <div class="v30-hdr">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+            <div style="position:relative;width:40px;height:40px;flex-shrink:0;">
+              <img src="amelia-avatar.png" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" alt="" />
+              <div class="online-dot-top"></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:1px;">
+              <span style="font-size:14px;font-weight:500;color:#101010;line-height:18px;">Amelia Robinson</span>
+              <div class="typing"><div class="typing-dots"><span></span><span></span><span class="big"></span></div><span class="typing-text">typing</span></div>
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#101010" style="flex-shrink:0;"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+          </div>
+
+          <!-- Conversation -->
+          <div style="position:absolute;top:56px;bottom:57px;left:0;right:0;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding:12px;background-image:url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA5L2dyYWRpYW50LWV5LTA5Ny1jLWIuanBn.jpg');background-size:cover;background-position:center;z-index:1;">
+            <div class="tschip"><span>Today 6:30 PM</span></div>
+            <div class="bs"><span class="bt">What's up Brooklyn.</span><span class="tr">6:30 PM</span></div>
+            <div class="br"><span class="bt">Finally. I just finished dinner.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:31 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Told you I'd send you something.</span><span class="tr">6:32 PM</span></div>
+            <div style="align-self:flex-start;width:200px;height:220px;border-radius:8px 8px 8px 2px;overflow:hidden;position:relative;flex-shrink:0;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR63tNePgupwZ58_7pi2Xqvqa3Q9ZIJuGGPSw&s" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt=""/>
+              <div style="position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(to top,rgba(0,0,0,0.45),transparent);"></div>
+              <span style="position:absolute;bottom:8px;right:8px;font-family:'DM Sans',sans-serif;font-size:10px;color:#fff;">6:32 PM</span>
+            </div>
+            <div class="bs"><span class="bt">You're not missing much out here either 😅</span><span class="tr">6:33 PM</span></div>
+            <div class="br"><span class="bt">Still looks better than this place.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:34 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">Not exactly Michelin star… but hey, I survive.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:35 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">…damn. That hit.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:40 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Wait—what??</span><span class="tr">6:43 PM</span></div>
+            <div class="br"><span class="bt">He still owes me from the last deal. I need you to figure out how to bring it in the next package.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:44 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="fn-l"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="#F8A80C" stroke-width="1.3"/><line x1="8" y1="5" x2="8" y2="9" stroke="#F8A80C" stroke-width="1.3" stroke-linecap="round"/><circle cx="8" cy="11.2" r="0.7" fill="#F8A80C"/></svg><span class="fn-t">This message was flagged as inappropriate.</span></div>
+            <div class="bs"><span class="bt">We can't use this app for business.</span><span class="tr">6:46 PM</span></div>
+            <div class="br"><span class="bt">Don't worry, keep it friendly.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:47 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Yes. Let's keep it clean.</span><span class="tr">6:48 PM</span></div>
+            <div class="tschip"><span>7:10 PM</span></div>
+            <div class="br"><span class="bt">I swear one day you're gonna get yourself in real trouble…</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:10 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">One day? Look who's talking 😏</span><span class="tr">7:11 PM</span></div>
+            <div class="br"><span class="bt">Yeah… fair.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:12 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">I don't want you ending up like me.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:23 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Too late for that, I already talk to you 😒</span><span class="tr">7:24 PM</span></div>
+            <div class="br"><span class="bt">HAHAHAHA</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:25 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="tschip"><span>8:00 PM</span></div>
+            <div class="bs"><span class="bt">You say that every time. Nothing changes.</span><span class="tr">8:00 PM</span></div>
+            <div class="br"><span class="bt">Then maybe we both need space.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">8:18 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Do what you want.</span><span class="tr">8:20 PM</span></div>
+          </div>
+
+          <!-- Dropdown menu -->
+          <div style="position:absolute;top:50px;left:137px;width:207px;background:#fff;border-radius:8px;box-shadow:0 0 4px 0 rgba(0,0,0,0.1);z-index:20;overflow:hidden;">
+            <div style="padding:13px 16px;font-size:14px;color:#101010;line-height:22px;">Search</div>
+            <div style="padding:13px 16px;font-size:14px;color:#101010;line-height:22px;">Wallpaper</div>
+            <div style="padding:13px 16px;font-size:14px;color:#101010;line-height:22px;">Clear chat</div>
+            <div style="height:1px;background:#EBEBEF;margin:0;"></div>
+            <div style="padding:13px 16px;font-size:14px;color:#DF093C;line-height:22px;">Block user</div>
+          </div>
+
+          <!-- Input bar -->
+          <div style="position:absolute;bottom:0;left:0;right:0;height:57px;background:#fff;border-top:1px solid #EBEBEF;display:flex;align-items:center;padding:10px 16px 10px 10px;gap:16px;z-index:5;">
+            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" style="flex-shrink:0;"><path d="M9.95863 4.70463L5.2453 9.4188C5.16571 9.49567 5.10222 9.58763 5.05855 9.6893C5.01487 9.79097 4.99188 9.90032 4.99092 10.011C4.98996 10.1216 5.01105 10.2313 5.05295 10.3338C5.09485 10.4362 5.15672 10.5292 5.23497 10.6075C5.31321 10.6857 5.40626 10.7476 5.50867 10.7895C5.61108 10.8314 5.72082 10.8525 5.83147 10.8515C5.94211 10.8505 6.05146 10.8276 6.15313 10.7839C6.2548 10.7402 6.34676 10.6767 6.42363 10.5971L11.1378 5.8838C11.6067 5.41492 11.8701 4.77898 11.8701 4.11588C11.8701 3.45279 11.6067 2.81685 11.1378 2.34797C10.6689 1.87909 10.033 1.61567 9.36988 1.61567C8.70678 1.61567 8.07084 1.87909 7.60196 2.34797L2.8878 7.06213C2.49286 7.44724 2.17832 7.90693 1.96243 8.41455C1.74654 8.92216 1.63358 9.46759 1.63013 10.0192C1.62667 10.5708 1.73278 11.1176 1.9423 11.6279C2.15181 12.1382 2.46056 12.6018 2.85064 12.9918C3.24072 13.3818 3.70437 13.6905 4.21468 13.8999C4.72499 14.1094 5.2718 14.2154 5.82341 14.2119C6.37502 14.2084 6.92043 14.0953 7.42801 13.8794C7.9356 13.6634 8.39525 13.3488 8.7803 12.9538L13.4945 8.24047L14.6728 9.4188L9.95863 14.133C9.41693 14.6747 8.77383 15.1044 8.06606 15.3975C7.3583 15.6907 6.59971 15.8416 5.83363 15.8416C5.06755 15.8416 4.30897 15.6907 3.6012 15.3975C2.89343 15.1044 2.25033 14.6747 1.70863 14.133C1.16693 13.5913 0.737226 12.9482 0.444059 12.2404C0.150891 11.5326 -5.70776e-09 10.774 0 10.008C5.70777e-09 9.24188 0.150891 8.4833 0.444059 7.77553C0.737226 7.06776 1.16693 6.42467 1.70863 5.88297L6.42363 1.16963C7.20947 0.410641 8.26198 -0.0093359 9.35447 0.000157511C10.447 0.00965092 11.492 0.447855 12.2645 1.22039C13.0371 1.99292 13.4753 3.03797 13.4848 4.13046C13.4943 5.22295 13.0743 6.27546 12.3153 7.0613L7.60196 11.7771C7.36974 12.0093 7.09407 12.1935 6.79068 12.3191C6.48729 12.4447 6.16212 12.5093 5.83375 12.5093C5.50538 12.5093 5.18023 12.4446 4.87687 12.3189C4.57351 12.1932 4.29788 12.0089 4.06571 11.7767C3.83355 11.5445 3.64939 11.2688 3.52377 10.9654C3.39814 10.662 3.3335 10.3369 3.33354 10.0085C3.33358 9.68013 3.3983 9.35499 3.52399 9.05163C3.64969 8.74826 3.83391 8.47263 4.06613 8.24047L8.7803 3.5263L9.95863 4.70463Z" fill="#7247EC"/></svg>
+            <span style="flex:1;font-size:16px;color:#9191A1;line-height:24px;">Message</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;"><mask id="msk-v30a" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20"><path d="M19 19V1H1V19H19Z" fill="white" stroke="white" stroke-width="2"/></mask><g mask="url(#msk-v30a)"><path d="M14.7826 2H5.43618C3.53841 2 2 3.53841 2 5.43618V14.7826C2 16.6803 3.53841 18.2188 5.43618 18.2188H14.7826C16.6803 18.2188 18.2187 16.6803 18.2187 14.7826V5.43618C18.2187 3.53841 16.6803 2 14.7826 2Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.1094 6.33104C8.02187 6.33104 6.32959 8.02332 6.32959 10.1108C6.32959 12.1983 8.02187 13.8906 10.1094 13.8906C12.1969 13.8906 13.8892 12.1983 13.8892 10.1108C13.8892 8.02332 12.1969 6.33104 10.1094 6.33104Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+            <img src="https://www.figma.com/api/mcp/asset/e534d2bd-bbe0-445d-bede-e9c4a51da24d" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;" alt="" />
+          </div>
+        </div><!-- /screen -->
+
+        <div class="v30-home"><div class="v30-pill"></div></div>
+      </div>
+    </div><!-- /phone 1 -->
+
+
+    <!-- ══════════════════════════════════════════════════
+         SCREEN 2 — Chat · Block user modal
+         ══════════════════════════════════════════════════ -->
+    <div class="v30-phone">
+      <div class="v30-btn v30-btn-volu"></div>
+      <div class="v30-btn v30-btn-vold"></div>
+      <div class="v30-btn v30-btn-pwr"></div>
+      <div class="v30-inner">
+
+        <div class="v30-status">
+          <span class="v30-time">9:41</span>
+          <div class="v30-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+
+        <div class="v30-screen">
+          <!-- Header -->
+          <div class="v30-hdr">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+            <div style="position:relative;width:40px;height:40px;flex-shrink:0;">
+              <img src="amelia-avatar.png" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" alt="" />
+              <div class="online-dot-top"></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:1px;">
+              <span style="font-size:14px;font-weight:500;color:#101010;line-height:18px;">Amelia Robinson</span>
+              <div class="typing"><div class="typing-dots"><span></span><span></span><span class="big"></span></div><span class="typing-text">typing</span></div>
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#101010" style="flex-shrink:0;"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+          </div>
+
+          <!-- Conversation -->
+          <div style="position:absolute;top:56px;bottom:57px;left:0;right:0;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding:12px;background-image:url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA5L2dyYWRpYW50LWV5LTA5Ny1jLWIuanBn.jpg');background-size:cover;background-position:center;z-index:1;">
+            <div class="tschip"><span>Today 6:30 PM</span></div>
+            <div class="bs"><span class="bt">What's up Brooklyn.</span><span class="tr">6:30 PM</span></div>
+            <div class="br"><span class="bt">Finally. I just finished dinner.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:31 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Told you I'd send you something.</span><span class="tr">6:32 PM</span></div>
+            <div style="align-self:flex-start;width:200px;height:220px;border-radius:8px 8px 8px 2px;overflow:hidden;position:relative;flex-shrink:0;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR63tNePgupwZ58_7pi2Xqvqa3Q9ZIJuGGPSw&s" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt=""/>
+              <div style="position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(to top,rgba(0,0,0,0.45),transparent);"></div>
+              <span style="position:absolute;bottom:8px;right:8px;font-family:'DM Sans',sans-serif;font-size:10px;color:#fff;">6:32 PM</span>
+            </div>
+            <div class="bs"><span class="bt">You're not missing much out here either 😅</span><span class="tr">6:33 PM</span></div>
+            <div class="br"><span class="bt">Still looks better than this place.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:34 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">Not exactly Michelin star… but hey, I survive.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:35 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">…damn. That hit.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:40 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Wait—what??</span><span class="tr">6:43 PM</span></div>
+            <div class="br"><span class="bt">He still owes me from the last deal. I need you to figure out how to bring it in the next package.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:44 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="fn-l"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="#F8A80C" stroke-width="1.3"/><line x1="8" y1="5" x2="8" y2="9" stroke="#F8A80C" stroke-width="1.3" stroke-linecap="round"/><circle cx="8" cy="11.2" r="0.7" fill="#F8A80C"/></svg><span class="fn-t">This message was flagged as inappropriate.</span></div>
+            <div class="bs"><span class="bt">We can't use this app for business.</span><span class="tr">6:46 PM</span></div>
+            <div class="br"><span class="bt">Don't worry, keep it friendly.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:47 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Yes. Let's keep it clean.</span><span class="tr">6:48 PM</span></div>
+            <div class="tschip"><span>7:10 PM</span></div>
+            <div class="br"><span class="bt">I swear one day you're gonna get yourself in real trouble…</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:10 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">One day? Look who's talking 😏</span><span class="tr">7:11 PM</span></div>
+            <div class="br"><span class="bt">Yeah… fair.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:12 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">I don't want you ending up like me.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:23 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Too late for that, I already talk to you 😒</span><span class="tr">7:24 PM</span></div>
+            <div class="br"><span class="bt">HAHAHAHA</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:25 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="tschip"><span>8:00 PM</span></div>
+            <div class="bs"><span class="bt">You say that every time. Nothing changes.</span><span class="tr">8:00 PM</span></div>
+            <div class="br"><span class="bt">Then maybe we both need space.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">8:18 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Do what you want.</span><span class="tr">8:20 PM</span></div>
+          </div>
+
+          <!-- Input bar (behind overlay) -->
+          <div style="position:absolute;bottom:0;left:0;right:0;height:57px;background:#fff;border-top:1px solid #EBEBEF;display:flex;align-items:center;padding:10px 16px 10px 10px;gap:16px;z-index:5;">
+            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" style="flex-shrink:0;"><path d="M9.95863 4.70463L5.2453 9.4188C5.16571 9.49567 5.10222 9.58763 5.05855 9.6893C5.01487 9.79097 4.99188 9.90032 4.99092 10.011C4.98996 10.1216 5.01105 10.2313 5.05295 10.3338C5.09485 10.4362 5.15672 10.5292 5.23497 10.6075C5.31321 10.6857 5.40626 10.7476 5.50867 10.7895C5.61108 10.8314 5.72082 10.8525 5.83147 10.8515C5.94211 10.8505 6.05146 10.8276 6.15313 10.7839C6.2548 10.7402 6.34676 10.6767 6.42363 10.5971L11.1378 5.8838C11.6067 5.41492 11.8701 4.77898 11.8701 4.11588C11.8701 3.45279 11.6067 2.81685 11.1378 2.34797C10.6689 1.87909 10.033 1.61567 9.36988 1.61567C8.70678 1.61567 8.07084 1.87909 7.60196 2.34797L2.8878 7.06213C2.49286 7.44724 2.17832 7.90693 1.96243 8.41455C1.74654 8.92216 1.63358 9.46759 1.63013 10.0192C1.62667 10.5708 1.73278 11.1176 1.9423 11.6279C2.15181 12.1382 2.46056 12.6018 2.85064 12.9918C3.24072 13.3818 3.70437 13.6905 4.21468 13.8999C4.72499 14.1094 5.2718 14.2154 5.82341 14.2119C6.37502 14.2084 6.92043 14.0953 7.42801 13.8794C7.9356 13.6634 8.39525 13.3488 8.7803 12.9538L13.4945 8.24047L14.6728 9.4188L9.95863 14.133C9.41693 14.6747 8.77383 15.1044 8.06606 15.3975C7.3583 15.6907 6.59971 15.8416 5.83363 15.8416C5.06755 15.8416 4.30897 15.6907 3.6012 15.3975C2.89343 15.1044 2.25033 14.6747 1.70863 14.133C1.16693 13.5913 0.737226 12.9482 0.444059 12.2404C0.150891 11.5326 -5.70776e-09 10.774 0 10.008C5.70777e-09 9.24188 0.150891 8.4833 0.444059 7.77553C0.737226 7.06776 1.16693 6.42467 1.70863 5.88297L6.42363 1.16963C7.20947 0.410641 8.26198 -0.0093359 9.35447 0.000157511C10.447 0.00965092 11.492 0.447855 12.2645 1.22039C13.0371 1.99292 13.4753 3.03797 13.4848 4.13046C13.4943 5.22295 13.0743 6.27546 12.3153 7.0613L7.60196 11.7771C7.36974 12.0093 7.09407 12.1935 6.79068 12.3191C6.48729 12.4447 6.16212 12.5093 5.83375 12.5093C5.50538 12.5093 5.18023 12.4446 4.87687 12.3189C4.57351 12.1932 4.29788 12.0089 4.06571 11.7767C3.83355 11.5445 3.64939 11.2688 3.52377 10.9654C3.39814 10.662 3.3335 10.3369 3.33354 10.0085C3.33358 9.68013 3.3983 9.35499 3.52399 9.05163C3.64969 8.74826 3.83391 8.47263 4.06613 8.24047L8.7803 3.5263L9.95863 4.70463Z" fill="#7247EC"/></svg>
+            <span style="flex:1;font-size:16px;color:#9191A1;line-height:24px;">Message</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;"><mask id="msk-v30b" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20"><path d="M19 19V1H1V19H19Z" fill="white" stroke="white" stroke-width="2"/></mask><g mask="url(#msk-v30b)"><path d="M14.7826 2H5.43618C3.53841 2 2 3.53841 2 5.43618V14.7826C2 16.6803 3.53841 18.2188 5.43618 18.2188H14.7826C16.6803 18.2188 18.2187 16.6803 18.2187 14.7826V5.43618C18.2187 3.53841 16.6803 2 14.7826 2Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.1094 6.33104C8.02187 6.33104 6.32959 8.02332 6.32959 10.1108C6.32959 12.1983 8.02187 13.8906 10.1094 13.8906C12.1969 13.8906 13.8892 12.1983 13.8892 10.1108C13.8892 8.02332 12.1969 6.33104 10.1094 6.33104Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+            <img src="https://www.figma.com/api/mcp/asset/e534d2bd-bbe0-445d-bede-e9c4a51da24d" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;" alt="" />
+          </div>
+
+          <!-- Overlay -->
+          <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:15;pointer-events:none;"></div>
+
+          <!-- Block user bottom sheet -->
+          <div style="position:absolute;bottom:0;left:0;right:0;background:#fff;border-radius:8px 8px 0 0;z-index:20;padding:24px 16px 16px;display:flex;flex-direction:column;gap:24px;">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <p style="font-size:16px;font-weight:500;color:#101010;line-height:24px;">Block Jackson Davis?</p>
+              <p style="font-size:16px;color:#686873;line-height:24px;">Blocked contacts cannot call or send you messages. This contact will not be notified.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <button style="display:block;width:100%;height:48px;background:#7247EC;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#fff;cursor:pointer;">Block</button>
+              <button style="display:block;width:100%;height:48px;background:#fff;border:1px solid #EBEBEF;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;cursor:pointer;">Cancel</button>
+            </div>
+          </div>
+        </div><!-- /screen -->
+
+        <div class="v30-home"><div class="v30-pill"></div></div>
+      </div>
+    </div><!-- /phone 2 -->
+
+  </div><!-- /row 1 -->
+
+  <div class="v30-row">
+
+    <!-- ══════════════════════════════════════════════════
+         SCREEN 3 — Chat · Blocked state
+         ══════════════════════════════════════════════════ -->
+    <div class="v30-phone">
+      <div class="v30-btn v30-btn-volu"></div>
+      <div class="v30-btn v30-btn-vold"></div>
+      <div class="v30-btn v30-btn-pwr"></div>
+      <div class="v30-inner">
+
+        <div class="v30-status">
+          <span class="v30-time">9:41</span>
+          <div class="v30-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+
+        <div class="v30-screen">
+          <!-- Header -->
+          <div class="v30-hdr">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+            <div style="position:relative;width:40px;height:40px;flex-shrink:0;">
+              <img src="amelia-avatar.png" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" alt="" />
+              <div class="online-dot-top"></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:1px;">
+              <span style="font-size:14px;font-weight:500;color:#101010;line-height:18px;">Amelia Robinson</span>
+              <div class="typing"><div class="typing-dots"><span></span><span></span><span class="big"></span></div><span class="typing-text">typing</span></div>
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#101010" style="flex-shrink:0;"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+          </div>
+
+          <!-- Conversation -->
+          <div style="position:absolute;top:56px;bottom:57px;left:0;right:0;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding:12px;background-image:url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA5L2dyYWRpYW50LWV5LTA5Ny1jLWIuanBn.jpg');background-size:cover;background-position:center;z-index:1;">
+            <div class="tschip"><span>Today 6:30 PM</span></div>
+            <div class="bs"><span class="bt">What's up Brooklyn.</span><span class="tr">6:30 PM</span></div>
+            <div class="br"><span class="bt">Finally. I just finished dinner.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:31 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Told you I'd send you something.</span><span class="tr">6:32 PM</span></div>
+            <div style="align-self:flex-start;width:200px;height:220px;border-radius:8px 8px 8px 2px;overflow:hidden;position:relative;flex-shrink:0;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR63tNePgupwZ58_7pi2Xqvqa3Q9ZIJuGGPSw&s" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt=""/>
+              <div style="position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(to top,rgba(0,0,0,0.45),transparent);"></div>
+              <span style="position:absolute;bottom:8px;right:8px;font-family:'DM Sans',sans-serif;font-size:10px;color:#fff;">6:32 PM</span>
+            </div>
+            <div class="bs"><span class="bt">You're not missing much out here either 😅</span><span class="tr">6:33 PM</span></div>
+            <div class="br"><span class="bt">Still looks better than this place.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:34 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">Not exactly Michelin star… but hey, I survive.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:35 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">…damn. That hit.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:40 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Wait—what??</span><span class="tr">6:43 PM</span></div>
+            <div class="br"><span class="bt">He still owes me from the last deal. I need you to figure out how to bring it in the next package.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:44 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="fn-l"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="#F8A80C" stroke-width="1.3"/><line x1="8" y1="5" x2="8" y2="9" stroke="#F8A80C" stroke-width="1.3" stroke-linecap="round"/><circle cx="8" cy="11.2" r="0.7" fill="#F8A80C"/></svg><span class="fn-t">This message was flagged as inappropriate.</span></div>
+            <div class="bs"><span class="bt">We can't use this app for business.</span><span class="tr">6:46 PM</span></div>
+            <div class="br"><span class="bt">Don't worry, keep it friendly.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:47 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Yes. Let's keep it clean.</span><span class="tr">6:48 PM</span></div>
+            <div class="tschip"><span>7:10 PM</span></div>
+            <div class="br"><span class="bt">I swear one day you're gonna get yourself in real trouble…</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:10 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">One day? Look who's talking 😏</span><span class="tr">7:11 PM</span></div>
+            <div class="br"><span class="bt">Yeah… fair.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:12 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">I don't want you ending up like me.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:23 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Too late for that, I already talk to you 😒</span><span class="tr">7:24 PM</span></div>
+            <div class="br"><span class="bt">HAHAHAHA</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:25 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="tschip"><span>8:00 PM</span></div>
+            <div class="bs"><span class="bt">You say that every time. Nothing changes.</span><span class="tr">8:00 PM</span></div>
+            <div class="br"><span class="bt">Then maybe we both need space.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">8:18 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Do what you want.</span><span class="tr">8:20 PM</span></div>
+          </div>
+
+          <!-- "You blocked this contact" chip -->
+          <div style="position:absolute;top:512px;left:50%;transform:translateX(-50%);background:#EBEBEF;border-radius:8px;padding:4px 16px;white-space:nowrap;z-index:5;">
+            <span style="font-size:12px;color:#101010;line-height:20px;">You blocked this contact</span>
+          </div>
+
+          <!-- Unblock bar -->
+          <div style="position:absolute;bottom:0;left:0;right:0;height:57px;background:#F4F1FD;display:flex;align-items:center;justify-content:center;z-index:5;">
+            <span style="font-size:14px;font-weight:500;color:#7247EC;line-height:22px;">Unblock Jackson Davis</span>
+          </div>
+        </div><!-- /screen -->
+
+        <div class="v30-home"><div class="v30-pill"></div></div>
+      </div>
+    </div><!-- /phone 3 -->
+
+
+    <!-- ══════════════════════════════════════════════════
+         SCREEN 4 — Chat · Unblock modal
+         ══════════════════════════════════════════════════ -->
+    <div class="v30-phone">
+      <div class="v30-btn v30-btn-volu"></div>
+      <div class="v30-btn v30-btn-vold"></div>
+      <div class="v30-btn v30-btn-pwr"></div>
+      <div class="v30-inner">
+
+        <div class="v30-status">
+          <span class="v30-time">9:41</span>
+          <div class="v30-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+
+        <div class="v30-screen">
+          <!-- Header -->
+          <div class="v30-hdr">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+            <div style="position:relative;width:40px;height:40px;flex-shrink:0;">
+              <img src="amelia-avatar.png" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" alt="" />
+              <div class="online-dot-top"></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:1px;">
+              <span style="font-size:14px;font-weight:500;color:#101010;line-height:18px;">Amelia Robinson</span>
+              <div class="typing"><div class="typing-dots"><span></span><span></span><span class="big"></span></div><span class="typing-text">typing</span></div>
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#101010" style="flex-shrink:0;"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+          </div>
+
+          <!-- Conversation -->
+          <div style="position:absolute;top:56px;bottom:57px;left:0;right:0;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding:12px;background-image:url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA5L2dyYWRpYW50LWV5LTA5Ny1jLWIuanBn.jpg');background-size:cover;background-position:center;z-index:1;">
+            <div class="tschip"><span>Today 6:30 PM</span></div>
+            <div class="bs"><span class="bt">What's up Brooklyn.</span><span class="tr">6:30 PM</span></div>
+            <div class="br"><span class="bt">Finally. I just finished dinner.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:31 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Told you I'd send you something.</span><span class="tr">6:32 PM</span></div>
+            <div style="align-self:flex-start;width:200px;height:220px;border-radius:8px 8px 8px 2px;overflow:hidden;position:relative;flex-shrink:0;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR63tNePgupwZ58_7pi2Xqvqa3Q9ZIJuGGPSw&s" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt=""/>
+              <div style="position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(to top,rgba(0,0,0,0.45),transparent);"></div>
+              <span style="position:absolute;bottom:8px;right:8px;font-family:'DM Sans',sans-serif;font-size:10px;color:#fff;">6:32 PM</span>
+            </div>
+            <div class="bs"><span class="bt">You're not missing much out here either 😅</span><span class="tr">6:33 PM</span></div>
+            <div class="br"><span class="bt">Still looks better than this place.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:34 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">Not exactly Michelin star… but hey, I survive.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:35 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">…damn. That hit.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:40 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Wait—what??</span><span class="tr">6:43 PM</span></div>
+            <div class="br"><span class="bt">He still owes me from the last deal. I need you to figure out how to bring it in the next package.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:44 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="fn-l"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="#F8A80C" stroke-width="1.3"/><line x1="8" y1="5" x2="8" y2="9" stroke="#F8A80C" stroke-width="1.3" stroke-linecap="round"/><circle cx="8" cy="11.2" r="0.7" fill="#F8A80C"/></svg><span class="fn-t">This message was flagged as inappropriate.</span></div>
+            <div class="bs"><span class="bt">We can't use this app for business.</span><span class="tr">6:46 PM</span></div>
+            <div class="br"><span class="bt">Don't worry, keep it friendly.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">6:47 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Yes. Let's keep it clean.</span><span class="tr">6:48 PM</span></div>
+            <div class="tschip"><span>7:10 PM</span></div>
+            <div class="br"><span class="bt">I swear one day you're gonna get yourself in real trouble…</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:10 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">One day? Look who's talking 😏</span><span class="tr">7:11 PM</span></div>
+            <div class="br"><span class="bt">Yeah… fair.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:12 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="br"><span class="bt">I don't want you ending up like me.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:23 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Too late for that, I already talk to you 😒</span><span class="tr">7:24 PM</span></div>
+            <div class="br"><span class="bt">HAHAHAHA</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">7:25 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="tschip"><span>8:00 PM</span></div>
+            <div class="bs"><span class="bt">You say that every time. Nothing changes.</span><span class="tr">8:00 PM</span></div>
+            <div class="br"><span class="bt">Then maybe we both need space.</span><div style="display:flex;align-items:center;gap:2px;flex-shrink:0;"><span class="ts">8:18 PM</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="bs"><span class="bt">Do what you want.</span><span class="tr">8:20 PM</span></div>
+          </div>
+
+          <!-- "You blocked this contact" chip -->
+          <div style="position:absolute;top:512px;left:50%;transform:translateX(-50%);background:#EBEBEF;border-radius:8px;padding:4px 16px;white-space:nowrap;z-index:5;">
+            <span style="font-size:12px;color:#101010;line-height:20px;">You blocked this contact</span>
+          </div>
+
+          <!-- Unblock bar (behind overlay) -->
+          <div style="position:absolute;bottom:0;left:0;right:0;height:57px;background:#F4F1FD;display:flex;align-items:center;justify-content:center;z-index:5;">
+            <span style="font-size:14px;font-weight:500;color:#7247EC;line-height:22px;">Unblock Jackson Davis</span>
+          </div>
+
+          <!-- Overlay -->
+          <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:15;pointer-events:none;"></div>
+
+          <!-- Unblock modal bottom sheet -->
+          <div style="position:absolute;bottom:0;left:0;right:0;background:#fff;border-radius:8px 8px 0 0;z-index:20;padding:24px 16px 16px;display:flex;flex-direction:column;gap:24px;">
+            <p style="font-size:16px;font-weight:500;color:#101010;line-height:24px;">Unblock Jackson Davis?</p>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <button style="display:block;width:100%;height:48px;background:#7247EC;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#fff;cursor:pointer;">Unblock</button>
+              <button style="display:block;width:100%;height:48px;background:#fff;border:1px solid #EBEBEF;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;cursor:pointer;">Cancel</button>
+            </div>
+          </div>
+        </div><!-- /screen -->
+
+        <div class="v30-home"><div class="v30-pill"></div></div>
+      </div>
+    </div><!-- /phone 4 -->
+
+  </div><!-- /row 2 -->
+
+</div>
+</body>
+</html>
