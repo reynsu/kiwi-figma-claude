@@ -14,6 +14,9 @@
       min-height: 100vh; padding: 48px 40px 56px; overflow-x: auto;
     }
     .v30-row { display: flex; align-items: flex-start; gap: 24px; }
+    .v30-row + .v30-row { margin-top: 100px; }
+    .v30-phone-wrap { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .v30-screen-label { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 400; color: #374151; }
 
     /* ── Phone outer frame ─────────────────────────────── */
     .v30-phone {
@@ -102,7 +105,9 @@
     <!-- ══════════════════════════════════════════════════
          SCREEN 1 — Chat · Menu (with Block user option)
          ══════════════════════════════════════════════════ -->
-    <div class="v30-phone">
+    <div class="v30-phone-wrap">
+      <span class="v30-screen-label">Chat Menu</span>
+      <div class="v30-phone">
       <div class="v30-btn v30-btn-volu"></div>
       <div class="v30-btn v30-btn-vold"></div>
       <div class="v30-btn v30-btn-pwr"></div>
@@ -275,12 +280,15 @@
         <div class="v30-home"><div class="v30-pill"></div></div>
       </div>
     </div><!-- /phone 1 -->
+    </div><!-- /phone-wrap 1 -->
 
 
     <!-- ══════════════════════════════════════════════════
          SCREEN 2 — Chat · Block user modal
          ══════════════════════════════════════════════════ -->
-    <div class="v30-phone">
+    <div class="v30-phone-wrap">
+      <span class="v30-screen-label">Block User</span>
+      <div class="v30-phone">
       <div class="v30-btn v30-btn-volu"></div>
       <div class="v30-btn v30-btn-vold"></div>
       <div class="v30-btn v30-btn-pwr"></div>
@@ -468,6 +476,7 @@
         <div class="v30-home"><div class="v30-pill"></div></div>
       </div>
     </div><!-- /phone 2 -->
+    </div><!-- /phone-wrap 2 -->
 
   </div><!-- /row 1 -->
 
@@ -476,7 +485,9 @@
     <!-- ══════════════════════════════════════════════════
          SCREEN 3 — Chat · Blocked state
          ══════════════════════════════════════════════════ -->
-    <div class="v30-phone">
+    <div class="v30-phone-wrap">
+      <span class="v30-screen-label">Blocked State</span>
+      <div class="v30-phone">
       <div class="v30-btn v30-btn-volu"></div>
       <div class="v30-btn v30-btn-vold"></div>
       <div class="v30-btn v30-btn-pwr"></div>
@@ -554,12 +565,15 @@
         <div class="v30-home"><div class="v30-pill"></div></div>
       </div>
     </div><!-- /phone 3 -->
+    </div><!-- /phone-wrap 3 -->
 
 
     <!-- ══════════════════════════════════════════════════
          SCREEN 4 — Chat · Unblock modal
          ══════════════════════════════════════════════════ -->
-    <div class="v30-phone">
+    <div class="v30-phone-wrap">
+      <span class="v30-screen-label">Unblock User</span>
+      <div class="v30-phone">
       <div class="v30-btn v30-btn-volu"></div>
       <div class="v30-btn v30-btn-vold"></div>
       <div class="v30-btn v30-btn-pwr"></div>
@@ -649,6 +663,7 @@
         <div class="v30-home"><div class="v30-pill"></div></div>
       </div>
     </div><!-- /phone 4 -->
+    </div><!-- /phone-wrap 4 -->
 
   </div><!-- /row 2 -->
 
