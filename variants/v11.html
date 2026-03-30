@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V11 — SMS Invitation</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+    .variant { display: flex !important; min-height: 100vh; align-items: center; justify-content: center; padding: 40px; }
+  </style>
+</head>
+<body>
+  <div class="variant active" data-variant-id="sms-invitation-android-v11">
+    <div class="android-frame">
+      <div class="btn-side btn-vol-up"></div>
+      <div class="btn-side btn-vol-dn"></div>
+      <div class="btn-side btn-power"></div>
+
+      <div class="android-inner">
+        <!-- Status bar (light) -->
+        <div style="height:36px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px;">
+          <span style="font-size:12px;font-weight:600;color:#111;font-family:'DM Sans',sans-serif;">9:41</span>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="font-size:11px;font-weight:700;color:#111;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;">5G</span>
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#111"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#111"/><rect x="1.5" y="1.5" width="17" height="8" rx="1.5" fill="#111"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#111"/></svg>
+          </div>
+        </div>
+
+        <!-- Screen -->
+        <div style="background:#F5F5F5;min-height:780px;position:relative;font-family:'DM Sans',system-ui,sans-serif;display:flex;flex-direction:column;">
+
+          <!-- Android App Bar (Material 3) -->
+          <div style="height:64px;background:#fff;display:flex;align-items:center;padding:0 4px 0 4px;gap:2px;flex-shrink:0;elevation:2;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+            <!-- Back arrow -->
+            <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;flex-shrink:0;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="#1C1B1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <!-- Phone number -->
+            <div style="flex:1;min-width:0;padding-left:4px;">
+              <span style="font-size:17px;font-weight:500;color:#1C1B1F;line-height:24px;">(866) 532-730</span>
+            </div>
+            <!-- Action icons -->
+            <div style="display:flex;align-items:center;gap:0;flex-shrink:0;">
+              <!-- More (⋮) -->
+              <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#49454F"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message area -->
+          <div style="flex:1;padding:12px 12px 80px;display:flex;flex-direction:column;gap:4px;overflow:hidden;">
+            <!-- Timestamp chip (Android Messages style) -->
+            <div style="display:flex;justify-content:center;margin:8px 0 12px;">
+              <span style="font-size:11px;color:#49454F;background:#D1F0E2;padding:4px 12px;border-radius:20px;font-family:'DM Sans',sans-serif;">Today 6:30 PM</span>
+            </div>
+
+            <!-- Received SMS bubble (Android style) -->
+            <div style="display:flex;align-items:flex-end;gap:8px;">
+              <div style="max-width:264px;">
+                <div style="background:#D1F0E2;border-radius:4px 20px 20px 20px;padding:12px 16px;">
+                  <p style="font-size:14px;line-height:20px;color:#1C1B1F;margin:0;font-family:'DM Sans',sans-serif;">James Robinson has invited you to chat on KiwiChat. Download the app from Google Play Store or Apple App Store.</p>
+                  <p style="font-size:14px;line-height:20px;color:#1C1B1F;margin:12px 0 0;font-family:'DM Sans',sans-serif;">James (DOC ID: 482917) is currently housed at Jefferson City Correctional Center.</p>
+                </div>
+                <!-- SMS label -->
+                <span style="font-size:11px;color:#49454F;margin-left:4px;margin-top:4px;display:block;font-family:'DM Sans',sans-serif;">SMS · Not delivered to chat</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Android Input bar (Material 3) -->
+          <div style="position:absolute;bottom:0;left:0;right:0;background:#fff;padding:8px 12px 12px;">
+            <div style="display:flex;align-items:center;gap:4px;background:#EBF8F2;border-radius:28px;padding:4px 4px 4px 16px;">
+              <!-- Emoji -->
+              <div style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#49454F" stroke-width="1.8"/><path d="M8.5 14s1 1.5 3.5 1.5 3.5-1.5 3.5-1.5" stroke="#49454F" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="10" r="1" fill="#49454F"/><circle cx="15" cy="10" r="1" fill="#49454F"/></svg>
+              </div>
+              <!-- Text field -->
+              <div style="flex:1;font-size:15px;color:#49454F;line-height:20px;padding:8px 4px;font-family:'DM Sans',sans-serif;">Message</div>
+              <!-- Attach -->
+              <div style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" stroke="#49454F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <!-- Mic / Send -->
+              <div style="width:40px;height:40px;border-radius:50%;background:#22A36A;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 1a3 3 0 013 3v8a3 3 0 01-6 0V4a3 3 0 013-3z" stroke="#fff" stroke-width="1.8"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /screen -->
+
+        <div class="home-bar"><div class="home-bar-pill"></div></div>
+      </div><!-- /android-inner -->
+    </div><!-- /android-frame -->
+  </div>
+</body>
+</html>

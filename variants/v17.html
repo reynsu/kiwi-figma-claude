@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V17 — Subscription Flow</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+    .variant { display: flex !important; min-height: 100vh; align-items: flex-start; justify-content: center; padding: 40px; flex-direction: row; flex-wrap: nowrap; gap: 32px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<div class="variant active" data-variant-id="subscription-flow-v17">
+
+  <!-- ── Screen 1: Chat with subscription bubble ── -->
+  <div style="display:flex;flex-direction:column;align-items:center;">
+    <span style="margin-bottom:32px;font-family:'DM Sans',sans-serif;font-size:24px;font-weight:400;color:#374151;text-align:center;">Subscribe to Chat</span>
+    <div class="android-frame">
+      <div class="btn-side btn-vol-up"></div>
+      <div class="btn-side btn-vol-dn"></div>
+      <div class="btn-side btn-power"></div>
+      <div class="android-inner">
+        <div class="android-status">
+          <span class="android-time">9:41</span>
+          <div class="android-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+        <div class="android-screen" style="background:#fff;">
+          <!-- Chat header -->
+          <div style="height:56px;background:#fff;border-bottom:1px solid #EBEBEF;display:flex;align-items:center;padding:0 16px;gap:12px;">
+            <!-- Back arrow -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            <div style="position:relative;width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;">
+              <img src="https://www.figma.com/api/mcp/asset/b173702c-21c7-4d1b-ba87-783bf4582db2" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="" />
+              <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:#101010;">BS</span>
+            </div>
+            <span style="flex:1;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:#101010;">Brooklyn Simmons</span>
+            <!-- Menu dots (kebab vertical) -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#101010" style="flex-shrink:0;">
+              <circle cx="12" cy="5" r="1.5"/>
+              <circle cx="12" cy="12" r="1.5"/>
+              <circle cx="12" cy="19" r="1.5"/>
+            </svg>
+          </div>
+
+          <!-- Chat area -->
+          <div style="flex:1;background:#F9F9FB;padding:16px;position:relative;min-height:640px;">
+            <!-- Subscription bubble -->
+            <div style="width:269px;background:#F2F4F4;border-radius:8px 8px 8px 2px;padding:8px;display:flex;flex-direction:column;gap:8px;">
+              <!-- Banner illustration -->
+              <div style="background:#E3DAFB;border-radius:8px;overflow:hidden;position:relative;height:152px;">
+                <img src="https://www.figma.com/api/mcp/asset/accedbc9-54e8-477e-9104-cbc39bbe0840" style="position:absolute;width:110%;height:116%;left:-3%;top:-8%;object-fit:cover;" alt="" />
+                <img src="https://www.figma.com/api/mcp/asset/58ed5ea8-7e83-40b9-846c-bc0d7392623c" style="position:absolute;width:84%;height:70%;top:8%;left:7%;object-fit:contain;" alt="" />
+                <!-- Kiwichat logo inside white bubble -->
+                <div style="position:absolute;top:63%;left:50%;transform:translate(-50%,-50%);width:68%;">
+                  <svg width="161" height="18" viewBox="0 0 161 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+                    <path d="M31.3845 11.2597L29.739 6.49665L29.7021 6.39844H28.1364L26.4418 11.2229L25.8155 9.07459L24.9866 6.39844H22.9727L25.3918 13.5676L25.4287 13.6658H27.3505L28.0505 11.5727L28.9285 9.1728L29.8004 11.5789L30.4758 13.5676L30.5065 13.6658H32.416L34.7861 6.58871L34.8536 6.39844H32.8397L31.3845 11.2597Z" fill="#7247EC"/><path d="M18.8652 6.63929L19.0863 6.39377H16.7347L14.4321 9.07606V3.48438H12.541V13.6673H14.4321V10.8192L16.9925 13.6182L17.0355 13.6673H19.5222L16.004 9.88628L18.8652 6.63929Z" fill="#7247EC"/><path d="M21.2333 3.40649C21.0123 3.41877 20.8035 3.49856 20.6255 3.62746C20.4474 3.75636 20.3123 3.93436 20.2386 4.14305C20.165 4.35174 20.1465 4.57271 20.2018 4.78754C20.2509 5.00236 20.3614 5.19264 20.5211 5.34609C20.6807 5.49954 20.8772 5.59775 21.0921 5.64071C21.307 5.67754 21.5281 5.65913 21.7307 5.5732C21.9333 5.48726 22.1052 5.34609 22.228 5.16195C22.3508 4.97781 22.4184 4.76912 22.4184 4.54815C22.4184 4.39471 22.3938 4.24739 22.3324 4.10622C22.2771 3.96505 22.1912 3.83615 22.0807 3.7318C21.8535 3.51084 21.5465 3.40035 21.2333 3.40649Z" fill="#7247EC"/><path d="M37.5483 6.39844H35.6572V13.6658H37.5483V6.39844Z" fill="#7247EC"/><path d="M22.1812 6.39844H20.29V13.6658H22.1812V6.39844Z" fill="#7247EC"/><path d="M68.3715 11.9342L68.3162 11.7807L68.1688 11.8544C67.911 11.9772 67.6285 12.0385 67.3461 12.0508C67.2355 12.0569 67.125 12.0385 67.0206 11.9956C66.9163 11.9526 66.8242 11.8912 66.7505 11.8114C66.597 11.6089 66.5233 11.3511 66.5417 11.0994V8.01203H68.5679V6.39774H66.5417V4.39062L64.798 4.57476H64.669V6.36091H63.3428V7.99975H64.669V11.0871C64.6199 11.8053 64.8532 12.5173 65.3199 13.0636C65.5532 13.2907 65.8356 13.4687 66.1426 13.5853C66.4496 13.7019 66.775 13.751 67.1066 13.7326C67.6776 13.7388 68.2364 13.616 68.7521 13.3766L68.8749 13.3214L68.3715 11.9342Z" fill="#7247EC"/><path d="M60.4956 7.1062C59.7711 6.51695 58.8624 6.21619 57.9291 6.25302C56.9958 6.28985 56.1116 6.66426 55.4362 7.30875C54.7793 8.06372 54.417 9.03352 54.417 10.034C54.417 11.0345 54.7793 12.0043 55.4362 12.7593C56.1055 13.4038 56.9897 13.7843 57.9229 13.8211C58.8562 13.858 59.7649 13.5511 60.4895 12.9618V13.6677H62.2087V6.40033H60.4895L60.4956 7.1062ZM60.3298 10.034C60.3421 10.3041 60.293 10.5803 60.2009 10.8319C60.1026 11.0897 59.9614 11.323 59.7711 11.5194C59.3781 11.8815 58.8624 12.0841 58.3282 12.0841C57.794 12.0841 57.2782 11.8815 56.8853 11.5194C56.5292 11.1082 56.3265 10.5803 56.3265 10.0279C56.3265 9.48159 56.523 8.95373 56.8853 8.53635C57.2782 8.16807 57.794 7.96551 58.3343 7.96551C58.8746 7.96551 59.3904 8.16807 59.7834 8.53635C60.1518 8.94759 60.3483 9.48159 60.3298 10.034Z" fill="#7247EC"/><path d="M50.1965 6.2526C49.4167 6.22805 48.6554 6.49812 48.0659 7.00143V3.48438H46.1748V13.6673H48.0659V9.84331C48.0537 9.34614 48.2379 8.86737 48.5756 8.50523C48.7475 8.33337 48.9562 8.1922 49.1834 8.10013C49.4106 8.00806 49.6562 7.96509 49.9018 7.97123C50.1167 7.95895 50.3255 7.99578 50.5219 8.07558C50.7184 8.15537 50.8965 8.27813 51.0438 8.43158C51.3386 8.80599 51.4859 9.27862 51.4614 9.75738V13.6611H53.3525V9.65917C53.3955 8.75689 53.0885 7.87302 52.499 7.17943C52.2043 6.8664 51.842 6.62702 51.4491 6.46129C51.05 6.30784 50.6263 6.23418 50.1965 6.2526Z" fill="#7247EC"/><path d="M43.9461 11.4161C43.7373 11.6371 43.4856 11.809 43.2031 11.9256C42.9207 12.0422 42.6198 12.0975 42.319 12.0852C42.0488 12.0913 41.7725 12.0422 41.5208 11.9379C41.269 11.8335 41.0357 11.6801 40.8454 11.4898C40.4831 11.0786 40.2805 10.5507 40.2805 9.99828C40.2805 9.452 40.4831 8.91799 40.8454 8.50675C41.0357 8.31033 41.2629 8.16302 41.5146 8.05868C41.7664 7.95433 42.0365 7.90523 42.3067 7.91137C42.89 7.90523 43.4487 8.13233 43.8663 8.53744L43.9706 8.64178L45.1618 7.38964L45.0574 7.29143C44.6952 6.92929 44.2592 6.64694 43.7864 6.45667C43.3137 6.26639 42.804 6.16818 42.2883 6.17432C41.2506 6.13749 40.2375 6.51805 39.47 7.22391C38.7762 7.97275 38.3955 8.95482 38.3955 9.97372C38.3955 10.9926 38.7823 11.9747 39.47 12.7235C40.2437 13.4294 41.2629 13.8038 42.3067 13.7608C42.8347 13.7731 43.3566 13.6749 43.8478 13.4785C44.339 13.2821 44.7811 12.9875 45.1495 12.613L45.2539 12.5148L44.0627 11.2259L43.9461 11.4161Z" fill="#7247EC"/><path d="M36.5998 3.40649C36.3787 3.41877 36.17 3.49856 35.9919 3.62746C35.8139 3.75636 35.6788 3.93436 35.6051 4.14305C35.5314 4.35174 35.513 4.57271 35.5683 4.78754C35.6235 5.00236 35.7279 5.19264 35.8875 5.34609C36.0472 5.49954 36.2437 5.59775 36.4586 5.64071C36.6735 5.67754 36.8945 5.65913 37.0971 5.5732C37.2997 5.48726 37.4717 5.34609 37.5945 5.16195C37.7173 4.97781 37.7848 4.76912 37.7848 4.54815C37.7848 4.39471 37.7603 4.24739 37.705 4.10622C37.6497 3.96505 37.5638 3.83615 37.4532 3.7318C37.2261 3.51084 36.9191 3.40035 36.5998 3.40649Z" fill="#7247EC"/><path d="M7.96019 5.8431C7.11287 4.99606 5.97082 4.52344 4.77966 4.52344H0.285156V9.01643C0.285156 10.2072 0.764078 11.3489 1.60526 12.1898C2.44645 13.0368 3.58849 13.5094 4.77966 13.5156H9.27416V9.01643C9.27416 7.82567 8.80137 6.684 7.96019 5.8431ZM3.90777 11.1218C3.63147 11.0051 3.37973 10.8394 3.17097 10.6307C2.96221 10.422 2.79029 10.1704 2.67977 9.89416C2.56311 9.61795 2.50785 9.32333 2.50785 9.02257C2.50171 7.76429 3.52095 6.72697 4.77966 6.72697C5.08052 6.72697 5.37524 6.78835 5.65154 6.89883C5.92784 7.01545 6.17958 7.18118 6.38834 7.38987C6.5971 7.59856 6.76902 7.85022 6.87955 8.12643C6.99621 8.40263 7.05147 8.69726 7.05147 8.99802V11.2629V11.2752V11.2936H4.77966C4.47879 11.2936 4.18407 11.2322 3.90777 11.1218Z" fill="#7247EC"/><path d="M78.34 13.8321C77.6307 13.8321 76.996 13.7107 76.436 13.4681C75.8853 13.2254 75.4467 12.8707 75.12 12.4041C74.8027 11.9374 74.6393 11.3727 74.63 10.7101H76.632C76.6413 10.9994 76.716 11.2607 76.856 11.4941C76.996 11.7274 77.1873 11.9141 77.43 12.0541C77.682 12.1847 77.9807 12.2501 78.326 12.2501C78.6247 12.2501 78.8813 12.2034 79.096 12.1101C79.32 12.0074 79.4927 11.8674 79.614 11.6901C79.7353 11.5127 79.796 11.3027 79.796 11.0601C79.796 10.7801 79.726 10.5467 79.586 10.3601C79.4553 10.1734 79.2687 10.0147 79.026 9.88406C78.7927 9.7534 78.5173 9.63673 78.2 9.53406C77.892 9.42206 77.5653 9.3054 77.22 9.18406C76.4453 8.93206 75.8527 8.59606 75.442 8.17606C75.0407 7.75606 74.84 7.20073 74.84 6.51006C74.84 5.92206 74.98 5.41806 75.26 4.99806C75.5493 4.57806 75.946 4.25606 76.45 4.03206C76.954 3.80806 77.528 3.69606 78.172 3.69606C78.8347 3.69606 79.4133 3.81273 79.908 4.04606C80.412 4.27006 80.8087 4.59673 81.098 5.02606C81.3967 5.4554 81.5507 5.9594 81.56 6.53806H79.544C79.5347 6.3234 79.4693 6.12273 79.348 5.93606C79.236 5.74006 79.0773 5.58606 78.872 5.47406C78.6667 5.35273 78.424 5.29206 78.144 5.29206C77.9013 5.28273 77.6773 5.32006 77.472 5.40406C77.276 5.48806 77.1173 5.61406 76.996 5.78206C76.884 5.94073 76.828 6.1414 76.828 6.38406C76.828 6.6174 76.884 6.8134 76.996 6.97206C77.1173 7.13073 77.2807 7.27073 77.486 7.39206C77.6913 7.50406 77.934 7.6114 78.214 7.71406C78.494 7.8074 78.7973 7.9054 79.124 8.00806C79.6093 8.17606 80.0573 8.37673 80.468 8.61006C80.8787 8.83406 81.2053 9.12806 81.448 9.49206C81.6907 9.85606 81.812 10.3367 81.812 10.9341C81.812 11.4474 81.6767 11.9234 81.406 12.3621C81.1353 12.8007 80.7433 13.1554 80.23 13.4261C79.726 13.6967 79.096 13.8321 78.34 13.8321ZM86.0189 13.8321C85.4496 13.8321 84.9596 13.7154 84.5489 13.4821C84.1476 13.2394 83.8396 12.8894 83.6249 12.4321C83.4102 11.9654 83.3029 11.3914 83.3029 10.7101V6.60806H85.1929V10.5141C85.1929 11.0834 85.3096 11.5127 85.5429 11.8021C85.7856 12.0914 86.1542 12.2361 86.6489 12.2361C86.9662 12.2361 87.2462 12.1661 87.4889 12.0261C87.7316 11.8767 87.9229 11.6667 88.0629 11.3961C88.2122 11.1161 88.2869 10.7754 88.2869 10.3741V6.60806H90.1629V13.6641H88.5109L88.3569 12.5161C88.1516 12.9174 87.8482 13.2394 87.4469 13.4821C87.0456 13.7154 86.5696 13.8321 86.0189 13.8321ZM96.1858 13.8321C95.8218 13.8321 95.4952 13.7854 95.2058 13.6921C94.9258 13.5987 94.6738 13.4727 94.4498 13.3141C94.2352 13.1461 94.0532 12.9594 93.9038 12.7541L93.6938 13.6641H92.0138V3.58406H93.9038V7.58806C94.1278 7.2614 94.4218 6.99073 94.7858 6.77606C95.1592 6.55206 95.6212 6.44006 96.1718 6.44006C96.8252 6.44006 97.4038 6.6034 97.9078 6.93006C98.4212 7.2474 98.8225 7.68606 99.1118 8.24606C99.4105 8.79673 99.5598 9.4314 99.5598 10.1501C99.5598 10.8501 99.4105 11.4801 99.1118 12.0401C98.8225 12.6001 98.4258 13.0387 97.9218 13.3561C97.4178 13.6734 96.8392 13.8321 96.1858 13.8321ZM95.7378 12.1801C96.1112 12.1801 96.4378 12.0961 96.7178 11.9281C97.0072 11.7507 97.2312 11.5127 97.3898 11.2141C97.5485 10.9061 97.6278 10.5514 97.6278 10.1501C97.6278 9.74873 97.5485 9.39406 97.3898 9.08606C97.2312 8.76873 97.0072 8.52606 96.7178 8.35806C96.4378 8.18073 96.1112 8.09206 95.7378 8.09206C95.3738 8.09206 95.0472 8.18073 94.7578 8.35806C94.4778 8.52606 94.2538 8.76406 94.0858 9.07206C93.9272 9.38006 93.8478 9.73473 93.8478 10.1361C93.8478 10.5374 93.9272 10.8967 94.0858 11.2141C94.2538 11.5221 94.4778 11.7601 94.7578 11.9281C95.0472 12.0961 95.3738 12.1801 95.7378 12.1801ZM104.072 13.8321C103.428 13.8321 102.868 13.7294 102.392 13.5241C101.916 13.3187 101.542 13.0341 101.272 12.6701C101.001 12.3061 100.847 11.8954 100.81 11.4381H102.686C102.732 11.6154 102.812 11.7787 102.924 11.9281C103.036 12.0681 103.185 12.1801 103.372 12.2641C103.558 12.3481 103.782 12.3901 104.044 12.3901C104.296 12.3901 104.501 12.3574 104.66 12.2921C104.818 12.2174 104.935 12.1194 105.01 11.9981C105.094 11.8767 105.136 11.7507 105.136 11.6201C105.136 11.4241 105.08 11.2747 104.968 11.1721C104.856 11.0601 104.692 10.9714 104.478 10.9061C104.263 10.8407 104.002 10.7754 103.694 10.7101C103.358 10.6447 103.026 10.5654 102.7 10.4721C102.382 10.3694 102.098 10.2434 101.846 10.0941C101.594 9.94473 101.393 9.7534 101.244 9.52006C101.094 9.28673 101.02 8.9974 101.02 8.65206C101.02 8.23206 101.132 7.85873 101.356 7.53206C101.58 7.19606 101.906 6.93006 102.336 6.73406C102.765 6.53806 103.283 6.44006 103.89 6.44006C104.739 6.44006 105.411 6.6314 105.906 7.01406C106.4 7.39673 106.694 7.92406 106.788 8.59606H105.01C104.954 8.3814 104.828 8.2134 104.632 8.09206C104.445 7.9614 104.193 7.89606 103.876 7.89606C103.54 7.89606 103.283 7.95673 103.106 8.07806C102.928 8.1994 102.84 8.35806 102.84 8.55406C102.84 8.68473 102.896 8.8014 103.008 8.90406C103.129 9.00673 103.297 9.0954 103.512 9.17006C103.726 9.2354 103.988 9.30073 104.296 9.36606C104.837 9.47806 105.313 9.60873 105.724 9.75806C106.134 9.89806 106.456 10.1034 106.69 10.3741C106.923 10.6354 107.04 11.0181 107.04 11.5221C107.04 11.9701 106.918 12.3714 106.676 12.7261C106.433 13.0714 106.088 13.3421 105.64 13.5381C105.201 13.7341 104.678 13.8321 104.072 13.8321ZM112.055 13.8321C111.346 13.8321 110.716 13.6734 110.165 13.3561C109.614 13.0387 109.185 12.6047 108.877 12.0541C108.569 11.5034 108.415 10.8734 108.415 10.1641C108.415 9.43606 108.569 8.79673 108.877 8.24606C109.185 7.68606 109.614 7.2474 110.165 6.93006C110.716 6.6034 111.346 6.44006 112.055 6.44006C112.96 6.44006 113.721 6.67806 114.337 7.15406C114.953 7.63006 115.345 8.2834 115.513 9.11406H113.511C113.427 8.7874 113.25 8.53073 112.979 8.34406C112.718 8.1574 112.405 8.06406 112.041 8.06406C111.714 8.06406 111.42 8.14806 111.159 8.31606C110.907 8.47473 110.706 8.71273 110.557 9.03006C110.417 9.33806 110.347 9.70673 110.347 10.1361C110.347 10.4627 110.389 10.7567 110.473 11.0181C110.557 11.2701 110.674 11.4894 110.823 11.6761C110.972 11.8534 111.15 11.9887 111.355 12.0821C111.57 12.1754 111.798 12.2221 112.041 12.2221C112.284 12.2221 112.503 12.1801 112.699 12.0961C112.904 12.0121 113.077 11.8954 113.217 11.7461C113.357 11.5874 113.455 11.3961 113.511 11.1721H115.513C115.345 11.9841 114.948 12.6327 114.323 13.1181C113.707 13.5941 112.951 13.8321 112.055 13.8321ZM117.143 13.6641V6.60806H118.823L119.005 7.91006C119.173 7.60206 119.383 7.34073 119.635 7.12606C119.896 6.9114 120.19 6.7434 120.517 6.62206C120.853 6.50073 121.221 6.44006 121.623 6.44006V8.44206H120.979C120.699 8.44206 120.437 8.47473 120.195 8.54006C119.961 8.6054 119.756 8.71273 119.579 8.86206C119.401 9.00206 119.266 9.19806 119.173 9.45006C119.079 9.70206 119.033 10.0194 119.033 10.4021V13.6641H117.143ZM122.913 13.6641V6.60806H124.803V13.6641H122.913ZM123.865 5.64206C123.529 5.64206 123.249 5.54406 123.025 5.34806C122.811 5.14273 122.703 4.88606 122.703 4.57806C122.703 4.27006 122.811 4.01806 123.025 3.82206C123.249 3.61673 123.529 3.51406 123.865 3.51406C124.211 3.51406 124.491 3.61673 124.705 3.82206C124.929 4.01806 125.041 4.27006 125.041 4.57806C125.041 4.88606 124.929 5.14273 124.705 5.34806C124.491 5.54406 124.211 5.64206 123.865 5.64206ZM126.713 16.7441V6.60806H128.393L128.603 7.58806C128.752 7.38273 128.93 7.19606 129.135 7.02806C129.34 6.85073 129.583 6.71073 129.863 6.60806C130.152 6.49606 130.488 6.44006 130.871 6.44006C131.534 6.44006 132.117 6.6034 132.621 6.93006C133.125 7.25673 133.522 7.70006 133.811 8.26006C134.11 8.81073 134.259 9.4314 134.259 10.1501C134.259 10.8594 134.11 11.4941 133.811 12.0541C133.512 12.6047 133.111 13.0387 132.607 13.3561C132.103 13.6734 131.529 13.8321 130.885 13.8321C130.362 13.8321 129.91 13.7387 129.527 13.5521C129.154 13.3561 128.846 13.0901 128.603 12.7541V16.7441H126.713ZM130.437 12.1801C130.81 12.1801 131.137 12.0961 131.417 11.9281C131.706 11.7601 131.93 11.5221 132.089 11.2141C132.248 10.9061 132.327 10.5514 132.327 10.1501C132.327 9.74873 132.248 9.39406 132.089 9.08606C131.93 8.76873 131.706 8.52606 131.417 8.35806C131.137 8.18073 130.81 8.09206 130.437 8.09206C130.073 8.09206 129.746 8.18073 129.457 8.35806C129.177 8.52606 128.953 8.76406 128.785 9.07206C128.626 9.38006 128.547 9.73473 128.547 10.1361C128.547 10.5374 128.626 10.8967 128.785 11.2141C128.953 11.5221 129.177 11.7601 129.457 11.9281C129.746 12.0961 130.073 12.1801 130.437 12.1801ZM138.791 13.6641C138.297 13.6641 137.863 13.5894 137.489 13.4401C137.125 13.2814 136.841 13.0247 136.635 12.6701C136.43 12.3061 136.327 11.8114 136.327 11.1861V8.19006H135.123V6.60806H136.327L136.537 4.69006H138.217V6.60806H140.079V8.19006H138.217V11.2141C138.217 11.5314 138.287 11.7507 138.427 11.8721C138.567 11.9934 138.805 12.0541 139.141 12.0541H140.065V13.6641H138.791ZM141.712 13.6641V6.60806H143.602V13.6641H141.712ZM142.664 5.64206C142.328 5.64206 142.048 5.54406 141.824 5.34806C141.609 5.14273 141.502 4.88606 141.502 4.57806C141.502 4.27006 141.609 4.01806 141.824 3.82206C142.048 3.61673 142.328 3.51406 142.664 3.51406C143.009 3.51406 143.289 3.61673 143.504 3.82206C143.728 4.01806 143.84 4.27006 143.84 4.57806C143.84 4.88606 143.728 5.14273 143.504 5.34806C143.289 5.54406 143.009 5.64206 142.664 5.64206ZM148.844 13.8321C148.172 13.8321 147.565 13.6781 147.024 13.3701C146.492 13.0527 146.067 12.6187 145.75 12.0681C145.442 11.5081 145.288 10.8687 145.288 10.1501C145.288 9.41273 145.442 8.76873 145.75 8.21806C146.067 7.65806 146.497 7.22406 147.038 6.91606C147.579 6.59873 148.186 6.44006 148.858 6.44006C149.539 6.44006 150.146 6.59873 150.678 6.91606C151.219 7.22406 151.644 7.65806 151.952 8.21806C152.269 8.76873 152.428 9.40806 152.428 10.1361C152.428 10.8641 152.269 11.5081 151.952 12.0681C151.644 12.6187 151.219 13.0527 150.678 13.3701C150.137 13.6781 149.525 13.8321 148.844 13.8321ZM148.844 12.1941C149.161 12.1941 149.441 12.1194 149.684 11.9701C149.936 11.8207 150.132 11.5921 150.272 11.2841C150.421 10.9761 150.496 10.5934 150.496 10.1361C150.496 9.67873 150.421 9.30073 150.272 9.00206C150.132 8.69406 149.936 8.4654 149.684 8.31606C149.441 8.1574 149.166 8.07806 148.858 8.07806C148.559 8.07806 148.284 8.1574 148.032 8.31606C147.78 8.4654 147.579 8.69406 147.43 9.00206C147.29 9.30073 147.22 9.67873 147.22 10.1361C147.22 10.5934 147.29 10.9761 147.43 11.2841C147.579 11.5921 147.775 11.8207 148.018 11.9701C148.27 12.1194 148.545 12.1941 148.844 12.1941ZM154.057 13.6641V6.60806H155.723L155.863 7.75606C156.077 7.36406 156.381 7.04673 156.773 6.80406C157.174 6.5614 157.65 6.44006 158.201 6.44006C158.789 6.44006 159.283 6.5614 159.685 6.80406C160.086 7.04673 160.389 7.4014 160.595 7.86806C160.809 8.33473 160.917 8.90873 160.917 9.59006V13.6641H159.041V9.77206C159.041 9.21206 158.919 8.78273 158.677 8.48406C158.443 8.1854 158.079 8.03606 157.585 8.03606C157.267 8.03606 156.983 8.11073 156.731 8.26006C156.488 8.4094 156.297 8.62406 156.157 8.90406C156.017 9.17473 155.947 9.50606 155.947 9.89806V13.6641H154.057Z" fill="#7247EC"/>
+                  </svg>
+                </div>
+              </div>
+              <!-- Body text -->
+              <div style="padding:0 6px 4px;">
+                <p style="font-family:'DM Sans',sans-serif;font-size:16px;line-height:24px;color:#101010;">Subscribe to chat with prison contacts from the Missouri Department of Corrections.</p>
+              </div>
+              <!-- Divider + Subscribe link -->
+              <div style="border-top:1px solid #DADAE2;padding:8px 6px 4px;text-align:center;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#7247EC;">Subscribe</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message input (dimmed) -->
+          <div style="position:absolute;bottom:0;left:0;right:0;height:57px;background:#fff;border-top:1px solid #EBEBEF;display:flex;align-items:center;padding:0 16px;gap:12px;opacity:0.35;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#686873" stroke-width="1.8" stroke-linecap="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+            <span style="flex:1;font-family:'DM Sans',sans-serif;font-size:16px;color:#9191A1;">Message</span>
+            <img src="https://www.figma.com/api/mcp/asset/d1ba2792-da9f-406a-b9ed-1ce38c753792" style="width:24px;height:24px;object-fit:contain;" alt="" />
+            <img src="https://www.figma.com/api/mcp/asset/e08e6798-0bd8-4911-8633-9a548f8e1517" style="width:24px;height:24px;object-fit:contain;" alt="" />
+          </div>
+        </div>
+        <div class="home-bar"><div class="home-bar-pill"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Screen 2: Subscription features modal ── -->
+  <div style="display:flex;flex-direction:column;align-items:center;">
+    <span style="margin-bottom:32px;font-family:'DM Sans',sans-serif;font-size:24px;font-weight:400;color:#374151;text-align:center;">Subscription Details</span>
+    <div class="android-frame">
+      <div class="btn-side btn-vol-up"></div>
+      <div class="btn-side btn-vol-dn"></div>
+      <div class="btn-side btn-power"></div>
+      <div class="android-inner">
+        <div class="android-status">
+          <span class="android-time">9:41</span>
+          <div class="android-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+        <div class="android-screen" style="background:#fff;min-height:780px;position:relative;">
+          <!-- Close button -->
+          <div style="position:absolute;top:16px;right:16px;z-index:2;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </div>
+
+          <!-- Banner illustration (node 20128:33952) -->
+          <div style="position:absolute;top:24px;left:50%;transform:translateX(-50%);width:257px;border-radius:8px;overflow:hidden;background:#E3DAFB;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;">
+            <div style="position:relative;width:218px;height:136px;flex-shrink:0;">
+              <!-- background-complete -->
+              <div style="position:absolute;top:11.03%;right:0.23%;bottom:-5.47%;left:-2.98%;">
+                <img src="https://www.figma.com/api/mcp/asset/6548ba10-74fa-4b3a-8094-f7471ab9df3b" style="position:absolute;width:100%;height:100%;object-fit:cover;" alt="" />
+              </div>
+              <!-- Character -->
+              <div style="position:absolute;top:7.96%;right:6.65%;bottom:21.32%;left:7.11%;">
+                <img src="https://www.figma.com/api/mcp/asset/0ddfb33e-0abb-4ee5-bb64-3bb7e85d6a36" style="position:absolute;width:100%;height:100%;object-fit:contain;" alt="" />
+              </div>
+              <!-- Group2: small decorative element bottom-center, rotated -->
+              <div style="position:absolute;top:79.41%;right:40.51%;bottom:5.78%;left:50.23%;display:flex;align-items:center;justify-content:center;">
+                <img src="https://www.figma.com/api/mcp/asset/220f3e79-caec-4197-8778-31c3280c7edf" style="width:16.488px;height:16.428px;transform:rotate(-165deg) scaleY(-1);display:block;" alt="" />
+              </div>
+              <!-- KiwiChat logo inside white pill -->
+              <div style="position:absolute;top:55.15%;bottom:31.62%;left:calc(50% - 44.73px);transform:translateX(-50%);width:69.545px;display:flex;align-items:center;">
+                <div style="position:relative;width:69.309px;height:11.139px;flex-shrink:0;">
+                  <div style="position:absolute;top:-0.21%;right:0.63%;bottom:6.68%;left:0.41%;">
+                    <img src="https://www.figma.com/api/mcp/asset/1d1f0285-5837-4fa3-8103-739ffef058fb" style="position:absolute;width:100%;height:100%;object-fit:contain;" alt="" />
+                  </div>
+                </div>
+              </div>
+              <!-- Group1: decorative element top-left, rotated -15deg -->
+              <div style="position:absolute;top:19.11%;right:80.21%;bottom:57.67%;left:5.28%;display:flex;align-items:center;justify-content:center;">
+                <img src="https://www.figma.com/api/mcp/asset/b2a14a31-64e8-47d5-a2ab-b1c3510bcf7a" style="width:25.854px;height:25.76px;transform:rotate(-15deg);display:block;" alt="" />
+              </div>
+              <!-- Group3: small element right side -->
+              <div style="position:absolute;top:16.18%;right:12.23%;bottom:69.28%;left:73.17%;">
+                <img src="https://www.figma.com/api/mcp/asset/72c58c76-1db9-4351-8c5b-6eacf4ba1eb4" style="position:absolute;width:100%;height:100%;object-fit:contain;" alt="" />
+              </div>
+              <!-- Group4: small element right side lower -->
+              <div style="position:absolute;top:29.73%;right:2.22%;bottom:25.54%;left:77.89%;">
+                <img src="https://www.figma.com/api/mcp/asset/57cb8ebe-887e-4df4-a963-69973cb61e2e" style="position:absolute;width:100%;height:100%;object-fit:contain;" alt="" />
+              </div>
+              <!-- "Subscription" text label -->
+              <p style="position:absolute;left:103.5px;top:72.66px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:#7247EC;white-space:nowrap;line-height:22px;">Subscription</p>
+            </div>
+          </div>
+
+          <!-- Text + features (top:200px matches Figma) -->
+          <div style="position:absolute;top:200px;left:16px;right:16px;">
+            <p style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;margin-bottom:24px;text-align:center;">Subscribe to chat with prison contacts from the Missouri Department of Corrections.</p>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <!-- Messages -->
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                  <svg width="21" height="21" viewBox="0 0 21 21" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5667 7.18242C15.0484 7.06149 14.5167 7 13.9819 7C10.1083 7 7 10.1825 7 14.0242C7 14.6075 7.0731 15.1873 7.21666 15.75H1.75L1.79831 15.7016V8.73384C1.79831 7.81671 1.9788 6.90856 2.32934 6.06124C2.6799 5.21392 3.19374 4.44402 3.8415 3.79552C4.48926 3.14702 5.25828 2.63258 6.10463 2.28161C6.95097 1.93064 7.85809 1.75 8.77417 1.75C12.0779 1.75 14.8453 4.08488 15.5667 7.18242Z" fill="#7247EC"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9819 19.25H19.2138V19.2137V13.9879C19.2138 13.3 19.0784 12.6189 18.8155 11.9834C18.5526 11.3479 18.1672 10.7705 17.6814 10.2841C17.1956 9.79776 16.6188 9.41194 15.984 9.14871C15.3493 8.88548 14.6689 8.75 13.9819 8.75C11.0924 8.75 8.75 11.1314 8.75 14.0242C8.75 14.7114 8.88541 15.392 9.14849 16.0268C9.41156 16.6616 9.79713 17.2382 10.2831 17.7236C10.7691 18.2091 11.3459 18.5937 11.9806 18.8556C12.6153 19.1176 13.2954 19.2515 13.9819 19.25Z" fill="#7247EC"/>
+                  </svg>
+                </div>
+                <div>
+                  <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Messages</p>
+                  <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#9191A1;line-height:22px;">Instantly connect and share thoughts, updates, and moments.</p>
+                </div>
+              </div>
+              <!-- Photos -->
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <path d="M21.6087 8.78261H19.5217L18.3696 7.04348C17.9348 6.3913 17.1739 6 16.3913 6H11.6087C10.8261 6 10.0652 6.3913 9.63043 7.04348L8.47826 8.78261H6.3913C5.06522 8.78261 4 9.84783 4 11.1739V19.6087C4 20.9348 5.06522 22 6.3913 22H21.6087C22.9348 22 24 20.9348 24 19.6087V11.1739C24 9.84783 22.9348 8.78261 21.6087 8.78261ZM14 20.0435C11.0217 20.0435 8.6087 17.6304 8.6087 14.6522C8.6087 11.6739 11.0217 9.28261 14 9.28261C16.9783 9.28261 19.3913 11.6957 19.3913 14.6739C19.3913 17.6304 16.9783 20.0435 14 20.0435ZM21.3043 12.1522C21.2826 12.1522 21.2609 12.1522 21.2174 12.1522H20.3478C19.9565 12.1304 19.6522 11.8043 19.6739 11.413C19.6957 11.0435 19.9783 10.7609 20.3478 10.7391H21.2174C21.6087 10.7174 21.9348 11.0217 21.9565 11.413C21.9783 11.8043 21.6957 12.1304 21.3043 12.1522Z" fill="#7247EC"/>
+                    <path d="M14.002 11.6719C12.3498 11.6719 11.002 13.0197 11.002 14.6719C11.002 16.324 12.3498 17.6501 14.002 17.6501C15.6541 17.6501 17.002 16.3023 17.002 14.6501C17.002 12.998 15.6541 11.6719 14.002 11.6719Z" fill="#7247EC"/>
+                  </svg>
+                </div>
+                <div>
+                  <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Photos</p>
+                  <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#9191A1;line-height:22px;">Capture moments and share them instantly.</p>
+                </div>
+              </div>
+              <!-- Voice Notes -->
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                  <svg width="14" height="21" viewBox="0 0 14 21" fill="none">
+                    <path d="M7 13.999C8.06953 13.999 8.98481 13.6182 9.74631 12.857C10.5077 12.0958 10.8884 11.18 10.8884 10.1106V3.8888C10.8884 2.81935 10.508 1.90399 9.74631 1.1424C8.98481 0.380984 8.06953 0 7 0C5.9306 0 5.01519 0.380984 4.25364 1.1424C3.49206 1.90386 3.11133 2.81935 3.11133 3.8888V10.1106C3.11133 11.18 3.49223 12.0958 4.25364 12.857C5.01506 13.6182 5.9306 13.999 7 13.999Z" fill="#7247EC"/>
+                    <path d="M13.7682 8.0122C13.6147 7.85825 13.4321 7.78125 13.2214 7.78125C13.011 7.78125 12.8287 7.85825 12.6746 8.0122C12.5208 8.16611 12.4439 8.34836 12.4439 8.55892V10.1145C12.4439 11.6133 11.9111 12.8953 10.8457 13.9606C9.78067 15.026 8.49854 15.5586 6.99967 15.5586C5.50084 15.5586 4.21884 15.026 3.15343 13.9606C2.08816 12.8956 1.55556 11.6134 1.55556 10.1145V8.55892C1.55556 8.34836 1.47857 8.16611 1.3247 8.0122C1.17075 7.85825 0.988661 7.78125 0.777888 7.78125C0.567114 7.78125 0.384815 7.85825 0.230949 8.0122C0.0769546 8.16611 0 8.34836 0 8.55892V10.1145C0 11.9049 0.597589 13.4625 1.79243 14.7869C2.98731 16.1114 4.46379 16.8709 6.22191 17.0652V18.6694H3.111C2.90035 18.6694 2.71809 18.7465 2.56419 18.9005C2.41023 19.0543 2.33324 19.2366 2.33324 19.4473C2.33324 19.6576 2.41023 19.8403 2.56419 19.9941C2.71809 20.1479 2.90035 20.2251 3.111 20.2251H10.8881C11.0987 20.2251 11.2812 20.1479 11.4349 19.9941C11.5891 19.8403 11.6661 19.6576 11.6661 19.4473C11.6661 19.2367 11.5891 19.0543 11.4349 18.9005C11.2813 18.7465 11.0988 18.6694 10.8881 18.6694H7.7776V17.0652C9.53542 16.8709 11.0118 16.1114 12.2068 14.7869C13.4018 13.4625 13.9995 11.9049 13.9995 10.1145V8.55892C13.9995 8.34841 13.9224 8.16628 13.7682 8.0122Z" fill="#7247EC"/>
+                  </svg>
+                </div>
+                <div>
+                  <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Voice Notes</p>
+                  <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#9191A1;line-height:22px;">Chat with your voice to add a personal touch.</p>
+                </div>
+              </div>
+              <!-- Video Messages -->
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M2.96364 0.609091L6.9 4.54545H0.0818181C0.220949 3.7097 0.554141 2.91822 1.05463 2.23458C1.55512 1.55094 2.20896 0.99421 2.96364 0.609091ZM8.25455 4.29416e-07H5.45455C5.28182 4.29416e-07 5.10909 0.00909132 4.93636 0.0181822L9.46364 4.54545H12.8L8.25455 4.29416e-07ZM14.5455 4.29416e-07H10.8364L15.3818 4.54545H19.9182C19.7052 3.27461 19.0485 2.12047 18.0648 1.2882C17.081 0.455939 15.834 -0.000511065 14.5455 4.29416e-07ZM8.61991 15.1145L13.1654 12.6145C13.3081 12.5362 13.4272 12.421 13.5101 12.2809C13.593 12.1408 13.6368 11.981 13.6368 11.8182C13.6368 11.6554 13.593 11.4956 13.5101 11.3555C13.4272 11.2154 13.3081 11.1001 13.1654 11.0218L8.61991 8.52182C8.4815 8.4457 8.32565 8.40695 8.1677 8.40941C8.00976 8.41186 7.85519 8.45542 7.71921 8.5358C7.58323 8.61619 7.47054 8.73061 7.39225 8.8678C7.31396 9.005 7.27276 9.16022 7.27273 9.31818V14.3182C7.27276 14.4761 7.31396 14.6314 7.39225 14.7686C7.47054 14.9058 7.58323 15.0202 7.71921 15.1006C7.85519 15.1809 8.00976 15.2245 8.1677 15.227C8.32565 15.2294 8.4815 15.1907 8.61991 15.1145ZM20 6.36364V14.5455C19.9988 15.9917 19.4238 17.3785 18.4011 18.4011C17.3785 19.4238 15.9917 19.9988 14.5455 20H5.45455C4.00826 19.9988 2.62155 19.4238 1.59888 18.4011C0.5762 17.3785 0.00115564 15.9917 0 14.5455V6.36364H20Z" fill="#7247EC"/>
+                  </svg>
+                </div>
+                <div>
+                  <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Video Messages</p>
+                  <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#9191A1;line-height:22px;">Share experiences as they happen.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom: button + legal -->
+          <div style="position:absolute;bottom:16px;left:16px;right:16px;display:flex;flex-direction:column;gap:8px;align-items:center;">
+            <button style="width:100%;height:48px;background:#7247EC;border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;border:none;cursor:pointer;">Subscribe for <span style="filter:blur(6px);user-select:none;">$8</span> per month</button>
+            <p style="font-family:'DM Sans',sans-serif;font-size:12px;color:#9191A1;line-height:20px;width:100%;">By subscribing, you agree to the <span style="color:#7247EC;font-weight:500;">Kiwichat terms of service</span> and <span style="color:#7247EC;font-weight:500;">Privacy policy</span>. Your subscription will renew every month unless canceled.</p>
+          </div>
+        </div><!-- /android-screen -->
+        <div class="home-bar"><div class="home-bar-pill"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Screen 3: Apple Pay sheet ── -->
+  <div style="display:flex;flex-direction:column;align-items:center;">
+    <span style="margin-bottom:32px;font-family:'DM Sans',sans-serif;font-size:24px;font-weight:400;color:#374151;text-align:center;">Apple Pay Confirmation</span>
+    <div class="android-frame">
+      <div class="btn-side btn-vol-up"></div>
+      <div class="btn-side btn-vol-dn"></div>
+      <div class="btn-side btn-power"></div>
+      <div class="android-inner">
+        <div class="android-status">
+          <span class="android-time">9:41</span>
+          <div class="android-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+        <div class="android-screen" style="background:#fff;min-height:780px;position:relative;overflow:hidden;">
+          <!-- Blurred background: simulated screen content + blur + dark tint -->
+          <div style="position:absolute;inset:-24px;filter:blur(14px);overflow:hidden;">
+            <div style="position:absolute;inset:24px;background:#fff;">
+              <div style="position:absolute;top:56px;left:16px;right:16px;height:160px;background:#E3DAFB;border-radius:8px;"></div>
+              <div style="position:absolute;top:250px;left:16px;right:16px;height:1px;background:#e5e5ea;"></div>
+              <div style="position:absolute;top:268px;left:16px;width:24px;height:24px;background:#7247EC;border-radius:50%;opacity:0.9;"></div>
+              <div style="position:absolute;top:312px;left:16px;width:24px;height:24px;background:#7247EC;border-radius:50%;opacity:0.9;"></div>
+              <div style="position:absolute;top:356px;left:16px;width:24px;height:24px;background:#7247EC;border-radius:50%;opacity:0.9;"></div>
+              <div style="position:absolute;top:400px;left:16px;width:24px;height:24px;background:#7247EC;border-radius:50%;opacity:0.9;"></div>
+              <div style="position:absolute;bottom:80px;left:16px;right:16px;height:48px;background:#7247EC;border-radius:8px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);"></div>
+
+          <!-- "Double Click to Pay" animation hint -->
+          <div style="position:absolute;top:87px;right:24px;color:#fff;text-align:right;font-family:'DM Sans',sans-serif;font-size:18px;font-weight:400;line-height:1.4;">
+            Double Click<br>to Pay
+          </div>
+          <!-- Side button indicator line -->
+          <div style="position:absolute;top:82px;right:4px;width:3px;height:60px;background:#fff;border-radius:0 2px 2px 0;opacity:0.9;"></div>
+
+          <!-- Apple Pay bottom sheet -->
+          <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(243,242,248,0.97);border-radius:20px 20px 0 0;padding:0 0 24px;">
+            <!-- Sheet header -->
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 14px 7px;">
+              <div style="display:flex;align-items:center;gap:4px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#000"><path d="M17.05 11.44c-.02-2.17 1.77-3.22 1.85-3.27-1.01-1.48-2.58-1.68-3.14-1.7-1.34-.14-2.62.79-3.3.79-.68 0-1.73-.77-2.85-.75-1.46.02-2.81.85-3.56 2.15-1.52 2.63-.39 6.52 1.09 8.65.72 1.04 1.58 2.21 2.71 2.17 1.09-.04 1.5-.7 2.82-.7 1.32 0 1.69.7 2.84.68 1.17-.02 1.91-1.06 2.62-2.11.83-1.21 1.17-2.38 1.19-2.44-.03-.01-2.25-.86-2.27-3.47zm-2.12-6.37c.6-.73 1-1.74.89-2.75-.86.03-1.9.57-2.52 1.29-.55.64-1.03 1.66-.9 2.64.96.07 1.94-.49 2.53-1.18z"/></svg>
+                <span style="font-family:-apple-system,'SF Pro Display',system-ui,sans-serif;font-size:20px;font-weight:500;color:#000;letter-spacing:-0.3px;">Pay</span>
+              </div>
+              <div style="width:29px;height:29px;background:#e5e5ea;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#636366" stroke-width="1.8" stroke-linecap="round">
+                  <line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Options area -->
+            <div style="padding:0 14px;display:flex;flex-direction:column;gap:7px;">
+              <!-- Revolut Visa card row -->
+              <div style="background:#fff;border-radius:12px;padding:16px 14px;display:flex;align-items:center;gap:14px;">
+                <img src="https://www.figma.com/api/mcp/asset/57772217-1f53-40b3-8ee4-ff343f1fe1e1" style="width:34px;height:22px;border-radius:4px;object-fit:cover;flex-shrink:0;" alt="" />
+                <div style="flex:1;">
+                  <p style="font-family:'Inter',sans-serif;font-size:14px;color:#000;line-height:1.2;margin-bottom:4px;">Revolut Visa</p>
+                  <p style="font-family:'Inter',sans-serif;font-size:13px;color:#9f9fa5;letter-spacing:2px;">•••• 1234</p>
+                </div>
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="#d6d6d6" stroke-width="2" stroke-linecap="round"><path d="M1 1l6 6-6 6"/></svg>
+              </div>
+
+              <!-- KiwiChat Subscription product card -->
+              <div style="background:#fff;border-radius:12px;padding:16px 14px;display:flex;flex-direction:column;gap:14px;">
+                <!-- Header row -->
+                <div style="display:flex;align-items:center;gap:14px;">
+                  <img src="https://www.figma.com/api/mcp/asset/376ef820-8319-46e3-a05d-d7b76403bc1d" style="width:44px;height:44px;border-radius:10px;object-fit:cover;flex-shrink:0;" alt="" />
+                  <div>
+                    <p style="font-family:'Inter',sans-serif;font-size:14px;color:#000;line-height:1.3;">KiwiChat Subscription</p>
+                    <p style="font-family:'Inter',sans-serif;font-size:13px;color:#9f9fa5;margin-top:2px;">Kiwichat</p>
+                  </div>
+                </div>
+                <hr style="border:none;border-top:1px solid #e5e5ea;margin:0;" />
+                <!-- Price -->
+                <p style="font-family:'Inter',sans-serif;font-size:18px;font-weight:500;color:#000;"><span style="filter:blur(6px);user-select:none;">$5</span>/month</p>
+                <hr style="border:none;border-top:1px solid #e5e5ea;margin:0;" />
+                <!-- Cancel info -->
+                <p style="font-family:'Inter',sans-serif;font-size:11px;color:#000;line-height:1.4;">Cancel at any time in Settings - Apple ID at least one day before each renewal date. Plan automatically renews until cancelled.</p>
+                <hr style="border:none;border-top:1px solid #e5e5ea;margin:0;" />
+                <!-- Account -->
+                <p style="font-family:'Inter',sans-serif;font-size:11px;color:#000;">Account: mail@mail.com</p>
+              </div>
+            </div>
+
+            <!-- Confirm with Side Button -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:16px;padding:0 14px;">
+              <div style="position:relative;width:35px;height:35px;">
+                <img src="https://www.figma.com/api/mcp/asset/126f0f01-b11d-456d-855e-d3d9753b3417" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" alt="" />
+                <img src="https://www.figma.com/api/mcp/asset/dfe0e882-4802-4941-9e35-2b1aa1e3ff9f" style="position:absolute;left:0;top:5px;width:53%;height:90%;object-fit:contain;" alt="" />
+              </div>
+              <p style="font-family:'Inter',sans-serif;font-size:12px;color:#000;text-align:center;">Confirm with Side Button</p>
+            </div>
+          </div>
+        </div>
+        <div class="home-bar"><div class="home-bar-pill"></div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

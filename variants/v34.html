@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V34 — Delete Account Flow</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #fff; font-family: 'DM Sans', sans-serif; }
+    .v34-wrap { display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 48px 32px 56px; }
+    .v34-row { display: flex; align-items: flex-start; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    .v34-phone { position: relative; flex-shrink: 0; background: #1C1C1E; border-radius: 44px; padding: 12px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.09); }
+    .v34-btn { position: absolute; background: #2C2C2E; }
+    .v34-btn-volu { left: -3px; top: 100px; width: 3px; height: 32px; border-radius: 2px 0 0 2px; }
+    .v34-btn-vold { left: -3px; top: 143px; width: 3px; height: 32px; border-radius: 2px 0 0 2px; }
+    .v34-btn-pwr  { right: -3px; top: 120px; width: 3px; height: 56px; border-radius: 0 2px 2px 0; }
+    .v34-inner { background: #fff; border-radius: 34px; overflow: hidden; width: 360px; }
+    .v34-status { height: 28px; background: #000; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; }
+    .v34-time { font-size: 12px; font-weight: 600; color: #fff; }
+    .v34-icons { display: flex; align-items: center; gap: 4px; }
+    .v34-screen { width: 360px; height: 732px; position: relative; overflow: hidden; background: #fff; }
+    .v34-hdr { position: absolute; top: 0; left: 0; right: 0; height: 56px; background: #fff; display: flex; align-items: center; justify-content: center; }
+    .v34-home { height: 20px; background: #fff; display: flex; align-items: center; justify-content: center; }
+    .v34-pill { width: 120px; height: 4px; background: #D1D5DB; border-radius: 2px; }
+    .v34-label { margin-bottom: 32px; font-size: 24px; font-weight: 400; color: #374151; text-align: center; }
+    .warn-list { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #59585A; line-height: 22px; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+    .status-svg { display: flex; align-items: center; gap: 4px; }
+  </style>
+</head>
+<body>
+<div class="v34-wrap">
+  <div class="v34-row">
+
+    <!-- ══════════════ SCREEN 1: Account ══════════════ -->
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <p class="v34-label">Menu</p>
+      <div class="v34-phone">
+        <div class="v34-btn v34-btn-volu"></div>
+        <div class="v34-btn v34-btn-vold"></div>
+        <div class="v34-btn v34-btn-pwr"></div>
+        <div class="v34-inner">
+          <div class="v34-status">
+            <span class="v34-time">9:41</span>
+            <div class="v34-icons">
+              <svg width="17" height="12" viewBox="0 0 17 12" fill="none"><rect x="0" y="4" width="3" height="8" rx="1" fill="white" fill-opacity="0.4"/><rect x="4.5" y="2.5" width="3" height="9.5" rx="1" fill="white" fill-opacity="0.65"/><rect x="9" y="1" width="3" height="11" rx="1" fill="white" fill-opacity="0.85"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="white"/></svg>
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M8 2C5.33 2 2.93 3.1 1.2 4.9L0 3.7C2.07 1.4 5.03 0 8 0s5.93 1.4 8 3.7L14.8 4.9C13.07 3.1 10.67 2 8 2z" fill="white" opacity="0.4"/><path d="M8 5.5c-1.52 0-2.9.6-3.93 1.6L2.67 5.7C4.03 4.35 5.93 3.5 8 3.5s3.97.85 5.33 2.2L11.93 7.1A4.98 4.98 0 008 5.5z" fill="white" opacity="0.7"/><circle cx="8" cy="10" r="2" fill="white"/></svg>
+              <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="0.5" y="0.5" width="21" height="12" rx="3.5" stroke="white" stroke-opacity="0.35"/><rect x="2" y="2" width="17" height="9" rx="2" fill="white"/><path d="M23 4.5v4c1-.3 1.8-1 1.8-2s-.8-1.7-1.8-2z" fill="white" fill-opacity="0.4"/></svg>
+            </div>
+          </div>
+          <div class="v34-screen">
+            <!-- Header -->
+            <div class="v34-hdr">
+              <div style="position:absolute;left:16px;width:24px;height:24px;display:flex;align-items:center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;">Account</span>
+            </div>
+
+            <!-- Avatar -->
+            <div style="position:absolute;top:72px;left:calc(50% - 64px);width:128px;height:128px;border-radius:50%;overflow:hidden;">
+              <img src="../shared/amelia-avatar.png" style="width:100%;height:100%;object-fit:cover;" alt="" />
+            </div>
+
+            <!-- Edit badge -->
+            <div style="position:absolute;top:170px;left:calc(50% + 32px);width:30px;height:30px;background:#F4F1FD;border:1px solid #fff;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M11.5 2.5a1.414 1.414 0 012 2L5 13H3v-2L11.5 2.5z" stroke="#7247EC" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4l2 2" stroke="#7247EC" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+
+            <!-- Profile info block -->
+            <div style="position:absolute;top:224px;left:16px;width:328px;display:flex;flex-direction:column;gap:16px;">
+              <p style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;color:#9191A1;line-height:20px;">Your profile name and photo can be seen by your chat contacts.</p>
+              <div style="position:relative;height:56px;">
+                <div style="position:absolute;left:0;top:0;display:flex;flex-direction:column;gap:12px;">
+                  <div style="display:flex;gap:12px;align-items:center;">
+                    <div style="position:relative;width:20px;height:20px;flex-shrink:0;">
+                      <img src="https://www.figma.com/api/mcp/asset/a3c39bb6-d7d4-48cd-bca2-7b3858da5e89" style="position:absolute;top:16.15%;left:20.51%;right:20.51%;bottom:16.15%;width:59%;height:67.7%;object-fit:contain;" alt="" />
+                    </div>
+                    <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;color:#101010;line-height:22px;">Amelia Robinson</span>
+                  </div>
+                  <div style="display:flex;gap:12px;align-items:center;">
+                    <img src="https://www.figma.com/api/mcp/asset/267f5322-d4f9-4437-a09b-8018fc63cad7" style="width:20px;height:20px;object-fit:contain;flex-shrink:0;" alt="" />
+                    <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;color:#101010;line-height:22px;">+1 (500) 555-0000</span>
+                  </div>
+                </div>
+                <div style="position:absolute;right:0;top:1px;width:20px;height:20px;">
+                  <img src="https://www.figma.com/api/mcp/asset/b9d871f9-a2f5-4a84-9ae6-4bcfa93bd1e5" style="width:100%;height:100%;object-fit:contain;" alt="" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom actions -->
+            <div style="position:absolute;top:654px;left:16px;width:328px;display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;gap:12px;align-items:center;">
+                <img src="https://www.figma.com/api/mcp/asset/1ce105b7-02f4-4a95-99de-d986e37b83df" style="width:18px;height:18px;object-fit:contain;flex-shrink:0;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;color:#101010;line-height:24px;">Log out</span>
+              </div>
+              <div style="display:flex;gap:12px;align-items:center;">
+                <img src="https://www.figma.com/api/mcp/asset/e6f3ba94-d6ef-4533-b52d-9330a9129368" style="width:18px;height:18px;object-fit:contain;flex-shrink:0;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;color:#DF093C;line-height:24px;">Delete Account</span>
+              </div>
+            </div>
+          </div>
+          <div class="v34-home"><div class="v34-pill"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ SCREEN 2: Delete Account ══════════════ -->
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <p class="v34-label">Delete Account</p>
+      <div class="v34-phone">
+        <div class="v34-btn v34-btn-volu"></div>
+        <div class="v34-btn v34-btn-vold"></div>
+        <div class="v34-btn v34-btn-pwr"></div>
+        <div class="v34-inner">
+          <div class="v34-status">
+            <span class="v34-time">9:41</span>
+            <div class="v34-icons">
+              <svg width="17" height="12" viewBox="0 0 17 12" fill="none"><rect x="0" y="4" width="3" height="8" rx="1" fill="white" fill-opacity="0.4"/><rect x="4.5" y="2.5" width="3" height="9.5" rx="1" fill="white" fill-opacity="0.65"/><rect x="9" y="1" width="3" height="11" rx="1" fill="white" fill-opacity="0.85"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="white"/></svg>
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M8 2C5.33 2 2.93 3.1 1.2 4.9L0 3.7C2.07 1.4 5.03 0 8 0s5.93 1.4 8 3.7L14.8 4.9C13.07 3.1 10.67 2 8 2z" fill="white" opacity="0.4"/><path d="M8 5.5c-1.52 0-2.9.6-3.93 1.6L2.67 5.7C4.03 4.35 5.93 3.5 8 3.5s3.97.85 5.33 2.2L11.93 7.1A4.98 4.98 0 008 5.5z" fill="white" opacity="0.7"/><circle cx="8" cy="10" r="2" fill="white"/></svg>
+              <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="0.5" y="0.5" width="21" height="12" rx="3.5" stroke="white" stroke-opacity="0.35"/><rect x="2" y="2" width="17" height="9" rx="2" fill="white"/><path d="M23 4.5v4c1-.3 1.8-1 1.8-2s-.8-1.7-1.8-2z" fill="white" fill-opacity="0.4"/></svg>
+            </div>
+          </div>
+          <div class="v34-screen">
+            <!-- Header -->
+            <div class="v34-hdr">
+              <div style="position:absolute;left:16px;width:24px;height:24px;display:flex;align-items:center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;">Delete account</span>
+            </div>
+
+            <!-- Warning section -->
+            <div style="position:absolute;top:64px;left:16px;width:328px;display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;gap:8px;align-items:center;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+                  <circle cx="10" cy="10" r="8.75" stroke="#DF093C" stroke-width="1.5"/>
+                  <rect x="9.25" y="5.5" width="1.5" height="5.5" rx="0.75" fill="#DF093C"/>
+                  <circle cx="10" cy="13.75" r="0.85" fill="#DF093C"/>
+                </svg>
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#DF093C;line-height:24px;">Before You Delete Your Account:</span>
+              </div>
+              <ul class="warn-list">
+                <li>All data will be erased, except as required by Dept. of Corrections and Kiwi Terms.</li>
+                <li>Cancel active subscriptions through Google Play or Apple Store; deleting your account won't stop them.</li>
+                <li>Profile and chats may still be visible to others.</li>
+                <li>This action cannot be undone.</li>
+                <li>Or, log out and delete the app to keep your data accessible if you sign in again.</li>
+              </ul>
+            </div>
+
+            <!-- Enter phone section -->
+            <div style="position:absolute;top:342px;left:16px;width:328px;display:flex;flex-direction:column;gap:16px;">
+              <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#000;line-height:24px;">To delete your account, enter your phone number.</p>
+              <div style="position:relative;height:48px;border:1px solid #EBEBEF;border-radius:8px;">
+                <div style="position:absolute;top:-10px;left:11px;background:#fff;padding:0 4px;">
+                  <span style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;color:#101010;line-height:20px;">Phone number</span>
+                </div>
+                <div style="position:absolute;left:15px;top:16px;width:24px;height:16px;border-radius:2px;overflow:hidden;">
+                  <img src="https://www.figma.com/api/mcp/asset/daefdc72-191a-4dc7-abd6-5046a5f76499" style="width:100%;height:100%;object-fit:cover;" alt="" />
+                </div>
+                <span style="position:absolute;left:47px;top:50%;transform:translateY(-50%);font-family:'DM Sans',sans-serif;font-size:16px;font-weight:400;color:#101010;line-height:24px;">+1</span>
+              </div>
+            </div>
+
+            <!-- Delete button (dimmed, 40% opacity) -->
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:#fff;">
+              <div style="height:48px;background:#DF093C;border-radius:8px;opacity:0.4;display:flex;align-items:center;justify-content:center;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#fff;line-height:24px;">Delete account</span>
+              </div>
+            </div>
+          </div>
+          <div class="v34-home"><div class="v34-pill"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ SCREEN 3: Delete Confirmation ══════════════ -->
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <p class="v34-label">Delete Confirmation</p>
+      <div class="v34-phone">
+        <div class="v34-btn v34-btn-volu"></div>
+        <div class="v34-btn v34-btn-vold"></div>
+        <div class="v34-btn v34-btn-pwr"></div>
+        <div class="v34-inner">
+          <div class="v34-status">
+            <span class="v34-time">9:41</span>
+            <div class="v34-icons">
+              <svg width="17" height="12" viewBox="0 0 17 12" fill="none"><rect x="0" y="4" width="3" height="8" rx="1" fill="white" fill-opacity="0.4"/><rect x="4.5" y="2.5" width="3" height="9.5" rx="1" fill="white" fill-opacity="0.65"/><rect x="9" y="1" width="3" height="11" rx="1" fill="white" fill-opacity="0.85"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="white"/></svg>
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M8 2C5.33 2 2.93 3.1 1.2 4.9L0 3.7C2.07 1.4 5.03 0 8 0s5.93 1.4 8 3.7L14.8 4.9C13.07 3.1 10.67 2 8 2z" fill="white" opacity="0.4"/><path d="M8 5.5c-1.52 0-2.9.6-3.93 1.6L2.67 5.7C4.03 4.35 5.93 3.5 8 3.5s3.97.85 5.33 2.2L11.93 7.1A4.98 4.98 0 008 5.5z" fill="white" opacity="0.7"/><circle cx="8" cy="10" r="2" fill="white"/></svg>
+              <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="0.5" y="0.5" width="21" height="12" rx="3.5" stroke="white" stroke-opacity="0.35"/><rect x="2" y="2" width="17" height="9" rx="2" fill="white"/><path d="M23 4.5v4c1-.3 1.8-1 1.8-2s-.8-1.7-1.8-2z" fill="white" fill-opacity="0.4"/></svg>
+            </div>
+          </div>
+          <div class="v34-screen">
+            <!-- Header (behind overlay) -->
+            <div class="v34-hdr">
+              <div style="position:absolute;left:16px;width:24px;height:24px;display:flex;align-items:center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;">Delete account</span>
+            </div>
+
+            <!-- Warning section (behind overlay) -->
+            <div style="position:absolute;top:64px;left:16px;width:328px;display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;gap:8px;align-items:center;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+                  <circle cx="10" cy="10" r="8.75" stroke="#DF093C" stroke-width="1.5"/>
+                  <rect x="9.25" y="5.5" width="1.5" height="5.5" rx="0.75" fill="#DF093C"/>
+                  <circle cx="10" cy="13.75" r="0.85" fill="#DF093C"/>
+                </svg>
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#DF093C;line-height:24px;">Before You Delete Your Account:</span>
+              </div>
+              <ul class="warn-list">
+                <li>All data will be erased, except as required by Dept. of Corrections and Kiwi Terms.</li>
+                <li>Cancel active subscriptions through Google Play or Apple Store; deleting your account won't stop them.</li>
+                <li>Profile and chats may still be visible to others.</li>
+                <li>This action cannot be undone.</li>
+                <li>Or, log out and delete the app to keep your data accessible if you sign in again.</li>
+              </ul>
+            </div>
+
+            <!-- Enter phone (behind overlay) -->
+            <div style="position:absolute;top:342px;left:16px;width:328px;display:flex;flex-direction:column;gap:16px;">
+              <p style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">To delete your account, enter your phone number.</p>
+              <div style="position:relative;height:48px;border:1px solid #EBEBEF;border-radius:8px;">
+                <div style="position:absolute;top:-10px;left:11px;background:#fff;padding:0 4px;">
+                  <span style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;color:#101010;line-height:20px;">Phone number</span>
+                </div>
+                <div style="position:absolute;left:15px;top:16px;width:24px;height:16px;border-radius:2px;overflow:hidden;">
+                  <img src="https://www.figma.com/api/mcp/asset/aff9e08b-0cff-461f-8d4f-368c1c434808" style="width:100%;height:100%;object-fit:cover;" alt="" />
+                </div>
+                <span style="position:absolute;left:47px;top:50%;transform:translateY(-50%);font-family:'DM Sans',sans-serif;font-size:16px;font-weight:400;color:#101010;line-height:24px;">+1</span>
+              </div>
+            </div>
+
+            <!-- Bottom actions (behind overlay) -->
+            <div style="position:absolute;top:636px;left:16px;width:328px;display:flex;flex-direction:column;gap:16px;">
+              <div style="display:flex;gap:12px;align-items:center;">
+                <img src="https://www.figma.com/api/mcp/asset/4de848e9-7dc8-4076-9274-81988acf7cb8" style="width:20px;height:20px;object-fit:contain;flex-shrink:0;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:400;color:#DF093C;line-height:24px;">Log out</span>
+              </div>
+              <div style="display:flex;gap:12px;align-items:center;">
+                <img src="https://www.figma.com/api/mcp/asset/3448c103-22db-4b22-ab3b-b4f9eb1ebb80" style="width:20px;height:20px;object-fit:contain;flex-shrink:0;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:400;color:#DF093C;line-height:24px;">Delete Account</span>
+              </div>
+            </div>
+
+            <!-- Dim overlay -->
+            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.35);z-index:5;"></div>
+
+            <!-- Bottom sheet -->
+            <div style="position:absolute;bottom:0;left:0;right:0;background:#fff;border-radius:8px 8px 0 0;z-index:10;padding:24px 16px;">
+              <div style="display:flex;flex-direction:column;gap:16px;">
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+                  <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;flex:1;">Are you sure you want to delete account?</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+                    <path d="M18.875 6.50923L13.3842 12L18.875 17.4908L17.4908 18.875L12 13.3842L6.50923 18.875L5.125 17.4908L10.6158 12L5.125 6.50923L6.50923 5.125L12 10.6158L17.4908 5.125L18.875 6.50923Z" fill="#101010"/>
+                  </svg>
+                </div>
+                <div style="height:48px;border:1px solid #EBEBEF;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;line-height:24px;">Delete</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="v34-home"><div class="v34-pill"></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

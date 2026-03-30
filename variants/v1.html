@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V1 — Base</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+    .variant { display: flex !important; min-height: 100vh; align-items: center; justify-content: center; padding: 40px; }
+  </style>
+</head>
+<body>
+  <div class="variant active" data-variant-id="chat-list-base-v1">
+    <div class="screen">
+      <div class="app-header">
+        <div class="status-bar-light"></div>
+        <div class="top-bar">
+          <img src="https://www.figma.com/api/mcp/asset/2c5aa9f9-0553-4721-9d42-3e1fdbb4ac9f" width="24" height="24" style="object-fit:contain" alt="" />
+          <h1>Chats</h1>
+        </div>
+      </div>
+      <div class="chat-list">
+        <!-- 01 Zaire Madsen -->
+        <div class="chat-row">
+          <div class="avatar-wrap"><div class="avatar-initials av-orange">ZM</div></div>
+          <div class="chat-info">
+            <div class="chat-name">Zaire Madsen</div>
+            <div class="chat-preview purple">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7247EC" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+              Invitation to chat
+            </div>
+          </div>
+          <div class="chat-meta"><span class="chat-time">2:58 PM</span></div>
+        </div>
+        <!-- 02 Charlie Saris + online -->
+        <div class="chat-row">
+          <div class="avatar-wrap">
+            <div class="avatar-initials av-yellow">CS</div>
+            <div class="online-dot"></div>
+          </div>
+          <div class="chat-info">
+            <div class="chat-name">Charlie Saris</div>
+            <div class="typing">
+              <div class="typing-dots"><span></span><span></span><span class="big"></span></div>
+              <span class="typing-text">typing</span>
+            </div>
+          </div>
+          <div class="chat-meta"><span class="chat-time">3:00 PM</span></div>
+        </div>
+        <!-- 03 Wilson Baptista — Accept Invitation -->
+        <div class="chat-row">
+          <div class="avatar-wrap"><div class="avatar-initials av-orange">WB</div></div>
+          <div class="chat-info">
+            <div class="chat-name">Wilson Baptista</div>
+            <div class="accept-row">
+              <button class="btn-accept">✓ Accept</button>
+              <button class="btn-decline">Decline</button>
+            </div>
+          </div>
+          <div class="chat-meta"><span class="chat-time">3:21 PM</span></div>
+        </div>
+        <!-- 04 Cheyenne Schleifer -->
+        <div class="chat-row">
+          <div class="avatar-wrap">
+            <div class="avatar-photo"><img src="https://i.pravatar.cc/80?img=47" alt="" /></div>
+            <div class="online-dot"></div>
+          </div>
+          <div class="chat-info">
+            <div class="chat-name">Cheyenne Schleifer</div>
+            <div class="chat-preview">That's really cheering. Thanks dear</div>
+          </div>
+          <div class="chat-meta">
+            <span class="chat-time">12/06/22</span>
+            <div class="unread-badge">4</div>
+          </div>
+        </div>
+        <!-- 05 Haylie Franci -->
+        <div class="chat-row">
+          <div class="avatar-wrap"><div class="avatar-initials av-orange">HF</div></div>
+          <div class="chat-info">
+            <div class="chat-name">Haylie Franci</div>
+            <div class="chat-preview purple">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7247EC" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Send your first message
+            </div>
+          </div>
+          <div class="chat-meta"><span class="chat-time">12/06/22</span></div>
+        </div>
+        <!-- 06 Omar Levin -->
+        <div class="chat-row">
+          <div class="avatar-wrap"><div class="avatar-initials av-yellow">OL</div></div>
+          <div class="chat-info">
+            <div class="chat-name">Omar Levin</div>
+            <div class="chat-preview">Sure, why not</div>
+          </div>
+          <div class="chat-meta"><span class="chat-time">12/07/22</span></div>
+        </div>
+        <!-- 07 James Kenter -->
+        <div class="chat-row">
+          <div class="avatar-wrap"><div class="avatar-initials av-yellow">JK</div></div>
+          <div class="chat-info">
+            <div class="chat-name">James Kenter</div>
+            <div class="chat-preview">Yeah, I was thinking about it lately</div>
+          </div>
+          <div class="chat-meta"><span class="chat-time">11/07/22</span></div>
+        </div>
+      </div>
+      <div class="fab">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
+        </svg>
+      </div>
+      <div class="tab-bar">
+        <div class="btab">
+          <div class="btab-icon">
+            <img src="https://www.figma.com/api/mcp/asset/36737a71-b7c6-4856-958e-005d656faabe" alt="" />
+            <div class="btab-badge">4</div>
+          </div>
+          <span class="btab-label" style="color:#7247EC">Chats</span>
+        </div>
+        <div class="btab">
+          <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/967aed0c-e701-4ee5-9e90-89f96d46fe78" alt="" /></div>
+          <span class="btab-label">Calls</span>
+        </div>
+        <div class="btab">
+          <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/fb593a5e-796e-45ba-8e38-69e864423c70" alt="" /></div>
+          <span class="btab-label">Notifications</span>
+        </div>
+        <div class="btab">
+          <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/844550eb-b0ee-43aa-9057-ed229b988339" alt="" /></div>
+          <span class="btab-label">Settings</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

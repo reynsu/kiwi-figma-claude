@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V21 — Chat List Annotated</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+
+    .v21-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    /* Annotation container — wide enough for phone + labels on both sides */
+    .v21-container {
+      position: relative;
+      width: 892px;
+      height: 984px;
+      flex-shrink: 0;
+    }
+
+    /* Phone sits at a fixed offset so the SVG can reference exact coords */
+    .v21-phone {
+      position: absolute;
+      left: 240px;
+      top: 60px;
+    }
+
+    /* SVG overlay: lines + dots drawn on top of everything */
+    .v21-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 892px;
+      height: 984px;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Annotation label base */
+    .v21-lbl {
+      position: absolute;
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #111827;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      height: 20px;
+      transform: translateY(-50%);
+      z-index: 11;
+    }
+    .v21-lbl-left {
+      left: 0;
+      width: 185px;
+      justify-content: flex-end;
+      text-align: right;
+    }
+    .v21-lbl-right {
+      left: 697px;
+    }
+  </style>
+</head>
+<body>
+  <div class="v21-wrap">
+    <div class="v21-container">
+
+      <!-- ── Phone (V12 content) ──────────────────────────────────────── -->
+      <div class="v21-phone">
+        <div class="android-frame">
+          <div class="btn-side btn-vol-up"></div>
+          <div class="btn-side btn-vol-dn"></div>
+          <div class="btn-side btn-power"></div>
+
+          <div class="android-inner">
+            <!-- Status bar -->
+            <div class="android-status">
+              <span class="android-time">9:41</span>
+              <div class="android-icons">
+                <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+                <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+                <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+              </div>
+            </div>
+
+            <!-- Screen -->
+            <div class="android-screen">
+              <!-- Header -->
+              <div class="app-header">
+                <div class="top-bar-v4">
+                  <img src="https://www.figma.com/api/mcp/asset/2c5aa9f9-0553-4721-9d42-3e1fdbb4ac9f" width="24" height="24" style="object-fit:contain" alt="" />
+                  <h1>Chats</h1>
+                </div>
+              </div>
+
+              <div class="chat-list">
+                <!-- 01 Zaire Madsen — invitation -->
+                <div class="chat-row">
+                  <div class="avatar-wrap"><div class="avatar-initials av-orange">ZM</div></div>
+                  <div class="chat-info">
+                    <div class="chat-name">Zaire Madsen</div>
+                    <div class="chat-preview purple">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7247EC" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+                      Invitation to chat
+                    </div>
+                  </div>
+                  <div class="chat-meta"><span class="chat-time">2:58 PM</span></div>
+                </div>
+
+                <!-- 02 Charlie Saris — online + typing -->
+                <div class="chat-row">
+                  <div class="avatar-wrap">
+                    <div class="avatar-initials av-yellow">CS</div>
+                    <div class="online-dot-top"></div>
+                  </div>
+                  <div class="chat-info">
+                    <div class="chat-name">Charlie Saris</div>
+                    <div class="typing">
+                      <div class="typing-dots"><span></span><span></span><span class="big"></span></div>
+                      <span class="typing-text">typing</span>
+                    </div>
+                  </div>
+                  <div class="chat-meta"><span class="chat-time">3:00 PM</span></div>
+                </div>
+
+                <!-- 03 Wilson Baptista — last message + timestamp -->
+                <div class="chat-row">
+                  <div class="avatar-wrap"><div class="avatar-initials av-orange">WB</div></div>
+                  <div class="chat-info">
+                    <div class="chat-name">Wilson Baptista</div>
+                    <div class="chat-preview">That's really cheering. Thanks dear</div>
+                  </div>
+                  <div class="chat-meta"><span class="chat-time">3:21 PM</span></div>
+                </div>
+
+                <!-- 04 Cheyenne Schleifer — photo + online -->
+                <div class="chat-row">
+                  <div class="avatar-wrap">
+                    <div class="avatar-photo"><img src="https://i.pravatar.cc/80?img=47" alt="" /></div>
+                    <div class="online-dot-top"></div>
+                  </div>
+                  <div class="chat-info">
+                    <div class="chat-name">Cheyenne Schleifer</div>
+                    <div class="chat-preview">That's really cheering. Thanks dear</div>
+                  </div>
+                  <div class="chat-meta">
+                    <span class="chat-time">12/06/25</span>
+                    <div class="unread-badge">4</div>
+                  </div>
+                </div>
+
+                <!-- 05 Haylie Franci -->
+                <div class="chat-row">
+                  <div class="avatar-wrap"><div class="avatar-initials av-orange">HF</div></div>
+                  <div class="chat-info">
+                    <div class="chat-name">Haylie Franci</div>
+                    <div class="chat-preview purple">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7247EC" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                      Send your first message
+                    </div>
+                  </div>
+                  <div class="chat-meta"><span class="chat-time">12/06/25</span></div>
+                </div>
+
+                <!-- 06 Omar Levin -->
+                <div class="chat-row">
+                  <div class="avatar-wrap"><div class="avatar-initials av-yellow">OL</div></div>
+                  <div class="chat-info">
+                    <div class="chat-name">Omar Levin</div>
+                    <div class="chat-preview">Sure, why not</div>
+                  </div>
+                  <div class="chat-meta"><span class="chat-time">12/07/25</span></div>
+                </div>
+
+                <!-- 07 James Kenter -->
+                <div class="chat-row">
+                  <div class="avatar-wrap"><div class="avatar-initials av-yellow">JK</div></div>
+                  <div class="chat-info">
+                    <div class="chat-name">James Kenter</div>
+                    <div class="chat-preview">Yeah, I was thinking about it lately</div>
+                  </div>
+                  <div class="chat-meta"><span class="chat-time">11/07/25</span></div>
+                </div>
+              </div>
+
+              <!-- FAB — Add Contact -->
+              <div class="fab">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
+                </svg>
+              </div>
+
+              <!-- Bottom tab bar -->
+              <div class="tab-bar">
+                <div class="btab">
+                  <div class="btab-icon">
+                    <img src="https://www.figma.com/api/mcp/asset/36737a71-b7c6-4856-958e-005d656faabe" alt="" />
+                    <div class="btab-badge">4</div>
+                  </div>
+                  <span class="btab-label" style="color:#7247EC">Chats</span>
+                </div>
+                <div class="btab">
+                  <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/fb593a5e-796e-45ba-8e38-69e864423c70" alt="" /></div>
+                  <span class="btab-label">Notifications</span>
+                </div>
+                <div class="btab">
+                  <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/844550eb-b0ee-43aa-9057-ed229b988339" alt="" /></div>
+                  <span class="btab-label">Settings</span>
+                </div>
+              </div>
+            </div><!-- /android-screen -->
+
+            <div class="home-bar"><div class="home-bar-pill"></div></div>
+          </div><!-- /android-inner -->
+        </div><!-- /android-frame -->
+      </div><!-- /v21-phone -->
+
+      <!-- ── SVG Annotation overlay ────────────────────────────────────── -->
+      <!--
+        All coordinates are relative to .v21-container (top-left = 0,0).
+        Phone is at left=240, top=60.
+        Element positions measured via getBoundingClientRect relative to android-frame:
+          avatar-wrap row1:  cx=48, cy=150
+          online-dot:        cx=62, cy=200
+          typing area:       cx=80 (left), cy=224
+          chat-preview row3: right=332, cy=288
+          chat-time row3:    right=384, cy=278
+          chat-time row4:    cx=359, cy=331
+          fab:               cx=356, cy=728
+        SVG coord = phone_offset + measured_offset = (240+x, 60+y)
+      -->
+      <svg class="v21-svg" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- ── LEFT: Online status ──────────────────────────────────── -->
+        <line x1="294" y1="260" x2="191" y2="260" stroke="#9CA3AF" stroke-width="1.5"/>
+
+        <!-- ── LEFT: "Typing..." indicator ─────────────────────────── -->
+        <polyline points="320,284 320,310 237,310 237,331 191,331" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <!-- ── LEFT: Profile photo ──────────────────────────────────── -->
+        <line x1="280" y1="402" x2="191" y2="402" stroke="#9CA3AF" stroke-width="1.5"/>
+
+        <!-- ── RIGHT: Accept invitation ─────────────────────────────── -->
+        <line x1="473" y1="220" x2="692" y2="220" stroke="#9CA3AF" stroke-width="1.5"/>
+
+        <!-- ── RIGHT: Last message ───────────────────────────────────── -->
+        <line x1="548" y1="350" x2="692" y2="350" stroke="#9CA3AF" stroke-width="1.5"/>
+
+        <!-- ── RIGHT: Timestamp ──────────────────────────────────────── -->
+        <polyline points="634,391 660,391 660,428 692,428" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <!-- ── RIGHT: Add Contact (FAB) ──────────────────────────────── -->
+        <line x1="629" y1="788" x2="692" y2="788" stroke="#9CA3AF" stroke-width="1.5"/>
+
+      </svg>
+
+      <!-- ── Left labels ────────────────────────────────────────────── -->
+      <div class="v21-lbl v21-lbl-left" style="top:260px">Online status</div>
+      <div class="v21-lbl v21-lbl-left" style="top:331px">"Typing…" indicator</div>
+      <div class="v21-lbl v21-lbl-left" style="top:402px">Profile photo</div>
+
+      <!-- ── Right labels ───────────────────────────────────────────── -->
+      <div class="v21-lbl v21-lbl-right" style="top:220px">Sent invitation</div>
+      <div class="v21-lbl v21-lbl-right" style="top:350px">Last message</div>
+      <div class="v21-lbl v21-lbl-right" style="top:428px">Timestamp</div>
+      <div class="v21-lbl v21-lbl-right" style="top:788px">Add Contact</div>
+
+    </div>
+  </div>
+</body>
+</html>

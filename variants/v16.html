@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V16 — Chat List 2 Inmates (Android)</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+    .variant { display: flex !important; min-height: 100vh; align-items: center; justify-content: center; padding: 40px; }
+  </style>
+</head>
+<body>
+  <div class="variant active" data-variant-id="chat-list-2-inmates-android-v16">
+    <div class="android-frame">
+      <div class="btn-side btn-vol-up"></div>
+      <div class="btn-side btn-vol-dn"></div>
+      <div class="btn-side btn-power"></div>
+
+      <div class="android-inner">
+        <!-- Dark status bar -->
+        <div class="android-status">
+          <span class="android-time">9:41</span>
+          <div class="android-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+
+        <!-- Screen -->
+        <div class="android-screen">
+          <!-- Header -->
+          <div class="app-header">
+            <div class="top-bar-v4">
+              <img src="https://www.figma.com/api/mcp/asset/2c5aa9f9-0553-4721-9d42-3e1fdbb4ac9f" width="24" height="24" style="object-fit:contain" alt="" />
+              <h1>Chats</h1>
+            </div>
+          </div>
+
+          <div class="chat-list">
+            <!-- 01 Zaire Madsen — invitation to chat -->
+            <div class="chat-row">
+              <div class="avatar-wrap"><div class="avatar-initials av-orange">ZM</div></div>
+              <div class="chat-info">
+                <div class="chat-name">Zaire Madsen</div>
+                <div class="chat-preview purple">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7247EC" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+                  Invitation to chat
+                </div>
+              </div>
+              <div class="chat-meta"><span class="chat-time">2:58 PM</span></div>
+            </div>
+
+            <!-- 02 Charlie Saris — typing + online -->
+            <div class="chat-row">
+              <div class="avatar-wrap">
+                <div class="avatar-initials av-yellow">CS</div>
+                <div class="online-dot-top"></div>
+              </div>
+              <div class="chat-info">
+                <div class="chat-name">Charlie Saris</div>
+                <div class="typing">
+                  <div class="typing-dots"><span></span><span></span><span class="big"></span></div>
+                  <span class="typing-text">typing</span>
+                </div>
+              </div>
+              <div class="chat-meta"><span class="chat-time">3:00 PM</span></div>
+            </div>
+          </div>
+
+          <!-- FAB -->
+          <div class="fab">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
+            </svg>
+          </div>
+
+          <!-- Bottom tab bar -->
+          <div class="tab-bar">
+            <div class="btab">
+              <div class="btab-icon">
+                <img src="https://www.figma.com/api/mcp/asset/36737a71-b7c6-4856-958e-005d656faabe" alt="" />
+                <div class="btab-badge">2</div>
+              </div>
+              <span class="btab-label" style="color:#7247EC">Chats</span>
+            </div>
+            <div class="btab">
+              <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/fb593a5e-796e-45ba-8e38-69e864423c70" alt="" /></div>
+              <span class="btab-label">Notifications</span>
+            </div>
+            <div class="btab">
+              <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/844550eb-b0ee-43aa-9057-ed229b988339" alt="" /></div>
+              <span class="btab-label">Settings</span>
+            </div>
+          </div>
+        </div><!-- /android-screen -->
+
+        <div class="home-bar"><div class="home-bar-pill"></div></div>
+      </div><!-- /android-inner -->
+    </div><!-- /android-frame -->
+  </div>
+</body>
+</html>

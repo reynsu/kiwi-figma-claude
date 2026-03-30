@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V23 — Phone + Tablet Chat List</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+
+    .v23-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    /* Fixed-size canvas so SVG coords are predictable */
+    .v23-container {
+      position: relative;
+      width: 1280px;
+      height: 1020px;
+      flex-shrink: 0;
+    }
+
+    /* Phone: right side */
+    .v23-phone {
+      position: absolute;
+      left: 858px;
+      top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    /* Tablet: left side */
+    .v23-tablet {
+      position: absolute;
+      left: 0;
+      top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    /* SVG annotation overlay */
+    .v23-svg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 1280px; height: 1020px;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Annotation labels */
+    .v23-lbl {
+      position: absolute;
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #111827;
+      white-space: nowrap;
+      height: 24px;
+      transform: translateY(-50%);
+      z-index: 11;
+      display: flex;
+      align-items: center;
+    }
+    /* All labels centered in the gap (x=578–858) */
+    .v23-lbl-left,
+    .v23-lbl-right {
+      left: 638px;
+      width: 160px;
+    }
+
+    /* Screen type labels — below each device */
+    .v23-screen-lbl {
+      position: absolute;
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: #374151;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 11;
+    }
+
+    /* Height equalization: phone frame = 780+84=864px, tablet = 808+56=864px */
+    .android-screen { min-height: 780px !important; }
+    .tablet-screen  { min-height: 808px !important; }
+
+    /* Tablet chat rows full-width */
+    .tablet-screen .chat-row { width: 100%; padding: 0 24px; }
+    .tablet-screen .chat-list { padding-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="v23-wrap">
+    <div class="v23-container">
+
+      <!-- ── Phone (V12 content) ───────────────────────────────────── -->
+      <div class="v23-phone">
+        <span style="font-family:'Inter',sans-serif;font-size:24px;font-weight:400;color:#374151;white-space:nowrap;">Family &amp; Friends</span>
+        <div class="android-frame">
+          <div class="btn-side btn-vol-up"></div>
+          <div class="btn-side btn-vol-dn"></div>
+          <div class="btn-side btn-power"></div>
+
+          <div class="android-inner">
+            <div class="android-status">
+              <span class="android-time">9:41</span>
+              <div class="android-icons">
+                <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+                <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+                <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+              </div>
+            </div>
+
+            <div class="android-screen">
+              <div class="app-header">
+                <div class="top-bar-v4">
+                  <img src="https://www.figma.com/api/mcp/asset/2c5aa9f9-0553-4721-9d42-3e1fdbb4ac9f" width="24" height="24" style="object-fit:contain" alt="" />
+                  <h1>Chats</h1>
+                </div>
+              </div>
+
+              <div class="chat-list">
+                <!-- 01 Brooklyn Simmons + typing -->
+                <div class="chat-row">
+                  <div class="avatar-wrap">
+                    <div class="avatar-initials av-yellow">BS</div>
+                    <div class="online-dot-top"></div>
+                  </div>
+                  <div class="chat-info">
+                    <div class="chat-name">Brooklyn Simmons</div>
+                    <div class="typing">
+                      <div class="typing-dots"><span></span><span></span><span class="big"></span></div>
+                      <span class="typing-text">typing</span>
+                    </div>
+                  </div>
+                  <div class="chat-meta">
+                    <span class="chat-time">8:21 AM</span>
+                    <div class="unread-badge">4</div>
+                  </div>
+                </div>
+
+                <!-- 02 Zaire Madsen -->
+                <div class="chat-row">
+                  <div class="avatar-wrap"><div class="avatar-initials av-orange">ZM</div></div>
+                  <div class="chat-info">
+                    <div class="chat-name">Zaire Madsen</div>
+                    <div class="chat-preview purple">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7247EC" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+                      Invitation to chat
+                    </div>
+                  </div>
+                  <div class="chat-meta"><span class="chat-time">7:51 AM</span></div>
+                </div>
+
+              </div>
+
+              <!-- FAB -->
+              <div class="fab">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
+                </svg>
+              </div>
+
+              <!-- Bottom tab bar -->
+              <div class="tab-bar">
+                <div class="btab">
+                  <div class="btab-icon">
+                    <img src="https://www.figma.com/api/mcp/asset/36737a71-b7c6-4856-958e-005d656faabe" alt="" />
+                    <div class="btab-badge">4</div>
+                  </div>
+                  <span class="btab-label" style="color:#7247EC">Chats</span>
+                </div>
+                <div class="btab">
+                  <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/fb593a5e-796e-45ba-8e38-69e864423c70" alt="" /></div>
+                  <span class="btab-label">Notifications</span>
+                </div>
+                <div class="btab">
+                  <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/844550eb-b0ee-43aa-9057-ed229b988339" alt="" /></div>
+                  <span class="btab-label">Settings</span>
+                </div>
+              </div>
+            </div><!-- /android-screen -->
+
+            <div class="home-bar"><div class="home-bar-pill"></div></div>
+          </div><!-- /android-inner -->
+        </div><!-- /android-frame -->
+      </div><!-- /v23-phone -->
+
+      <!-- ── Tablet ─────────────────────────────────────────────────── -->
+      <div class="v23-tablet">
+        <span style="font-family:'Inter',sans-serif;font-size:24px;font-weight:400;color:#374151;white-space:nowrap;">Offenders</span>
+        <div class="android-tablet-frame">
+          <div class="btn-side btn-tablet-vol-up"></div>
+          <div class="btn-side btn-tablet-vol-dn"></div>
+          <div class="btn-side btn-tablet-power"></div>
+          <div class="tablet-inner">
+
+            <div class="tablet-status">
+              <span class="android-time">9:41</span>
+              <div class="android-icons">
+                <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+                <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+                <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+              </div>
+            </div>
+
+            <div class="tablet-screen">
+
+              <!-- App header -->
+              <div style="height:56px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;align-items:center;padding:0 24px;flex-shrink:0;">
+                <img src="https://www.figma.com/api/mcp/asset/2c5aa9f9-0553-4721-9d42-3e1fdbb4ac9f" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;" alt="" />
+                <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;margin-left:8px;flex:1;">Chats</span>
+                <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="1.8" stroke-linecap="round">
+                    <circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Chat list -->
+              <div class="chat-list">
+
+                <!-- 01 Amelia Robinson -->
+                <div class="chat-row">
+                  <div class="avatar-wrap">
+                    <div class="avatar-photo"><img src="amelia-avatar.png" alt="" /></div>
+                    <div class="online-dot-top"></div>
+                  </div>
+                  <div class="chat-info">
+                    <div class="chat-name">Amelia Robinson</div>
+                    <div class="chat-preview">Told you I'd send you something.</div>
+                  </div>
+                  <div class="chat-meta">
+                    <span class="chat-time">8:23 AM</span>
+                  </div>
+                </div>
+
+                <!-- 02 Marcus Wells -->
+                <div class="chat-row">
+                  <div class="avatar-wrap">
+                    <div class="avatar-initials" style="background:#3B82F6;color:#fff;">MW</div>
+                    <div class="online-dot-top"></div>
+                  </div>
+                  <div class="chat-info">
+                    <div class="chat-name">Marcus Wells</div>
+                    <div class="typing">
+                      <div class="typing-dots"><span></span><span></span><span class="big"></span></div>
+                      <span class="typing-text">typing</span>
+                    </div>
+                  </div>
+                  <div class="chat-meta"><span class="chat-time">7:12 AM</span></div>
+                </div>
+
+                <!-- 03 Sofia Chen -->
+                <div class="chat-row">
+                  <div class="avatar-wrap">
+                    <div class="avatar-photo"><img src="https://i.pravatar.cc/80?img=5" alt="" /></div>
+                  </div>
+                  <div class="chat-info">
+                    <div class="chat-name">Sofia Chen</div>
+                    <div class="chat-preview">Can you call me later?</div>
+                  </div>
+                  <div class="chat-meta"><span class="chat-time">9:47 AM</span></div>
+                </div>
+
+                <!-- 04 David Park -->
+                <div class="chat-row">
+                  <div class="avatar-wrap">
+                    <div class="avatar-initials av-yellow">DP</div>
+                  </div>
+                  <div class="chat-info">
+                    <div class="chat-name">David Park</div>
+                    <div class="chat-preview" style="display:flex;align-items:center;gap:4px;color:#686873;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#686873" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                      Photo
+                    </div>
+                  </div>
+                  <div class="chat-meta">
+                    <span class="chat-time">12/20/25</span>
+                    <div class="unread-badge">1</div>
+                  </div>
+                </div>
+
+                <!-- 05 Lily Torres -->
+                <div class="chat-row">
+                  <div class="avatar-wrap">
+                    <div class="avatar-photo"><img src="https://i.pravatar.cc/80?img=9" alt="" /></div>
+                  </div>
+                  <div class="chat-info">
+                    <div class="chat-name">Lily Torres</div>
+                    <div class="chat-preview">I'll be there by 3pm, don't worry 🙂</div>
+                  </div>
+                  <div class="chat-meta"><span class="chat-time">12/19/25</span></div>
+                </div>
+
+                <!-- 07 Rachel Nguyen -->
+                <div class="chat-row">
+                  <div class="avatar-wrap">
+                    <div class="avatar-initials" style="background:#10B981;color:#fff;">RN</div>
+                  </div>
+                  <div class="chat-info">
+                    <div class="chat-name">Rachel Nguyen</div>
+                    <div class="chat-preview purple">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7247EC" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                      Send your first message
+                    </div>
+                  </div>
+                  <div class="chat-meta"><span class="chat-time">12/15/25</span></div>
+                </div>
+
+              </div><!-- /chat-list -->
+
+              <!-- FAB -->
+              <div class="fab" style="bottom:64px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+              </div>
+
+              <!-- Tab bar -->
+              <div class="tab-bar">
+                <div class="btab">
+                  <div class="btab-icon">
+                    <img src="https://www.figma.com/api/mcp/asset/8ad9297c-9082-47f3-be8b-9c53d228383f" alt="" />
+                    <div class="btab-badge">1</div>
+                  </div>
+                  <span class="btab-label" style="color:#7247EC;">Chats</span>
+                </div>
+                <div class="btab">
+                  <div class="btab-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9191A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/>
+                      <rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/>
+                      <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/>
+                      <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>
+                    </svg>
+                  </div>
+                  <span class="btab-label">Gallery</span>
+                </div>
+                <div class="btab">
+                  <div class="btab-icon">
+                    <img src="https://www.figma.com/api/mcp/asset/734a6414-e1e9-4f47-9f6b-fe664db74c2e" alt="" />
+                  </div>
+                  <span class="btab-label">Settings</span>
+                </div>
+              </div>
+
+            </div><!-- /tablet-screen -->
+          </div><!-- /tablet-inner -->
+        </div><!-- /android-tablet-frame -->
+      </div><!-- /v23-tablet -->
+
+      <!-- ── SVG annotation lines ───────────────────────────────────── -->
+      <!--
+        Coordinate system: .v23-container top-left = (0,0)
+        Phone frame: left=0, top=10. Inner screen starts at y=58 (12pad+36status).
+        Header (top-bar-v4) 56px → chat-list at y=114, padding-top:16px → row1 at y=130.
+        chat-row: height=60px, gap=4px.
+          Row1 (Brooklyn): y=130-190, center=160
+          Row2 (Zaire):    y=194-254, center=224
+          Row3 (Cheyenne): y=258-318, center=288 | badge center: y=296, x=375
+
+        Tablet frame: left=692, top=10. Screen y=52 (14pad+28status). Header 56px → list y=108.
+        padding-top:8px → row1 at y=116. chat-row: height=60px, gap=4px.
+          Row1 (Amelia):  y=116-176, center=146 | avatar-center x=750
+          Row2 (Marcus):  y=180-240, center=210 | online-dot x=770, y=190
+          Row3 (Sofia):   y=244-304, center=274 | chat-info x=782
+
+        LEFT lines: phone element → x=414 (left edge of left-label zone)
+        RIGHT lines: x=660 (approx right edge of right-label text) → tablet element
+      -->
+      <svg class="v23-svg" xmlns="http://www.w3.org/2000/svg">
+
+        <!--
+          Tip placement rules — tips land just OUTSIDE element boundaries:
+          Phone: android-screen x=12, chat-row pad=16, avatar=40px, gap=12 → chat-info left x=80
+            Typing/Invitation tips: x=76 (4px before chat-info)
+            Unread badge: badge 18px, right-aligned at x=384, left edge x=366 → tip x=360
+            FAB: center(356,738), right edge x=384 → tip x=390 (right side, 6px outside)
+          Tablet: tablet-screen x=706, chat-row pad=24, avatar=40px, gap=12 → chat-info left x=782
+            Avatar left edge x=730 → tip x=726
+            Online dot: avatar-wrap top(730,190), dot top-right→center(764,196), left edge x=758 → tip x=754
+            Last message: chat-info left x=782 → tip x=778
+        -->
+
+        <!-- Online status → phone online dot (cy=205), 2 segments -->
+        <path d="M 769,155 L 913,155 Q 919,155 919,161 L 919,205" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Profile photo → phone avatar left edge (cy=219), direct line -->
+        <path d="M 764,215 L 886,215" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Typing indicator → phone typing text (cy=229), channel x=856 -->
+        <path d="M 796,275 L 850,275 Q 856,275 856,269 L 856,235 Q 856,229 862,229 L 938,229" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Last message → tablet chat-preview right (cy=218, below timestamp), label y=335 -->
+        <path d="M 633,335 L 606,335 Q 600,335 600,329 L 600,224 Q 600,218 594,218 L 318,218" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Invitation to chat → phone Zaire chat-info (cy=283), routed past avatar right=926 -->
+        <path d="M 808,395 L 944,395 Q 950,395 950,389 L 950,303" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Unread badge → tablet David badge (cy=397), label y=455 -->
+        <path d="M 633,455 L 606,455 Q 600,455 600,449 L 600,413 Q 600,407 594,407 L 544,407" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Invite New Contact → tablet FAB right, single horizontal line -->
+        <path d="M 633,827 L 552,827" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Unread Messages → phone tab bar badge (cy=856) -->
+        <path d="M 814,856 L 922,856" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+
+      </svg>
+
+      <!-- ── Callout labels (all share left:480px so text starts at same x) ── -->
+      <div class="v23-lbl" style="top:155px;left:638px;width:160px;">Online Status</div>
+      <div class="v23-lbl" style="top:215px;left:638px;width:160px;">Profile Photo</div>
+      <div class="v23-lbl" style="top:275px;left:638px;width:160px;">Typing Indicator</div>
+      <div class="v23-lbl" style="top:335px;left:638px;width:160px;">Last Message</div>
+      <div class="v23-lbl" style="top:395px;left:638px;width:160px;">Invitation To Chat</div>
+      <div class="v23-lbl" style="top:455px;left:638px;width:160px;">Unread Badge</div>
+      <div class="v23-lbl" style="top:827px;left:638px;width:160px;">Invite New Contact</div>
+      <div class="v23-lbl" id="lbl-unread-msg" style="top:856px;left:638px;width:160px;">Unread Messages</div>
+
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V9 — Inmate Invite (Tablet)</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+    .variant { display: flex !important; min-height: 100vh; align-items: center; justify-content: center; padding: 40px; }
+  </style>
+</head>
+<body>
+  <div class="variant active" data-variant-id="inmate-invite-tablet-v9">
+    <div class="android-tablet-frame">
+      <div class="btn-side btn-tablet-vol-up"></div>
+      <div class="btn-side btn-tablet-vol-dn"></div>
+      <div class="btn-side btn-tablet-power"></div>
+
+      <div class="tablet-inner">
+        <!-- Status bar -->
+        <div class="tablet-status">
+          <span class="android-time">9:41</span>
+          <div class="android-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff">
+              <rect x="0" y="5" width="2.5" height="5" rx="0.5"/>
+              <rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/>
+              <rect x="7" y="1" width="2.5" height="9" rx="0.5"/>
+              <rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/>
+            </svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
+              <path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/>
+              <path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/>
+              <circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/>
+            </svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none">
+              <rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/>
+              <rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/>
+              <path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Screen -->
+        <div class="tablet-screen">
+
+          <!-- Main content -->
+          <div style="position:absolute;left:0;top:0;right:0;bottom:0;">
+
+            <!-- Header -->
+            <div style="position:absolute;top:0;left:0;right:0;height:70px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;align-items:center;padding:0 24px;gap:16px;">
+              <!-- Back arrow -->
+              <div style="width:24px;height:24px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <img src="https://www.figma.com/api/mcp/asset/8dff96a0-dfd2-42f6-96e5-069024033e78" alt="" style="width:16px;height:16px;object-fit:contain;" />
+              </div>
+              <!-- Phone number input -->
+              <div style="flex:1;height:40px;border:1.5px solid #7247EC;border-radius:8px;position:relative;display:flex;align-items:center;padding:0 12px;gap:8px;">
+                <div style="position:absolute;top:-10px;left:10px;background:#fff;padding:0 4px;">
+                  <span style="font-size:12px;font-weight:400;line-height:20px;color:#7247EC;">Phone number</span>
+                </div>
+                <img src="https://www.figma.com/api/mcp/asset/7916e66b-dc1c-4de9-831e-06f7d98f16aa" alt="" style="width:24px;height:16px;object-fit:cover;border-radius:2px;flex-shrink:0;" />
+                <div style="width:1px;height:20px;background:#e0e0e0;flex-shrink:0;"></div>
+                <span style="font-size:16px;font-weight:400;line-height:24px;color:#101010;">305-445-6776</span>
+              </div>
+              <!-- Invite button -->
+              <button style="height:40px;padding:0 20px;background:#7247EC;border:none;border-radius:8px;font-size:16px;font-weight:500;color:#fff;cursor:pointer;font-family:'DM Sans',system-ui,sans-serif;white-space:nowrap;">Invite</button>
+            </div>
+
+            <!-- Empty state (vertically centered) -->
+            <div style="position:absolute;top:70px;left:0;right:0;bottom:198px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;text-align:center;">
+              <div style="position:relative;width:220px;height:140px;">
+                <img src="https://www.figma.com/api/mcp/asset/e408a6c1-30a1-4bb5-b825-bb1c153bc92f" alt="" style="position:absolute;inset:-0.26% 23.18% -0.29% 0.09%;width:76.73%;height:100.55%;object-fit:contain;" />
+                <img src="https://www.figma.com/api/mcp/asset/1c9636e6-8584-470f-b177-1e12b05208cc" alt="" style="position:absolute;inset:40.65% 0.11% 18.6% 37.83%;width:62.06%;height:40.75%;object-fit:contain;" />
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+                <p style="font-size:20px;font-weight:700;line-height:28px;color:#101010;">No chats yet</p>
+                <p style="font-size:16px;font-weight:400;line-height:24px;color:#686873;width:328px;">Start by inviting someone</p>
+              </div>
+            </div>
+
+            <!-- Android Tablet Keyboard -->
+            <div style="position:absolute;bottom:0;left:0;right:0;height:198px;background:#F2F4F4;padding:8px 6px;font-family:'DM Sans',system-ui,sans-serif;">
+              <!-- Row 1: ?123 q w e r t y u i o p ⌫ -->
+              <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">q</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">w</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">e</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">r</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">t</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">y</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">u</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">i</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">o</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">p</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⌫</div>
+              </div>
+              <!-- Row 2: ⇧ a s d f g h j k l ⇧ → -->
+              <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⇧</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">a</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">s</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">d</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">f</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">g</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">h</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">j</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">k</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">l</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⇧</div>
+                <div style="flex:1.5;background:#7247EC;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;">→</div>
+              </div>
+              <!-- Row 3: ?123 z x c v b n m ! ? ⇧ ⌫ -->
+              <div style="display:flex;gap:3px;margin-bottom:3px;height:44px;">
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">z</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">x</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">c</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">v</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">b</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">n</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">m</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">!</div>
+                <div style="flex:1;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;">?</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⇧</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#555;">⌫</div>
+              </div>
+              <!-- Row 4: ?123 , [space] . 😊 ?123 -->
+              <div style="display:flex;gap:3px;height:44px;">
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+                <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#555;">,</div>
+                <div style="flex:5;background:#fff;border-radius:4px;"></div>
+                <div style="flex:0.8;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#555;">.</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px;">😊</div>
+                <div style="flex:1.5;background:#ebebef;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;">?123</div>
+              </div>
+            </div>
+
+          </div><!-- /main content -->
+        </div><!-- /tablet-screen -->
+
+        <div class="home-bar" style="background:#f2f4f4;"><div class="home-bar-pill"></div></div>
+      </div><!-- /tablet-inner -->
+    </div><!-- /android-tablet-frame -->
+  </div>
+</body>
+</html>

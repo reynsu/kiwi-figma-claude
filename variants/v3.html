@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V3 — Android</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+    .variant { display: flex !important; min-height: 100vh; align-items: center; justify-content: center; padding: 40px; }
+  </style>
+</head>
+<body>
+  <div class="variant active" data-variant-id="chat-list-android-v3">
+    <div class="android-frame">
+      <div class="btn-side btn-vol-up"></div>
+      <div class="btn-side btn-vol-dn"></div>
+      <div class="btn-side btn-power"></div>
+      <div class="android-inner">
+        <div class="android-status">
+          <span class="android-time">9:41</span>
+          <div class="android-icons">
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="white">
+              <rect x="0" y="8" width="3" height="4" rx="0.5"/>
+              <rect x="4.5" y="5" width="3" height="7" rx="0.5"/>
+              <rect x="9" y="2" width="3" height="10" rx="0.5"/>
+              <rect x="13.5" y="0" width="2.5" height="12" rx="0.5" opacity="0.3"/>
+            </svg>
+            <svg width="16" height="12" viewBox="0 0 24 18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+              <path d="M1 7C5 2.5 19 2.5 23 7"/><path d="M5 11C8 7.5 16 7.5 19 11"/><path d="M9 15C10.5 13 13.5 13 15 15"/>
+              <circle cx="12" cy="18" r="1.5" fill="white" stroke="none"/>
+            </svg>
+            <svg width="24" height="12" viewBox="0 0 28 14" fill="none">
+              <rect x="0" y="1" width="24" height="12" rx="2" stroke="white" stroke-width="1.5"/>
+              <rect x="1.5" y="2.5" width="18" height="9" rx="1" fill="white"/>
+              <path d="M25 5v4c1.5-.5 1.5-3.5 0-4z" fill="white"/>
+            </svg>
+          </div>
+        </div>
+        <div class="android-screen">
+          <div class="top-bar" style="border-bottom:1px solid #F2F4F4;">
+            <img src="https://www.figma.com/api/mcp/asset/2c5aa9f9-0553-4721-9d42-3e1fdbb4ac9f" width="24" height="24" style="object-fit:contain" alt="" />
+            <h1>Chats</h1>
+          </div>
+          <div class="chat-list">
+            <div class="chat-row">
+              <div class="avatar-wrap"><div class="avatar-initials av-orange">ZM</div></div>
+              <div class="chat-info">
+                <div class="chat-name">Zaire Madsen</div>
+                <div class="chat-preview purple">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7247EC" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+                  Invitation to chat
+                </div>
+              </div>
+              <div class="chat-meta"><span class="chat-time">2:58 PM</span></div>
+            </div>
+            <div class="chat-row">
+              <div class="avatar-wrap">
+                <div class="avatar-initials av-yellow">CS</div>
+                <div class="online-dot"></div>
+              </div>
+              <div class="chat-info">
+                <div class="chat-name">Charlie Saris</div>
+                <div class="typing">
+                  <div class="typing-dots"><span></span><span></span><span class="big"></span></div>
+                  <span class="typing-text">typing</span>
+                </div>
+              </div>
+              <div class="chat-meta"><span class="chat-time">3:00 PM</span></div>
+            </div>
+            <div class="chat-row">
+              <div class="avatar-wrap"><div class="avatar-initials av-orange">WB</div></div>
+              <div class="chat-info">
+                <div class="chat-name">Wilson Baptista</div>
+                <div class="accept-row">
+                  <button class="btn-accept">✓ Accept</button>
+                  <button class="btn-decline">Decline</button>
+                </div>
+              </div>
+              <div class="chat-meta"><span class="chat-time">3:21 PM</span></div>
+            </div>
+            <div class="chat-row">
+              <div class="avatar-wrap">
+                <div class="avatar-photo"><img src="https://i.pravatar.cc/80?img=47" alt="" /></div>
+                <div class="online-dot"></div>
+              </div>
+              <div class="chat-info">
+                <div class="chat-name">Cheyenne Schleifer</div>
+                <div class="chat-preview">That's really cheering. Thanks dear</div>
+              </div>
+              <div class="chat-meta">
+                <span class="chat-time">12/06/22</span>
+                <div class="unread-badge">4</div>
+              </div>
+            </div>
+            <div class="chat-row">
+              <div class="avatar-wrap"><div class="avatar-initials av-orange">HF</div></div>
+              <div class="chat-info">
+                <div class="chat-name">Haylie Franci</div>
+                <div class="chat-preview purple">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7247EC" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  Send your first message
+                </div>
+              </div>
+              <div class="chat-meta"><span class="chat-time">12/06/22</span></div>
+            </div>
+            <div class="chat-row">
+              <div class="avatar-wrap"><div class="avatar-initials av-yellow">OL</div></div>
+              <div class="chat-info">
+                <div class="chat-name">Omar Levin</div>
+                <div class="chat-preview">Sure, why not</div>
+              </div>
+              <div class="chat-meta"><span class="chat-time">12/07/22</span></div>
+            </div>
+            <div class="chat-row">
+              <div class="avatar-wrap"><div class="avatar-initials av-yellow">JK</div></div>
+              <div class="chat-info">
+                <div class="chat-name">James Kenter</div>
+                <div class="chat-preview">Yeah, I was thinking about it lately</div>
+              </div>
+              <div class="chat-meta"><span class="chat-time">11/07/22</span></div>
+            </div>
+          </div>
+          <div class="fab">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
+            </svg>
+          </div>
+          <div class="tab-bar">
+            <div class="btab">
+              <div class="btab-icon">
+                <img src="https://www.figma.com/api/mcp/asset/36737a71-b7c6-4856-958e-005d656faabe" alt="" />
+                <div class="btab-badge">4</div>
+              </div>
+              <span class="btab-label" style="color:#7247EC">Chats</span>
+            </div>
+            <div class="btab">
+              <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/967aed0c-e701-4ee5-9e90-89f96d46fe78" alt="" /></div>
+              <span class="btab-label">Calls</span>
+            </div>
+            <div class="btab">
+              <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/fb593a5e-796e-45ba-8e38-69e864423c70" alt="" /></div>
+              <span class="btab-label">Notifications</span>
+            </div>
+            <div class="btab">
+              <div class="btab-icon"><img src="https://www.figma.com/api/mcp/asset/844550eb-b0ee-43aa-9057-ed229b988339" alt="" /></div>
+              <span class="btab-label">Settings</span>
+            </div>
+          </div>
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

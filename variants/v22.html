@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V22 — Conversation Overview</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+    .variant { display: flex !important; min-height: 100vh; align-items: center; justify-content: center; padding: 40px; flex-direction: row; flex-wrap: nowrap; gap: 48px; overflow-x: auto; }
+
+    .screen-label { font-family:'DM Sans',sans-serif; font-size:24px; color:#374151; font-weight:400; margin-bottom:32px; }
+
+    .msg-area { flex:1; padding:12px; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; background-image:url('../chat-bg-pattern.png');background-size:360px auto;background-repeat:repeat; overflow:hidden; }
+
+    .bubble-sent { background:#E3DAFB; border-radius:8px 8px 2px 8px; padding:8px 12px; align-self:flex-end; max-width:264px; position:relative; display:flex; gap:8px; align-items:flex-end; justify-content:flex-end; }
+    .bubble-recv { background:#F2F4F4; border-radius:8px 8px 8px 2px; padding:8px 12px; align-self:flex-start; max-width:264px; position:relative; }
+    .bubble-text { font-family:'DM Sans',sans-serif; font-size:16px; color:#101010; line-height:24px; }
+    .bubble-time { font-family:'DM Sans',sans-serif; font-size:10px; color:#686873; white-space:nowrap; line-height:normal; flex-shrink:0; }
+    .bubble-time-white { font-family:'DM Sans',sans-serif; font-size:10px; color:#fff; white-space:nowrap; line-height:normal; }
+
+    .waveform { display:flex; align-items:center; gap:2px; height:28px; }
+    .wbar { width:2px; background:#9191A1; border-radius:1px; flex-shrink:0; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .typing-dots span { animation: blink 1.2s infinite; }
+    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Equalize frame heights:
+       Mobile total  = 12+12 + 36(status) + screen + 24(home-bar) = screen + 84
+       Tablet total  = 14+14 + 28(status) + screen               = screen + 56
+       Difference = 28px → tablet screen must be 28px taller than android screen */
+    .android-screen  { min-height: 780px !important; }
+    .tablet-screen   { min-height: 808px !important; }
+  </style>
+</head>
+<body>
+<div class="variant active" data-variant-id="conversation-overview-v22">
+
+  <!-- ── Tablet: Offender side ── -->
+  <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+    <span class="screen-label">Offender Conversation</span>
+    <div class="android-tablet-frame">
+      <div class="btn-side btn-tablet-vol-up"></div><div class="btn-side btn-tablet-vol-dn"></div><div class="btn-side btn-tablet-power"></div>
+      <div class="tablet-inner">
+        <div class="tablet-status"><span class="android-time">9:41</span><div class="android-icons"><svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg><svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg><svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg></div></div>
+        <div class="tablet-screen" style="display:flex;flex-direction:column;min-height:auto;">
+
+          <!-- Header -->
+          <div style="height:56px;background:#fff;border-bottom:1px solid #EBEBEF;display:flex;align-items:center;padding:0 16px;gap:10px;flex-shrink:0;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+            <div style="position:relative;width:40px;height:40px;flex-shrink:0;">
+              <img src="amelia-avatar.png" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" alt="" />
+              <div class="online-dot-top"></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:1px;">
+              <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:#101010;line-height:18px;">Amelia Robinson</span>
+              <div class="typing">
+                <div class="typing-dots"><span></span><span></span><span class="big"></span></div>
+                <span class="typing-text">typing</span>
+              </div>
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#101010" style="flex-shrink:0;"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+          </div>
+
+          <!-- Messages -->
+          <div class="msg-area" style="justify-content:flex-start;gap:8px;background-image:url('../chat-bg-pattern.png');background-size:360px auto;background-repeat:repeat;">
+
+            <!-- 1. SENT text -->
+            <div style="background:#E3DAFB;border-radius:8px 8px 2px 8px;padding:8px 12px;align-self:flex-end;max-width:360px;display:flex;gap:8px;align-items:flex-end;">
+              <span class="bubble-text">Hey! What's up?</span>
+              <div style="display:flex;align-items:center;gap:2px;flex-shrink:0;">
+                <span class="bubble-time">8:17 AM</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+
+            <!-- 1b. RECV reply text -->
+            <div style="background:#F2F4F4;border-radius:8px 8px 8px 2px;padding:8px 12px;align-self:flex-start;max-width:360px;">
+              <p style="font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;margin:0 0 2px;">Hey brook I miss you. Wish you were here with me check it out 🤞🫶💐🥰</p>
+              <div style="display:flex;justify-content:flex-end;">
+                <span class="bubble-time" style="color:#9191A1;">8:18 AM</span>
+              </div>
+            </div>
+
+            <!-- 2. RECV image -->
+            <div style="align-self:flex-start;width:264px;height:300px;border-radius:8px 8px 8px 2px;overflow:hidden;position:relative;flex-shrink:0;">
+              <img src="https://picsum.photos/seed/kiwi-c1/264/300" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="" />
+              <div style="position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);"></div>
+              <div style="position:absolute;bottom:8px;right:8px;">
+                <span class="bubble-time-white">8:19 AM</span>
+              </div>
+            </div>
+
+            <!-- 3. SENT text -->
+            <div class="bubble-sent">
+              <span class="bubble-text">That photo looks amazing! 😍</span>
+              <div style="display:flex;align-items:center;gap:2px;flex-shrink:0;">
+                <span class="bubble-time">8:21 AM</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+
+            <!-- 4. RECV voice -->
+            <div style="background:#F2F4F4;border-radius:8px 8px 8px 2px;padding:10px 12px;align-self:flex-start;width:300px;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#7247EC;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="#fff"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
+                </div>
+                <div class="waveform" style="flex:1;justify-content:space-between;">
+                  <div class="wbar" style="height:3px;background:#7247EC;"></div><div class="wbar" style="height:8px;background:#7247EC;"></div><div class="wbar" style="height:15px;background:#7247EC;"></div><div class="wbar" style="height:22px;background:#7247EC;"></div><div class="wbar" style="height:26px;background:#7247EC;"></div><div class="wbar" style="height:19px;background:#7247EC;"></div><div class="wbar" style="height:12px;background:#7247EC;"></div><div class="wbar" style="height:6px;background:#7247EC;"></div><div class="wbar" style="height:10px;background:#7247EC;"></div><div class="wbar" style="height:18px;background:#7247EC;"></div><div class="wbar" style="height:25px;background:#7247EC;"></div><div class="wbar" style="height:27px;background:#7247EC;"></div><div class="wbar" style="height:20px;"></div><div class="wbar" style="height:13px;"></div><div class="wbar" style="height:7px;"></div><div class="wbar" style="height:4px;"></div><div class="wbar" style="height:9px;"></div><div class="wbar" style="height:16px;"></div><div class="wbar" style="height:23px;"></div><div class="wbar" style="height:21px;"></div><div class="wbar" style="height:14px;"></div><div class="wbar" style="height:8px;"></div><div class="wbar" style="height:4px;"></div><div class="wbar" style="height:11px;"></div><div class="wbar" style="height:19px;"></div><div class="wbar" style="height:24px;"></div><div class="wbar" style="height:17px;"></div><div class="wbar" style="height:10px;"></div><div class="wbar" style="height:5px;"></div><div class="wbar" style="height:3px;"></div>
+                </div>
+                <img src="https://www.figma.com/api/mcp/asset/834054d8-48eb-4626-9a51-2181e4a94289" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;" alt="" />
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;margin-left:44px;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#686873;">0:05</span>
+                <span class="bubble-time" style="color:#9191A1;">8:23 AM</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Input bar -->
+          <div style="background:#fff;border-top:1px solid #EBEBEF;display:flex;align-items:center;padding:10px 16px 10px 10px;gap:16px;flex-shrink:0;">
+            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" style="flex-shrink:0;"><path d="M9.95863 4.70463L5.2453 9.4188C5.16571 9.49567 5.10222 9.58763 5.05855 9.6893C5.01487 9.79097 4.99188 9.90032 4.99092 10.011C4.98996 10.1216 5.01105 10.2313 5.05295 10.3338C5.09485 10.4362 5.15672 10.5292 5.23497 10.6075C5.31321 10.6857 5.40626 10.7476 5.50867 10.7895C5.61108 10.8314 5.72082 10.8525 5.83147 10.8515C5.94211 10.8505 6.05146 10.8276 6.15313 10.7839C6.2548 10.7402 6.34676 10.6767 6.42363 10.5971L11.1378 5.8838C11.6067 5.41492 11.8701 4.77898 11.8701 4.11588C11.8701 3.45279 11.6067 2.81685 11.1378 2.34797C10.6689 1.87909 10.033 1.61567 9.36988 1.61567C8.70678 1.61567 8.07084 1.87909 7.60196 2.34797L2.8878 7.06213C2.49286 7.44724 2.17832 7.90693 1.96243 8.41455C1.74654 8.92216 1.63358 9.46759 1.63013 10.0192C1.62667 10.5708 1.73278 11.1176 1.9423 11.6279C2.15181 12.1382 2.46056 12.6018 2.85064 12.9918C3.24072 13.3818 3.70437 13.6905 4.21468 13.8999C4.72499 14.1094 5.2718 14.2154 5.82341 14.2119C6.37502 14.2084 6.92043 14.0953 7.42801 13.8794C7.9356 13.6634 8.39525 13.3488 8.7803 12.9538L13.4945 8.24047L14.6728 9.4188L9.95863 14.133C9.41693 14.6747 8.77383 15.1044 8.06606 15.3975C7.3583 15.6907 6.59971 15.8416 5.83363 15.8416C5.06755 15.8416 4.30897 15.6907 3.6012 15.3975C2.89343 15.1044 2.25033 14.6747 1.70863 14.133C1.16693 13.5913 0.737226 12.9482 0.444059 12.2404C0.150891 11.5326 -5.70776e-09 10.774 0 10.008C5.70777e-09 9.24188 0.150891 8.4833 0.444059 7.77553C0.737226 7.06776 1.16693 6.42467 1.70863 5.88297L6.42363 1.16963C7.20947 0.410641 8.26198 -0.0093359 9.35447 0.000157511C10.447 0.00965092 11.492 0.447855 12.2645 1.22039C13.0371 1.99292 13.4753 3.03797 13.4848 4.13046C13.4943 5.22295 13.0743 6.27546 12.3153 7.0613L7.60196 11.7771C7.36974 12.0093 7.09407 12.1935 6.79068 12.3191C6.48729 12.4447 6.16212 12.5093 5.83375 12.5093C5.50538 12.5093 5.18023 12.4446 4.87687 12.3189C4.57351 12.1932 4.29788 12.0089 4.06571 11.7767C3.83355 11.5445 3.64939 11.2688 3.52377 10.9654C3.39814 10.662 3.3335 10.3369 3.33354 10.0085C3.33358 9.68013 3.3983 9.35499 3.52399 9.05163C3.64969 8.74826 3.83391 8.47263 4.06613 8.24047L8.7803 3.5263L9.95863 4.70463Z" fill="#7247EC"/></svg>
+            <span style="flex:1;font-family:'DM Sans',sans-serif;font-size:16px;color:#9191A1;line-height:24px;">Message</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;"><mask id="msk-v22-tablet" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20"><path d="M19 19V1H1V19H19Z" fill="white" stroke="white" stroke-width="2"/></mask><g mask="url(#msk-v22-tablet)"><path d="M14.7826 2H5.43618C3.53841 2 2 3.53841 2 5.43618V14.7826C2 16.6803 3.53841 18.2188 5.43618 18.2188H14.7826C16.6803 18.2188 18.2187 16.6803 18.2187 14.7826V5.43618C18.2187 3.53841 16.6803 2 14.7826 2Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.1094 6.33104C8.02187 6.33104 6.32959 8.02332 6.32959 10.1108C6.32959 12.1983 8.02187 13.8906 10.1094 13.8906C12.1969 13.8906 13.8892 12.1983 13.8892 10.1108C13.8892 8.02332 12.1969 6.33104 10.1094 6.33104Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+            <img src="https://www.figma.com/api/mcp/asset/e534d2bd-bbe0-445d-bede-e9c4a51da24d" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;" alt="" />
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Mobile: FNF side ── -->
+  <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+    <span class="screen-label">FNF Conversation</span>
+    <div class="android-frame">
+      <div class="btn-side btn-vol-up"></div><div class="btn-side btn-vol-dn"></div><div class="btn-side btn-power"></div>
+      <div class="android-inner">
+        <div class="android-status"><span class="android-time">9:41</span><div class="android-icons"><svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg><svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg><svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg></div></div>
+        <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;">
+
+          <!-- Header -->
+          <div style="height:56px;background:#fff;border-bottom:1px solid #EBEBEF;display:flex;align-items:center;padding:0 16px;gap:10px;flex-shrink:0;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+            <div style="position:relative;width:40px;height:40px;flex-shrink:0;">
+              <img src="amelia-avatar.png" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" alt="" />
+              <div class="online-dot-top"></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:1px;">
+              <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:#101010;line-height:18px;">Amelia Robinson</span>
+              <div class="typing">
+                <div class="typing-dots"><span></span><span></span><span class="big"></span></div>
+                <span class="typing-text">typing</span>
+              </div>
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#101010" style="flex-shrink:0;"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+          </div>
+
+          <!-- Messages -->
+          <div class="msg-area" style="justify-content:flex-start;gap:8px;background-image:url('../chat-bg-pattern.png');background-size:360px auto;background-repeat:repeat;">
+
+            <!-- 1. SENT text -->
+            <div style="background:#E3DAFB;border-radius:8px 8px 2px 8px;padding:8px 12px;align-self:flex-end;max-width:360px;display:flex;gap:8px;align-items:flex-end;">
+              <span class="bubble-text">Hey! What's up?</span>
+              <div style="display:flex;align-items:center;gap:2px;flex-shrink:0;">
+                <span class="bubble-time">8:17 AM</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+
+            <!-- 1b. RECV reply text -->
+            <div style="background:#F2F4F4;border-radius:8px 8px 8px 2px;padding:8px 12px;align-self:flex-start;max-width:360px;">
+              <p style="font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;margin:0 0 2px;">Hey brook I miss you. Wish you were here with me check it out 🤞🫶💐🥰</p>
+              <div style="display:flex;justify-content:flex-end;">
+                <span class="bubble-time" style="color:#9191A1;">8:18 AM</span>
+              </div>
+            </div>
+
+            <!-- 2. RECV image -->
+            <div style="align-self:flex-start;width:264px;height:300px;border-radius:8px 8px 8px 2px;overflow:hidden;position:relative;flex-shrink:0;">
+              <img src="https://picsum.photos/seed/kiwi-c1/264/300" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="" />
+              <div style="position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);"></div>
+              <div style="position:absolute;bottom:8px;right:8px;">
+                <span class="bubble-time-white">8:19 AM</span>
+              </div>
+            </div>
+
+            <!-- 3. SENT text -->
+            <div class="bubble-sent">
+              <span class="bubble-text">That photo looks amazing! 😍</span>
+              <div style="display:flex;align-items:center;gap:2px;flex-shrink:0;">
+                <span class="bubble-time">8:21 AM</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 8l2.5 2.5 4-5.5" stroke="#3700D6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+
+            <!-- 4. RECV voice -->
+            <div style="background:#F2F4F4;border-radius:8px 8px 8px 2px;padding:10px 12px;align-self:flex-start;width:300px;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#7247EC;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="#fff"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
+                </div>
+                <div class="waveform" style="flex:1;justify-content:space-between;">
+                  <div class="wbar" style="height:3px;background:#7247EC;"></div><div class="wbar" style="height:8px;background:#7247EC;"></div><div class="wbar" style="height:15px;background:#7247EC;"></div><div class="wbar" style="height:22px;background:#7247EC;"></div><div class="wbar" style="height:26px;background:#7247EC;"></div><div class="wbar" style="height:19px;background:#7247EC;"></div><div class="wbar" style="height:12px;background:#7247EC;"></div><div class="wbar" style="height:6px;background:#7247EC;"></div><div class="wbar" style="height:10px;background:#7247EC;"></div><div class="wbar" style="height:18px;background:#7247EC;"></div><div class="wbar" style="height:25px;background:#7247EC;"></div><div class="wbar" style="height:27px;background:#7247EC;"></div><div class="wbar" style="height:20px;"></div><div class="wbar" style="height:13px;"></div><div class="wbar" style="height:7px;"></div><div class="wbar" style="height:4px;"></div><div class="wbar" style="height:9px;"></div><div class="wbar" style="height:16px;"></div><div class="wbar" style="height:23px;"></div><div class="wbar" style="height:21px;"></div><div class="wbar" style="height:14px;"></div><div class="wbar" style="height:8px;"></div><div class="wbar" style="height:4px;"></div><div class="wbar" style="height:11px;"></div><div class="wbar" style="height:19px;"></div><div class="wbar" style="height:24px;"></div><div class="wbar" style="height:17px;"></div><div class="wbar" style="height:10px;"></div><div class="wbar" style="height:5px;"></div><div class="wbar" style="height:3px;"></div>
+                </div>
+                <img src="https://www.figma.com/api/mcp/asset/834054d8-48eb-4626-9a51-2181e4a94289" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;" alt="" />
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;margin-left:44px;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#686873;">0:05</span>
+                <span class="bubble-time" style="color:#9191A1;">8:23 AM</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Input bar -->
+          <div style="background:#fff;border-top:1px solid #EBEBEF;display:flex;align-items:center;padding:10px 16px 10px 10px;gap:16px;flex-shrink:0;">
+            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" style="flex-shrink:0;"><path d="M9.95863 4.70463L5.2453 9.4188C5.16571 9.49567 5.10222 9.58763 5.05855 9.6893C5.01487 9.79097 4.99188 9.90032 4.99092 10.011C4.98996 10.1216 5.01105 10.2313 5.05295 10.3338C5.09485 10.4362 5.15672 10.5292 5.23497 10.6075C5.31321 10.6857 5.40626 10.7476 5.50867 10.7895C5.61108 10.8314 5.72082 10.8525 5.83147 10.8515C5.94211 10.8505 6.05146 10.8276 6.15313 10.7839C6.2548 10.7402 6.34676 10.6767 6.42363 10.5971L11.1378 5.8838C11.6067 5.41492 11.8701 4.77898 11.8701 4.11588C11.8701 3.45279 11.6067 2.81685 11.1378 2.34797C10.6689 1.87909 10.033 1.61567 9.36988 1.61567C8.70678 1.61567 8.07084 1.87909 7.60196 2.34797L2.8878 7.06213C2.49286 7.44724 2.17832 7.90693 1.96243 8.41455C1.74654 8.92216 1.63358 9.46759 1.63013 10.0192C1.62667 10.5708 1.73278 11.1176 1.9423 11.6279C2.15181 12.1382 2.46056 12.6018 2.85064 12.9918C3.24072 13.3818 3.70437 13.6905 4.21468 13.8999C4.72499 14.1094 5.2718 14.2154 5.82341 14.2119C6.37502 14.2084 6.92043 14.0953 7.42801 13.8794C7.9356 13.6634 8.39525 13.3488 8.7803 12.9538L13.4945 8.24047L14.6728 9.4188L9.95863 14.133C9.41693 14.6747 8.77383 15.1044 8.06606 15.3975C7.3583 15.6907 6.59971 15.8416 5.83363 15.8416C5.06755 15.8416 4.30897 15.6907 3.6012 15.3975C2.89343 15.1044 2.25033 14.6747 1.70863 14.133C1.16693 13.5913 0.737226 12.9482 0.444059 12.2404C0.150891 11.5326 -5.70776e-09 10.774 0 10.008C5.70777e-09 9.24188 0.150891 8.4833 0.444059 7.77553C0.737226 7.06776 1.16693 6.42467 1.70863 5.88297L6.42363 1.16963C7.20947 0.410641 8.26198 -0.0093359 9.35447 0.000157511C10.447 0.00965092 11.492 0.447855 12.2645 1.22039C13.0371 1.99292 13.4753 3.03797 13.4848 4.13046C13.4943 5.22295 13.0743 6.27546 12.3153 7.0613L7.60196 11.7771C7.36974 12.0093 7.09407 12.1935 6.79068 12.3191C6.48729 12.4447 6.16212 12.5093 5.83375 12.5093C5.50538 12.5093 5.18023 12.4446 4.87687 12.3189C4.57351 12.1932 4.29788 12.0089 4.06571 11.7767C3.83355 11.5445 3.64939 11.2688 3.52377 10.9654C3.39814 10.662 3.3335 10.3369 3.33354 10.0085C3.33358 9.68013 3.3983 9.35499 3.52399 9.05163C3.64969 8.74826 3.83391 8.47263 4.06613 8.24047L8.7803 3.5263L9.95863 4.70463Z" fill="#7247EC"/></svg>
+            <span style="flex:1;font-family:'DM Sans',sans-serif;font-size:16px;color:#9191A1;line-height:24px;">Message</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;"><mask id="msk-v22-phone" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20"><path d="M19 19V1H1V19H19Z" fill="white" stroke="white" stroke-width="2"/></mask><g mask="url(#msk-v22-phone)"><path d="M14.7826 2H5.43618C3.53841 2 2 3.53841 2 5.43618V14.7826C2 16.6803 3.53841 18.2188 5.43618 18.2188H14.7826C16.6803 18.2188 18.2187 16.6803 18.2187 14.7826V5.43618C18.2187 3.53841 16.6803 2 14.7826 2Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.1094 6.33104C8.02187 6.33104 6.32959 8.02332 6.32959 10.1108C6.32959 12.1983 8.02187 13.8906 10.1094 13.8906C12.1969 13.8906 13.8892 12.1983 13.8892 10.1108C13.8892 8.02332 12.1969 6.33104 10.1094 6.33104Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+            <img src="https://www.figma.com/api/mcp/asset/e534d2bd-bbe0-445d-bede-e9c4a51da24d" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;" alt="" />
+          </div>
+
+        </div>
+        <div class="home-bar"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

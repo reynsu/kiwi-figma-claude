@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V15 — Chat List (Tablet)</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+    .variant { display: flex !important; min-height: 100vh; align-items: center; justify-content: center; padding: 40px; }
+
+    /* Tablet chat rows fill full width */
+    .tablet-screen .chat-row { width: 100%; padding: 0 24px; }
+    .tablet-screen .chat-list { padding-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="variant active" data-variant-id="chat-list-tablet-v15">
+
+    <div class="android-tablet-frame">
+      <div class="btn-side btn-tablet-vol-up"></div>
+      <div class="btn-side btn-tablet-vol-dn"></div>
+      <div class="btn-side btn-tablet-power"></div>
+      <div class="tablet-inner">
+
+        <!-- Status bar -->
+        <div class="tablet-status">
+          <span class="android-time">9:41</span>
+          <div class="android-icons">
+            <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+          </div>
+        </div>
+
+        <!-- Screen -->
+        <div class="tablet-screen">
+
+          <!-- App header -->
+          <div style="height:56px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;align-items:center;padding:0 24px;flex-shrink:0;">
+            <img src="https://www.figma.com/api/mcp/asset/d49541f0-70dd-4ae5-b86f-fe91cf13aa1f" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;" alt="" />
+            <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;margin-left:8px;flex:1;">Chats</span>
+            <!-- Search icon -->
+            <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="1.8" stroke-linecap="round">
+                <circle cx="10.5" cy="10.5" r="6.5"/>
+                <line x1="15.5" y1="15.5" x2="21" y2="21"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Chat list -->
+          <div class="chat-list">
+
+            <!-- 01 Amanda Smit — photo avatar + initials overlay + online dot top-right + double check -->
+            <div class="chat-row">
+              <div class="avatar-wrap">
+                <div style="position:relative;width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;">
+                  <img src="https://www.figma.com/api/mcp/asset/e0530232-3a05-43f3-9792-95dfe5340a5b" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="" />
+                  <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;">AS</span>
+                </div>
+                <div class="online-dot-top"></div>
+              </div>
+              <div class="chat-info">
+                <div class="chat-name">Amanda Smit</div>
+                <div class="chat-preview" style="display:flex;align-items:center;gap:4px;">
+                  <!-- double check (sent+read) -->
+                  <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5l3 3 5-7" stroke="#9191A1" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 5l3 3 5-7" stroke="#9191A1" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Hey! What a surprise! hahah
+                </div>
+              </div>
+              <div class="chat-meta">
+                <span class="chat-time">4:00PM</span>
+              </div>
+            </div>
+
+            <!-- 02 James Din — photo avatar + initials overlay + online dot top-right -->
+            <div class="chat-row">
+              <div class="avatar-wrap">
+                <div style="position:relative;width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;">
+                  <img src="https://www.figma.com/api/mcp/asset/ec604681-cb62-43bb-88dc-6ec451b8b4a1" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="" />
+                  <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;">JD</span>
+                </div>
+                <div class="online-dot-top"></div>
+              </div>
+              <div class="chat-info">
+                <div class="chat-name">James Din</div>
+                <div class="chat-preview">How have you been?</div>
+              </div>
+              <div class="chat-meta">
+                <span class="chat-time">12/22/25</span>
+              </div>
+            </div>
+
+            <!-- 03 Amelia Robinson — photo avatar, voice message preview, badge 1 -->
+            <div class="chat-row">
+              <div class="avatar-wrap">
+                <div class="avatar-photo">
+                  <img src="https://i.pravatar.cc/80?img=23" alt="" />
+                </div>
+              </div>
+              <div class="chat-info">
+                <div class="chat-name">Amelia Robinson</div>
+                <div class="chat-preview" style="display:flex;align-items:center;gap:4px;color:#686873;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#686873" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                  Voice message
+                </div>
+              </div>
+              <div class="chat-meta">
+                <span class="chat-time">12/22/25</span>
+                <div class="unread-badge">1</div>
+              </div>
+            </div>
+
+            <!-- 04 Robert Jons — initials avatar (yellow), photo preview, badge 4 -->
+            <div class="chat-row">
+              <div class="avatar-wrap">
+                <div class="avatar-initials av-yellow">RJ</div>
+              </div>
+              <div class="chat-info">
+                <div class="chat-name">Robert Jons</div>
+                <div class="chat-preview" style="display:flex;align-items:center;gap:4px;color:#686873;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#686873" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                  Photo
+                </div>
+              </div>
+              <div class="chat-meta">
+                <span class="chat-time">12/22/25</span>
+                <div class="unread-badge">4</div>
+              </div>
+            </div>
+
+            <!-- 05 Jack Black — photo avatar, video preview, badge 4 -->
+            <div class="chat-row">
+              <div class="avatar-wrap">
+                <div class="avatar-photo">
+                  <img src="https://i.pravatar.cc/80?img=11" alt="" />
+                </div>
+              </div>
+              <div class="chat-info">
+                <div class="chat-name">Jack Black</div>
+                <div class="chat-preview" style="display:flex;align-items:center;gap:4px;color:#686873;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#686873" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polygon points="10,8 16,12 10,16" fill="#686873" stroke="none"/></svg>
+                  Video
+                </div>
+              </div>
+              <div class="chat-meta">
+                <span class="chat-time">12/22/25</span>
+                <div class="unread-badge">4</div>
+              </div>
+            </div>
+
+          </div><!-- /chat-list -->
+
+          <!-- FAB -->
+          <div class="fab" style="bottom:64px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          </div>
+
+          <!-- Tab bar: Chats (active) | Gallery | Settings -->
+          <div class="tab-bar">
+            <!-- Chats — active -->
+            <div class="btab">
+              <div class="btab-icon">
+                <img src="https://www.figma.com/api/mcp/asset/8ad9297c-9082-47f3-be8b-9c53d228383f" alt="" />
+                <div class="btab-badge">9</div>
+              </div>
+              <span class="btab-label" style="color:#7247EC;">Chats</span>
+            </div>
+            <!-- Gallery — inactive -->
+            <div class="btab">
+              <div class="btab-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9191A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/>
+                  <rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/>
+                  <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/>
+                  <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>
+                </svg>
+              </div>
+              <span class="btab-label">Gallery</span>
+            </div>
+            <!-- Settings — inactive -->
+            <div class="btab">
+              <div class="btab-icon">
+                <img src="https://www.figma.com/api/mcp/asset/734a6414-e1e9-4f47-9f6b-fe664db74c2e" alt="" />
+              </div>
+              <span class="btab-label">Settings</span>
+            </div>
+          </div>
+
+        </div><!-- /tablet-screen -->
+      </div><!-- /tablet-inner -->
+    </div><!-- /android-tablet-frame -->
+
+  </div>
+</body>
+</html>

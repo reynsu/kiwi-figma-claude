@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V44 — Help Flow</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    html, body { background: #fff; }
+    .variant { display: flex !important; flex-direction: row !important; min-height: 100vh; align-items: center; justify-content: center; padding: 60px 40px; gap: 48px; background: #fff !important; }
+    .phone-wrap { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+    .phone-label { font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 400; color: #111827; }
+
+    /* Help list row */
+    .help-row { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 56px; border-bottom: 1px solid #EBEBEF; }
+    .help-row:last-child { border-bottom: none; }
+    .help-row-text { font-family: 'DM Sans', sans-serif; font-size: 16px; color: #101010; line-height: 24px; }
+
+    /* Chat bubble */
+    .chat-bubble { background: #F2F4F4; border-radius: 12px 12px 12px 4px; padding: 12px 14px; }
+    .chat-bubble-text { font-family: 'DM Sans', sans-serif; font-size: 14px; color: #101010; line-height: 22px; }
+
+    /* Support chip */
+    .support-chip { background: #E8F5E9; border-radius: 8px; padding: 8px 12px; display: flex; align-items: flex-start; gap: 8px; }
+    .chip-text { font-family: 'DM Sans', sans-serif; font-size: 12px; color: #2E7D32; line-height: 18px; }
+
+    /* Message input */
+    .msg-input { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-top: 1px solid #EBEBEF; background: #fff; }
+    .msg-input-field { flex: 1; height: 40px; background: #F7F7F8; border-radius: 20px; display: flex; align-items: center; padding: 0 16px; }
+    .msg-input-placeholder { font-family: 'DM Sans', sans-serif; font-size: 14px; color: #9191A1; }
+  </style>
+</head>
+<body>
+  <div class="variant active" data-variant-id="help-flow-v44">
+
+    <!-- ── Screen 1: Help ── -->
+    <div class="phone-wrap">
+      <span class="phone-label">Menu</span>
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+        <div class="android-inner">
+          <div class="android-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="android-screen" style="background:#fff;position:relative;">
+
+            <!-- Header (56px) -->
+            <div style="height:56px;position:relative;display:flex;align-items:center;justify-content:center;">
+              <svg style="position:absolute;left:16px;" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="#101010" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;">Help</span>
+            </div>
+
+            <!-- FAQ Illustration (90×90, centered, ~30px below header) -->
+            <div style="display:flex;justify-content:center;margin-top:30px;">
+              <img src="https://www.figma.com/api/mcp/asset/d51c98f9-0627-4650-a8d4-89576c4c8d47"
+                   style="width:90px;height:90px;object-fit:contain;" alt="" />
+            </div>
+
+            <!-- Menu list (top:206px from screen, centered, width:328px, gap:12px) -->
+            <div style="margin-top:30px;display:flex;flex-direction:column;gap:12px;padding:0 16px;">
+              <!-- Help Center -->
+              <div style="background:#F9F9FB;border:1px solid #DADAE2;border-radius:12px;height:48px;position:relative;display:flex;align-items:center;">
+                <span style="position:absolute;left:15px;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;">Help Center</span>
+                <svg style="position:absolute;right:15px;" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 5l5 5-5 5" stroke="#101010" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <!-- Contact Us -->
+              <div style="background:#F9F9FB;border:1px solid #DADAE2;border-radius:12px;height:48px;position:relative;display:flex;align-items:center;">
+                <span style="position:absolute;left:15px;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;">Contact Us</span>
+                <svg style="position:absolute;right:15px;" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 5l5 5-5 5" stroke="#101010" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <!-- Terms & Privacy Policy -->
+              <div style="background:#F9F9FB;border:1px solid #DADAE2;border-radius:12px;height:48px;position:relative;display:flex;align-items:center;">
+                <span style="position:absolute;left:15px;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;">Terms &amp; Privacy Policy</span>
+                <svg style="position:absolute;right:15px;" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 5l5 5-5 5" stroke="#101010" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <!-- FAQ -->
+              <div style="background:#F9F9FB;border:1px solid #DADAE2;border-radius:12px;height:48px;position:relative;display:flex;align-items:center;">
+                <span style="position:absolute;left:15px;font-family:'DM Sans',sans-serif;font-size:16px;color:#101010;line-height:24px;">FAQ</span>
+                <svg style="position:absolute;right:15px;" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 5l5 5-5 5" stroke="#101010" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div>
+      </div>
+    </div><!-- /phone-wrap 1 -->
+
+    <!-- ── Screen 2: Help (same screen) ── -->
+    <div class="phone-wrap">
+      <span class="phone-label">Contact us</span>
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+        <div class="android-inner">
+          <div class="android-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="android-screen" style="background:#fff;position:relative;overflow:hidden;">
+
+            <!-- Header (56px) -->
+            <div style="height:56px;position:relative;display:flex;align-items:center;justify-content:center;">
+              <svg style="position:absolute;left:16px;" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="#101010" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;">Contact Us</span>
+            </div>
+
+            <!-- Message input (301px tall) -->
+            <div style="margin:16px 16px 0;display:flex;flex-direction:column;gap:2px;">
+              <div style="height:301px;border:1px solid #EBEBEF;border-radius:8px;position:relative;padding:14px 15px;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:14px;color:#101010;line-height:22px;">Hi, loving this so far. I want to add profile photo to show to my friend and family, how can I do it?</span>
+                <!-- Text cursor -->
+                <span style="display:inline-block;width:1.5px;height:16px;background:#101010;vertical-align:middle;margin-left:1px;"></span>
+              </div>
+              <!-- Character counter -->
+              <div style="text-align:right;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#9191A1;line-height:20px;">63/2000</span>
+              </div>
+            </div>
+
+            <!-- Hint text -->
+            <p style="margin:12px 16px 0;font-family:'DM Sans',sans-serif;font-size:14px;color:#9191A1;line-height:22px;">Submit to open a Kiwi Support Chat where we'll reply.</p>
+
+            <!-- Submit button -->
+            <div style="margin:14px 16px 0;height:48px;background:#7247EC;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#fff;line-height:24px;">Submit</span>
+            </div>
+
+            <!-- Android Keyboard -->
+            <div style="position:absolute;bottom:0;left:0;right:0;background:#ECEFF0;padding:8px 0 10px;">
+              <!-- Row 1: q–p -->
+              <div style="display:flex;gap:5px;padding:0 4px;margin-bottom:5px;">
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="position:absolute;top:3px;right:4px;font-size:9px;color:#9191A1;font-family:'DM Sans',sans-serif;">1</span><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">q</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="position:absolute;top:3px;right:4px;font-size:9px;color:#9191A1;font-family:'DM Sans',sans-serif;">2</span><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">w</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="position:absolute;top:3px;right:4px;font-size:9px;color:#9191A1;font-family:'DM Sans',sans-serif;">3</span><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">e</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="position:absolute;top:3px;right:4px;font-size:9px;color:#9191A1;font-family:'DM Sans',sans-serif;">4</span><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">r</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="position:absolute;top:3px;right:4px;font-size:9px;color:#9191A1;font-family:'DM Sans',sans-serif;">5</span><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">t</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="position:absolute;top:3px;right:4px;font-size:9px;color:#9191A1;font-family:'DM Sans',sans-serif;">6</span><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">y</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="position:absolute;top:3px;right:4px;font-size:9px;color:#9191A1;font-family:'DM Sans',sans-serif;">7</span><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">u</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="position:absolute;top:3px;right:4px;font-size:9px;color:#9191A1;font-family:'DM Sans',sans-serif;">8</span><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">i</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="position:absolute;top:3px;right:4px;font-size:9px;color:#9191A1;font-family:'DM Sans',sans-serif;">9</span><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">o</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="position:absolute;top:3px;right:4px;font-size:9px;color:#9191A1;font-family:'DM Sans',sans-serif;">0</span><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">p</span></div>
+              </div>
+              <!-- Row 2: a–l -->
+              <div style="display:flex;gap:5px;padding:0 14px;margin-bottom:5px;">
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">a</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">s</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">d</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">f</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">g</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">h</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">j</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">k</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">l</span></div>
+              </div>
+              <!-- Row 3: shift z–m backspace -->
+              <div style="display:flex;gap:5px;padding:0 4px;margin-bottom:5px;">
+                <div style="flex:1.4;height:42px;background:#DCDFE4;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);">
+                  <svg width="18" height="14" viewBox="0 0 22 18" fill="none"><path d="M11 1L1 9h4v8h12V9h4L11 1z" stroke="#061D28" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">z</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">x</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">c</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">v</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">b</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">n</span></div>
+                <div style="flex:1;height:42px;background:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:16px;color:#061D28;font-family:'DM Sans',sans-serif;">m</span></div>
+                <div style="flex:1.4;height:42px;background:#DCDFE4;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);">
+                  <svg width="18" height="14" viewBox="0 0 22 17" fill="none"><path d="M8 1h13a1 1 0 011 1v13a1 1 0 01-1 1H8L1 8.5 8 1z" stroke="#101010" stroke-width="1.4" stroke-linejoin="round"/><path d="M14 6l-6 5M8 6l6 5" stroke="#101010" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </div>
+              </div>
+              <!-- Row 4: ?123 emoji space . return -->
+              <div style="display:flex;gap:5px;padding:0 4px;">
+                <div style="flex:1.4;height:42px;background:#DCDFE4;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:12px;color:#061D28;font-family:'DM Sans',sans-serif;">?123</span></div>
+                <div style="flex:1;height:42px;background:#DCDFE4;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="#101010" stroke-width="1.3"/><circle cx="7" cy="8.5" r="1.2" fill="#101010"/><circle cx="13" cy="8.5" r="1.2" fill="#101010"/><path d="M6 13c1.1 1.3 6.9 1.3 8 0" stroke="#101010" stroke-width="1.3" stroke-linecap="round"/></svg>
+                </div>
+                <div style="flex:4;height:42px;background:rgba(6,29,40,0.12);border-radius:5px;"></div>
+                <div style="flex:1;height:42px;background:#DCDFE4;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);"><span style="font-size:14px;color:#061D28;font-family:'DM Sans',sans-serif;">.</span></div>
+                <div style="flex:1.4;height:42px;background:#7247EC;border-radius:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,0.18);">
+                  <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M17 1V6c0 1.1-.9 2-2 2H1M1 8l4-4M1 8l4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div>
+      </div>
+    </div><!-- /phone-wrap 2 -->
+
+    <!-- ── Screen 3: KiwiChat Support Chat ── -->
+    <div class="phone-wrap">
+      <span class="phone-label">Suport Threads</span>
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+        <div class="android-inner">
+          <div class="android-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;position:relative;">
+
+            <!-- Chat Header -->
+            <div style="height:60px;display:flex;align-items:center;padding:0 16px;gap:12px;border-bottom:1px solid #EBEBEF;flex-shrink:0;">
+              <!-- Back arrow -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="#101010" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <!-- Support avatar -->
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+                <circle cx="20" cy="20" r="20" fill="#F4F1FD"/>
+                <path d="M25.3074 14.7014C23.8934 13.2884 21.9877 12.5 20 12.5H12.5V19.9949C12.5 21.9812 13.2992 23.8857 14.7029 25.2884C16.1066 26.7014 18.0123 27.4898 20 27.5H27.5V19.9949C27.5 18.0085 26.7111 16.1041 25.3074 14.7014ZM18.5451 23.5068C18.084 23.3123 17.6639 23.0358 17.3156 22.6877C16.9672 22.3396 16.6803 21.9198 16.4959 21.459C16.3012 20.9983 16.209 20.5068 16.209 20.0051C16.1988 17.9061 17.8996 16.1758 20 16.1758C20.502 16.1758 20.9939 16.2782 21.4549 16.4625C21.916 16.657 22.3361 16.9334 22.6844 17.2816C23.0328 17.6297 23.3197 18.0495 23.5041 18.5102C23.6988 18.971 23.791 19.4625 23.791 19.9642V23.7423V23.7628V23.7935H20C19.498 23.7935 19.0061 23.6911 18.5451 23.5068Z" fill="#7247EC"/>
+              </svg>
+              <!-- Name & subtitle -->
+              <div style="flex:1;display:flex;flex-direction:column;gap:1px;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:#101010;line-height:22px;">KiwiChat Support</span>
+                <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#9191A1;line-height:18px;">Official Support Account</span>
+              </div>
+              <!-- Menu dots -->
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="4" r="1.5" fill="#686873"/><circle cx="10" cy="10" r="1.5" fill="#686873"/><circle cx="10" cy="16" r="1.5" fill="#686873"/></svg>
+            </div>
+
+            <!-- Chat body -->
+            <div style="flex:1;overflow:hidden;display:flex;flex-direction:column;padding:12px 16px;gap:12px;">
+
+              <!-- Official account chip -->
+              <div style="background:#ECF8F6;border-radius:8px;padding:10px;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#303036;line-height:normal;">This chat is with the official account of KiwiChat support.</span>
+              </div>
+
+              <!-- Date pill -->
+              <div style="display:flex;justify-content:center;">
+                <span style="background:#F2F4F4;border-radius:99px;padding:3px 12px;font-family:'DM Sans',sans-serif;font-size:12px;color:#686873;line-height:20px;">Today</span>
+              </div>
+
+              <!-- Support message bubble -->
+              <div style="display:flex;flex-direction:column;gap:4px;max-width:84%;">
+                <div class="chat-bubble">
+                  <p class="chat-bubble-text">Thanks for your message. Your Ticket number is 8472. This is what you wrote:<br><br>Hi! Love this app .How do i know if my contact saw my messages!</p>
+                  <p class="chat-bubble-text" style="margin-top:14px;">We're reviewing your issue and will respond as soon as possible.</p>
+                </div>
+                <span style="font-family:'DM Sans',sans-serif;font-size:11px;color:#9191A1;line-height:16px;padding-left:4px;">9:41 AM</span>
+              </div>
+
+            </div>
+
+            <!-- Input bar (same as v24 screen 2) -->
+            <div style="background:#fff;border-top:1px solid #EBEBEF;display:flex;align-items:center;padding:10px 16px 10px 10px;gap:16px;flex-shrink:0;">
+              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" style="flex-shrink:0;"><path d="M9.95863 4.70463L5.2453 9.4188C5.16571 9.49567 5.10222 9.58763 5.05855 9.6893C5.01487 9.79097 4.99188 9.90032 4.99092 10.011C4.98996 10.1216 5.01105 10.2313 5.05295 10.3338C5.09485 10.4362 5.15672 10.5292 5.23497 10.6075C5.31321 10.6857 5.40626 10.7476 5.50867 10.7895C5.61108 10.8314 5.72082 10.8525 5.83147 10.8515C5.94211 10.8505 6.05146 10.8276 6.15313 10.7839C6.2548 10.7402 6.34676 10.6767 6.42363 10.5971L11.1378 5.8838C11.6067 5.41492 11.8701 4.77898 11.8701 4.11588C11.8701 3.45279 11.6067 2.81685 11.1378 2.34797C10.6689 1.87909 10.033 1.61567 9.36988 1.61567C8.70678 1.61567 8.07084 1.87909 7.60196 2.34797L2.8878 7.06213C2.49286 7.44724 2.17832 7.90693 1.96243 8.41455C1.74654 8.92216 1.63358 9.46759 1.63013 10.0192C1.62667 10.5708 1.73278 11.1176 1.9423 11.6279C2.15181 12.1382 2.46056 12.6018 2.85064 12.9918C3.24072 13.3818 3.70437 13.6905 4.21468 13.8999C4.72499 14.1094 5.2718 14.2154 5.82341 14.2119C6.37502 14.2084 6.92043 14.0953 7.42801 13.8794C7.9356 13.6634 8.39525 13.3488 8.7803 12.9538L13.4945 8.24047L14.6728 9.4188L9.95863 14.133C9.41693 14.6747 8.77383 15.1044 8.06606 15.3975C7.3583 15.6907 6.59971 15.8416 5.83363 15.8416C5.06755 15.8416 4.30897 15.6907 3.6012 15.3975C2.89343 15.1044 2.25033 14.6747 1.70863 14.133C1.16693 13.5913 0.737226 12.9482 0.444059 12.2404C0.150891 11.5326 -5.70776e-09 10.774 0 10.008C5.70777e-09 9.24188 0.150891 8.4833 0.444059 7.77553C0.737226 7.06776 1.16693 6.42467 1.70863 5.88297L6.42363 1.16963C7.20947 0.410641 8.26198 -0.0093359 9.35447 0.000157511C10.447 0.00965092 11.492 0.447855 12.2645 1.22039C13.0371 1.99292 13.4753 3.03797 13.4848 4.13046C13.4943 5.22295 13.0743 6.27546 12.3153 7.0613L7.60196 11.7771C7.36974 12.0093 7.09407 12.1935 6.79068 12.3191C6.48729 12.4447 6.16212 12.5093 5.83375 12.5093C5.50538 12.5093 5.18023 12.4446 4.87687 12.3189C4.57351 12.1932 4.29788 12.0089 4.06571 11.7767C3.83355 11.5445 3.64939 11.2688 3.52377 10.9654C3.39814 10.662 3.3335 10.3369 3.33354 10.0085C3.33358 9.68013 3.3983 9.35499 3.52399 9.05163C3.64969 8.74826 3.83391 8.47263 4.06613 8.24047L8.7803 3.5263L9.95863 4.70463Z" fill="#7247EC"/></svg>
+              <span style="flex:1;font-family:'DM Sans',sans-serif;font-size:16px;color:#9191A1;line-height:24px;">Message</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;"><mask id="msk-v44-cam" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20"><path d="M19 19V1H1V19H19Z" fill="white" stroke="white" stroke-width="2"/></mask><g mask="url(#msk-v44-cam)"><path d="M14.7826 2H5.43618C3.53841 2 2 3.53841 2 5.43618V14.7826C2 16.6803 3.53841 18.2188 5.43618 18.2188H14.7826C16.6803 18.2188 18.2187 16.6803 18.2187 14.7826V5.43618C18.2187 3.53841 16.6803 2 14.7826 2Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.1094 6.33104C8.02187 6.33104 6.32959 8.02332 6.32959 10.1108C6.32959 12.1983 8.02187 13.8906 10.1094 13.8906C12.1969 13.8906 13.8892 12.1983 13.8892 10.1108C13.8892 8.02332 12.1969 6.33104 10.1094 6.33104Z" stroke="#7247EC" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><rect x="9" y="2" width="6" height="11" rx="3" stroke="#7247EC" stroke-width="1.5"/><path d="M5 11a7 7 0 0014 0M12 19v3M9 22h6" stroke="#7247EC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+
+          </div>
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div>
+      </div>
+    </div><!-- /phone-wrap 3 -->
+
+  </div>
+</body>
+</html>

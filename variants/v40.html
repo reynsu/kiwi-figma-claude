@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V40 — Phone Verification Flow</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    body { background: #fff; }
+    .variant { display: flex !important; flex-direction: row !important; min-height: 100vh; align-items: center; justify-content: center; padding: 60px 40px; gap: 48px; }
+    .phone-wrap { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+    .phone-label { font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 400; color: #111827; }
+
+    /* Numeric keyboard */
+    .numpad { width: 100%; background: #ECEFF0; display: grid; grid-template-columns: repeat(4,1fr); grid-template-rows: repeat(4,1fr); height: 216px; flex-shrink: 0; }
+    .numpad-key { display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 3px; cursor: pointer; padding-bottom: 14px; }
+    .numpad-key .num { font-family: 'Roboto', sans-serif; font-size: 31px; font-weight: 400; color: #061D28; line-height: 1; }
+    .numpad-key .sub { font-family: 'Roboto', sans-serif; font-size: 13px; font-weight: 500; color: #061D28; letter-spacing: 0.13px; line-height: 1.3; }
+    .numpad-key .sym { font-family: 'Roboto', sans-serif; font-size: 20px; font-weight: 400; color: #061D28; opacity: 0.8; line-height: 1; }
+    .numpad-key-action { display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .numpad-return-btn { position: relative; width: 34px; height: 34px; }
+
+    /* Floating label input */
+    .fl-input-wrap { position: relative; height: 48px; width: 328px; border: 1px solid #EBEBEF; border-radius: 8px; }
+    .fl-label { position: absolute; top: -10px; left: 11px; background: #fff; padding: 0 4px; font-family: 'DM Sans', sans-serif; font-size: 12px; color: #101010; line-height: 20px; }
+    .fl-value { position: absolute; top: 50%; transform: translateY(-50%); left: 47px; right: 15px; font-family: 'DM Sans', sans-serif; font-size: 16px; color: #101010; line-height: 24px; white-space: nowrap; overflow: hidden; }
+
+    /* OTP inputs */
+    .otp-wrap { display: flex; gap: 12px; align-items: flex-start; }
+    .otp-digit { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+    .otp-num { font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 500; color: #101010; text-align: center; width: 42px; line-height: 28px; }
+    .otp-line { width: 42px; height: 2px; background: #101010; border-radius: 1px; }
+    .otp-line-purple { background: #7247EC; }
+    .otp-cursor { width: 1px; height: 20px; background: #7247EC; margin: 4px auto 0; }
+    .otp-line-empty { background: #EBEBEF; }
+  </style>
+</head>
+<body>
+  <div class="variant active" data-variant-id="phone-verification-v40">
+
+    <!-- ── Screen 1: Email Address / Phone Number ── -->
+    <div class="phone-wrap">
+      <span class="phone-label">Email Verification</span>
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+
+        <div class="android-inner">
+          <div class="android-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+
+          <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;">
+
+            <!-- Top bar -->
+            <div style="height:56px;display:flex;align-items:center;padding:0 16px;flex-shrink:0;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;">
+                <path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span style="flex:1;text-align:center;font-size:20px;font-weight:500;color:#101010;font-family:'DM Sans',sans-serif;">Email Address</span>
+              <div style="width:24px;"></div>
+            </div>
+
+            <!-- Content area -->
+            <div style="flex:1;padding:0 16px;position:relative;">
+
+              <!-- Description -->
+              <p style="font-size:16px;color:#686873;line-height:24px;font-family:'DM Sans',sans-serif;margin-bottom:40px;">Enter your email address. We will send you a verification code.</p>
+
+              <!-- Input -->
+              <div class="fl-input-wrap">
+                <span class="fl-label">Email address</span>
+                <span class="fl-value" style="left:15px;">james.robinson@gmail.com</span>
+              </div>
+
+              <!-- Verify button -->
+              <div style="margin-top:207px;">
+                <div style="height:48px;background:#7247EC;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-size:16px;font-weight:500;color:#fff;font-family:'DM Sans',sans-serif;">Verify</span>
+                </div>
+              </div>
+
+              <!-- Terms -->
+              <p style="margin-top:24px;font-size:14px;color:#9191A1;line-height:22px;font-family:'DM Sans',sans-serif;text-align:center;">
+                By clicking 'Verify', you agree to the Kiwi
+                <span style="color:#7247EC;"> Terms and Privacy policy.</span>
+              </p>
+            </div>
+
+            <!-- Numeric keyboard -->
+            <div class="numpad">
+              <!-- Row 1 -->
+              <div class="numpad-key"><span class="num">1</span></div>
+              <div class="numpad-key"><span class="num">2</span><span class="sub">ABC</span></div>
+              <div class="numpad-key"><span class="num">3</span><span class="sub">DEF</span></div>
+              <div class="numpad-key-action">
+                <img src="https://www.figma.com/api/mcp/asset/bdd65882-7192-4fee-b933-7c01bfe93ca2" alt="—" style="width:12px;height:2px;display:block;" />
+              </div>
+              <!-- Row 2 -->
+              <div class="numpad-key"><span class="num">4</span><span class="sub">GHI</span></div>
+              <div class="numpad-key"><span class="num">5</span><span class="sub">JKL</span></div>
+              <div class="numpad-key"><span class="num">6</span><span class="sub">MNO</span></div>
+              <div class="numpad-key-action">
+                <img src="https://www.figma.com/api/mcp/asset/c59c6556-a289-47d4-95f7-7c2b111aebd4" alt="⊏" style="width:22px;height:6px;display:block;" />
+              </div>
+              <!-- Row 3 -->
+              <div class="numpad-key"><span class="num">7</span><span class="sub">PQRS</span></div>
+              <div class="numpad-key"><span class="num">8</span><span class="sub">TUV</span></div>
+              <div class="numpad-key"><span class="num">9</span><span class="sub">WXYZ</span></div>
+              <div class="numpad-key-action">
+                <img src="https://www.figma.com/api/mcp/asset/17e0cd56-8682-4978-9b1e-d6b62e7a15db" alt="⌫" style="width:25px;height:20px;display:block;" />
+              </div>
+              <!-- Row 4 -->
+              <div class="numpad-key"><span class="sym">* #</span></div>
+              <div class="numpad-key"><span class="num">0</span><span class="sub">+</span></div>
+              <div class="numpad-key"><span class="sym">.</span></div>
+              <div class="numpad-key-action">
+                <div class="numpad-return-btn">
+                  <img src="https://www.figma.com/api/mcp/asset/119ee197-f706-4489-b814-1136960ba5b0" alt="" style="position:absolute;inset:0;width:100%;height:100%;display:block;" />
+                  <img src="https://www.figma.com/api/mcp/asset/19542f6d-d7b9-4e65-ae26-d08e1dda4a96" alt="↵" style="position:absolute;top:5px;left:5px;width:24px;height:24px;display:block;" />
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /android-screen -->
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div>
+      </div>
+    </div><!-- /phone-wrap 1 -->
+
+    <!-- ── Screen 2: Verification Code ── -->
+    <div class="phone-wrap">
+      <span class="phone-label">Verification Code</span>
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+
+        <div class="android-inner">
+          <div class="android-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+
+          <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;">
+
+            <!-- Top bar -->
+            <div style="height:56px;display:flex;align-items:center;padding:0 16px;flex-shrink:0;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;">
+                <path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span style="flex:1;text-align:center;font-size:20px;font-weight:500;color:#101010;font-family:'DM Sans',sans-serif;">Verification code</span>
+              <div style="width:24px;"></div>
+            </div>
+
+            <!-- Content area -->
+            <div style="flex:1;padding:0 16px;display:flex;flex-direction:column;">
+
+              <!-- Subtitle -->
+              <div style="margin-top:20px;text-align:center;">
+                <p style="font-size:16px;color:#686873;line-height:24px;font-family:'DM Sans',sans-serif;">Verification code is sent to</p>
+                <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px;">
+                  <span style="font-size:16px;color:#101010;line-height:24px;font-family:'DM Sans',sans-serif;">james.robinson@gmail.com</span>
+                  <span style="font-size:16px;font-weight:500;color:#7247EC;line-height:24px;font-family:'DM Sans',sans-serif;">Change</span>
+                </div>
+              </div>
+
+              <!-- OTP digits -->
+              <div class="otp-wrap" style="margin-top:44px;justify-content:center;">
+                <!-- digit 1 -->
+                <div class="otp-digit">
+                  <span class="otp-num">8</span>
+                  <div class="otp-line"></div>
+                </div>
+                <!-- digit 2 -->
+                <div class="otp-digit">
+                  <span class="otp-num">3</span>
+                  <div class="otp-line"></div>
+                </div>
+                <!-- digit 3 -->
+                <div class="otp-digit">
+                  <span class="otp-num">1</span>
+                  <div class="otp-line"></div>
+                </div>
+                <!-- digit 4 -->
+                <div class="otp-digit">
+                  <span class="otp-num">7</span>
+                  <div class="otp-line"></div>
+                </div>
+                <!-- digit 5 — active (cursor) -->
+                <div class="otp-digit">
+                  <div style="width:42px;height:28px;display:flex;align-items:center;justify-content:center;">
+                    <div style="width:1.5px;height:20px;background:#7247EC;border-radius:1px;"></div>
+                  </div>
+                  <div class="otp-line otp-line-purple"></div>
+                </div>
+                <!-- digit 6 — empty -->
+                <div class="otp-digit">
+                  <span class="otp-num" style="opacity:0;">0</span>
+                  <div class="otp-line otp-line-empty"></div>
+                </div>
+              </div>
+
+              <!-- Resend row -->
+              <div style="display:flex;align-items:center;gap:8px;margin-top:44px;">
+                <span style="font-size:14px;color:#686873;line-height:22px;font-family:'DM Sans',sans-serif;">Didn't get a code?</span>
+                <span style="font-size:14px;font-weight:500;color:#7247EC;line-height:22px;font-family:'DM Sans',sans-serif;">Resend code</span>
+              </div>
+            </div>
+
+            <!-- Numeric keyboard -->
+            <div class="numpad">
+              <!-- Row 1 -->
+              <div class="numpad-key"><span class="num">1</span></div>
+              <div class="numpad-key"><span class="num">2</span><span class="sub">ABC</span></div>
+              <div class="numpad-key"><span class="num">3</span><span class="sub">DEF</span></div>
+              <div class="numpad-key-action">
+                <img src="https://www.figma.com/api/mcp/asset/bdd65882-7192-4fee-b933-7c01bfe93ca2" alt="—" style="width:12px;height:2px;display:block;" />
+              </div>
+              <!-- Row 2 -->
+              <div class="numpad-key"><span class="num">4</span><span class="sub">GHI</span></div>
+              <div class="numpad-key"><span class="num">5</span><span class="sub">JKL</span></div>
+              <div class="numpad-key"><span class="num">6</span><span class="sub">MNO</span></div>
+              <div class="numpad-key-action">
+                <img src="https://www.figma.com/api/mcp/asset/c59c6556-a289-47d4-95f7-7c2b111aebd4" alt="⊏" style="width:22px;height:6px;display:block;" />
+              </div>
+              <!-- Row 3 -->
+              <div class="numpad-key"><span class="num">7</span><span class="sub">PQRS</span></div>
+              <div class="numpad-key"><span class="num">8</span><span class="sub">TUV</span></div>
+              <div class="numpad-key"><span class="num">9</span><span class="sub">WXYZ</span></div>
+              <div class="numpad-key-action">
+                <img src="https://www.figma.com/api/mcp/asset/17e0cd56-8682-4978-9b1e-d6b62e7a15db" alt="⌫" style="width:25px;height:20px;display:block;" />
+              </div>
+              <!-- Row 4 -->
+              <div class="numpad-key"><span class="sym">* #</span></div>
+              <div class="numpad-key"><span class="num">0</span><span class="sub">+</span></div>
+              <div class="numpad-key"><span class="sym">.</span></div>
+              <div class="numpad-key-action">
+                <div class="numpad-return-btn">
+                  <img src="https://www.figma.com/api/mcp/asset/119ee197-f706-4489-b814-1136960ba5b0" alt="" style="position:absolute;inset:0;width:100%;height:100%;display:block;" />
+                  <img src="https://www.figma.com/api/mcp/asset/19542f6d-d7b9-4e65-ae26-d08e1dda4a96" alt="↵" style="position:absolute;top:5px;left:5px;width:24px;height:24px;display:block;" />
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /android-screen -->
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div>
+      </div>
+    </div><!-- /phone-wrap 2 -->
+
+  </div>
+</body>
+</html>

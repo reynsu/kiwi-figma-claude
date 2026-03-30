@@ -1,0 +1,122 @@
+{
+  "kiwi-logo": {
+    "url": "https://www.figma.com/api/mcp/asset/2c5aa9f9-0553-4721-9d42-3e1fdbb4ac9f",
+    "description": "Kiwi app logo / icon (used in top bar across V1–V4, V12)"
+  },
+  "kiwi-wordmark": {
+    "url": "https://www.figma.com/api/mcp/asset/7de21508-9871-4d54-8855-bc6a7c869bcf",
+    "description": "KiwiChat wordmark / logotype (used in V7 onboarding)"
+  },
+  "tab-chats-active": {
+    "url": "https://www.figma.com/api/mcp/asset/36737a71-b7c6-4856-958e-005d656faabe",
+    "description": "Chats tab icon active state (purple) — V1, V2, V3, V12"
+  },
+  "tab-calls": {
+    "url": "https://www.figma.com/api/mcp/asset/967aed0c-e701-4ee5-9e90-89f96d46fe78",
+    "description": "Calls tab icon — V1, V2, V3"
+  },
+  "tab-notifications": {
+    "url": "https://www.figma.com/api/mcp/asset/fb593a5e-796e-45ba-8e38-69e864423c70",
+    "description": "Notifications tab icon — V1, V2, V3, V4, V12"
+  },
+  "tab-settings": {
+    "url": "https://www.figma.com/api/mcp/asset/844550eb-b0ee-43aa-9057-ed229b988339",
+    "description": "Settings tab icon — V1, V2, V3, V4, V12"
+  },
+  "tab-chats-active-v8": {
+    "url": "https://www.figma.com/api/mcp/asset/316b472f-2f9a-43af-9fa9-fc049431d3c6",
+    "description": "Chats tab icon active state (V8 empty state variant)"
+  },
+  "tab-settings-inactive-v8": {
+    "url": "https://www.figma.com/api/mcp/asset/6ef9cb04-6f29-40b8-b8ac-d648b546698f",
+    "description": "Settings tab icon inactive (V8 empty state variant)"
+  },
+  "empty-state-illustration": {
+    "url": "https://www.figma.com/api/mcp/asset/8f4fc61a-a743-43bb-9867-88ae90020764",
+    "description": "No chats yet empty state illustration (V8)"
+  },
+  "add-contact-icon": {
+    "url": "https://www.figma.com/api/mcp/asset/c05bb21c-98d6-4fec-b185-a069b7c5b0e8",
+    "description": "Add contact icon for FAB (V8)"
+  },
+  "chats-header-logo-v8": {
+    "url": "https://www.figma.com/api/mcp/asset/21e447a9-5954-43e3-9230-d6a515a334a5",
+    "description": "Kiwi logo variant used in V8 header"
+  },
+  "back-arrow": {
+    "url": "https://www.figma.com/api/mcp/asset/8dff96a0-dfd2-42f6-96e5-069024033e78",
+    "description": "Back arrow icon (used in V9, V14 tablet invite headers)"
+  },
+  "flag-us": {
+    "url": "https://www.figma.com/api/mcp/asset/7916e66b-dc1c-4de9-831e-06f7d98f16aa",
+    "description": "US flag for phone number country picker (V9, V14)"
+  },
+  "invite-no-chats-illustration-left": {
+    "url": "https://www.figma.com/api/mcp/asset/e408a6c1-30a1-4bb5-b825-bb1c153bc92f",
+    "description": "Left part of 'no chats yet' invite illustration (V9, V14)"
+  },
+  "invite-no-chats-illustration-right": {
+    "url": "https://www.figma.com/api/mcp/asset/1c9636e6-8584-470f-b177-1e12b05208cc",
+    "description": "Right part of 'no chats yet' invite illustration (V9, V14)"
+  },
+  "tab-chats-active-v10": {
+    "url": "https://www.figma.com/api/mcp/asset/25f58866-6cf8-406d-b3b3-fc360af3e9ca",
+    "description": "Chats tab active icon (V10 tablet invitation sent)"
+  },
+  "tab-settings-inactive-v10": {
+    "url": "https://www.figma.com/api/mcp/asset/57b7cf12-e220-4c53-9824-51ff009842be",
+    "description": "Settings tab inactive icon (V10 tablet invitation sent)"
+  },
+  "fab-invite-icon": {
+    "url": "https://www.figma.com/api/mcp/asset/282c2bd7-e6c0-4e99-8e60-55b431e54995",
+    "description": "Invite/add person icon inside FAB (V10)"
+  },
+  "chats-logo-v10": {
+    "url": "https://www.figma.com/api/mcp/asset/be688379-2630-4fca-a3ce-d1366237c6d4",
+    "description": "Kiwi logo used in V10 tablet header"
+  },
+  "search-icon-v10": {
+    "url": "https://www.figma.com/api/mcp/asset/35ff52f9-ed4b-4898-931a-a45e4c164428",
+    "description": "Search icon in V10 header"
+  },
+  "onboarding-illustration-bg": {
+    "url": "https://www.figma.com/api/mcp/asset/50d6a268-6093-48a1-a436-78116b98cc5b",
+    "description": "Onboarding illustration background element (V7)"
+  },
+  "onboarding-illustration-phone": {
+    "url": "https://www.figma.com/api/mcp/asset/83cc3392-6fcf-43fe-80be-ea16fc4aed5a",
+    "description": "Onboarding illustration phone graphic (V7)"
+  },
+  "gallery-icon": {
+    "url": "https://www.figma.com/api/mcp/asset/51d23335-0d9c-4dc9-8f00-e57d081ac4f6",
+    "description": "Gallery screen header icon (V13 Screen A)"
+  },
+  "tab-gallery-active": {
+    "url": "https://www.figma.com/api/mcp/asset/b73fc330-07e0-49c6-80f2-ccc64e73b33c",
+    "description": "Gallery tab active icon (V13)"
+  },
+  "tab-chats-inactive-v13": {
+    "url": "https://www.figma.com/api/mcp/asset/eacf1123-8e8c-43d3-9db0-866cb3dcada7",
+    "description": "Chats tab inactive icon (V13)"
+  },
+  "tab-settings-inactive-v13": {
+    "url": "https://www.figma.com/api/mcp/asset/85beb15c-fc91-4460-9d21-0e9425c25541",
+    "description": "Settings tab inactive icon (V13)"
+  },
+  "gallery-selection-badge": {
+    "url": "https://www.figma.com/api/mcp/asset/791ce567-b0bb-4ccf-a48f-4529adc3950e",
+    "description": "X badge overlay for photo selection mode (V13 Screen B)"
+  },
+  "gallery-delete-badge": {
+    "url": "https://www.figma.com/api/mcp/asset/8d28fc7d-28c9-4e80-b43d-c3e5c00ea58a",
+    "description": "X badge overlay for photo delete mode (V13 Screen C)"
+  },
+  "modal-overlay": {
+    "url": "https://www.figma.com/api/mcp/asset/447026ef-8159-419a-b57f-376463614cc1",
+    "description": "Dark semi-transparent overlay for modal (V13 Screen C)"
+  },
+  "close-icon": {
+    "url": "https://www.figma.com/api/mcp/asset/08afafb7-9941-4372-b309-4dd796e6385c",
+    "description": "Close/X icon for modal dismiss button (V13 Screen C)"
+  }
+}

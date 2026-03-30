@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — Variants</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .top-bar {
+      position: fixed; top: 0; left: 0; right: 0; height: 52px;
+      background: #fff; border-bottom: 1px solid #E5E7EB;
+      display: flex; align-items: center; gap: 12px; padding: 0 16px; z-index: 1000;
+    }
+    .top-bar-title { font-size: 13px; font-weight: 600; color: #9CA3AF; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+    .variant-select {
+      height: 32px; padding: 0 10px;
+      border: 1px solid #E5E7EB; border-radius: 8px;
+      color: #111827; background: #fff;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px; font-weight: 500;
+      cursor: pointer;
+    }
+    .variant-select:focus { outline: 2px solid #7247EC; outline-offset: 1px; }
+    iframe { position: fixed; top: 52px; left: 0; right: 0; bottom: 0; width: 100%; height: calc(100vh - 52px); border: none; }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <span class="top-bar-title">Variants</span>
+    <select class="variant-select" id="variant-select">
+      <option value="variants/v1.html">V1 — Base</option>
+      <option value="variants/v2.html">V2 — Labeled</option>
+      <option value="variants/v3.html">V3 — Android</option>
+      <option value="variants/v4.html">V4 — Top Nav</option>
+      <option value="variants/v5.html">V5 — Photo+Voice Chat</option>
+      <option value="variants/v6.html">V6 — Android</option>
+      <option value="variants/v7.html">V7 — Onboarding</option>
+      <option value="variants/v8.html">V8 — Empty State</option>
+      <option value="variants/v9.html">V9 — Inmate Invite (Tablet)</option>
+      <option value="variants/v10.html">V10 — Invitation Sent (Tablet)</option>
+      <option value="variants/v11.html">V11 — SMS Invitation</option>
+      <option value="variants/v12.html">V12 — Top Nav (Android)</option>
+      <option value="variants/v13.html">V13 — Gallery (Tablet)</option>
+      <option value="variants/v14.html">V14 — Rugged Tablet</option>
+      <option value="variants/v15.html">V15 — Chat List (Tablet)</option>
+      <option value="variants/v16.html">V16 — 2 Inmates (Android)</option>
+      <option value="variants/v17.html">V17 — Subscription Flow</option>
+      <option value="variants/v18.html">V18 — Settings Flow</option>
+      <option value="variants/v19.html">V19 — Import Prison Chats</option>
+      <option value="variants/v20.html">V20 — Chat Message Types (4 screens)</option>
+      <option value="variants/v21.html">V21 — Chat List Annotated</option>
+      <option value="variants/v22.html">V22 — Conversation Overview</option>
+      <option value="variants/v23.html">V23 — Phone + Tablet Chat List</option>
+      <option value="variants/v24.html">V24 — Chat List + Violation Message</option>
+      <option value="variants/v25.html">V25 — Flagged Image (Phone + Tablet)</option>
+      <option value="variants/v26.html">V26 — Flagged Audio (Phone + Tablet)</option>
+      <option value="variants/v27.html">V27 — Flagged Video (Phone + Tablet)</option>
+      <option value="variants/v28.html">V28 — Delete Message Flow</option>
+      <option value="variants/v29.html">V29 — Swipe Delete Chat</option>
+      <option value="variants/v30.html">V30 — Block Contact Flow</option>
+      <option value="variants/v31.html">V31 — Inmate Invite Flow</option>
+      <option value="variants/v32.html">V32 — New Contact Block Flow</option>
+      <option value="variants/v33.html">V33 — OTP Phone Verification</option>
+      <option value="variants/v34.html">V34 — Delete Account Flow</option>
+      <option value="variants/v35.html">V35 — Help Flow</option>
+      <option value="variants/v36.html">V36</option>
+      <option value="variants/v37.html">V37</option>
+      <option value="variants/v38.html">V38 — Brooklyn &amp; Amelia Chat</option>
+      <option value="variants/v39.html">V39 — Profile Photo Setup Flow</option>
+      <option value="variants/v40.html">V40 — Phone Verification Flow</option>
+      <option value="variants/v41.html">V41 — Chats Empty + Find Contacts</option>
+      <option value="variants/v42.html">V42 — Profile Info Flow</option>
+      <option value="variants/v43.html">V43 — Sign In Flow (Tablet)</option>
+      <option value="variants/v44.html">V44 — Help Flow</option>
+      <option value="variants/v45.html">V45 — Help Menu</option>
+      <option value="variants/v46.html">V46 — Help (Tablet)</option>
+    </select>
+  </div>
+  <iframe id="variant-frame" src="variants/v1.html"></iframe>
+  <script>
+    document.getElementById('variant-select').addEventListener('change', function() {
+      document.getElementById('variant-frame').src = this.value;
+    });
+  </script>
+</body>
+</html>

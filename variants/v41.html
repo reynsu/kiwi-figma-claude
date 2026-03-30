@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V41 — Chats Empty + Find Contacts</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    html, body { background: #fff; }
+    .variant { display: flex !important; flex-direction: row !important; min-height: 100vh; align-items: center; justify-content: center; padding: 60px 40px; gap: 48px; }
+    .phone-wrap { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+    .phone-label { font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 400; color: #111827; }
+
+    /* ── Shared screen chrome ── */
+    .screen-header { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); flex-shrink: 0; }
+    .sys-bar { height: 24px; display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; }
+
+    /* ── Tab bar (screen 1) ── */
+    .tab-bar { display: flex; border-top: 1px solid #F2F4F4; background: #fff; flex-shrink: 0; }
+    .tab-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 0; gap: 2px; }
+    .tab-label { font-family: 'DM Sans', sans-serif; font-size: 10px; line-height: 16px; }
+
+    /* ── Search header (screens 2 & 3) ── */
+    .search-header { height: 56px; display: flex; align-items: center; padding: 0 16px; position: relative; }
+    .search-input-text { font-family: 'DM Sans', sans-serif; font-size: 16px; color: #101010; line-height: 24px; }
+    .search-cursor { display: inline-block; width: 1px; height: 20px; background: #101010; vertical-align: middle; margin-left: 1px; }
+
+    /* ── Search tabs ── */
+    .search-tabs { height: 42px; padding: 0 16px; display: flex; align-items: flex-start; border-bottom: 1px solid #EBEBEF; flex-shrink: 0; }
+    .search-tab { display: flex; align-items: center; gap: 6px; padding: 0 5px 12px; font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 22px; }
+    .search-tab-active { color: #7247EC; font-weight: 500; border-bottom: 2px solid #7247EC; }
+    .search-tab-inactive { color: #9191A1; font-weight: 400; }
+
+    /* ── Contact list ── */
+    .contact-row { display: flex; align-items: flex-start; gap: 16px; padding: 8px 16px; background: #fff; }
+    .contact-avatar { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; overflow: hidden; }
+    .contact-name { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #101010; line-height: 22px; }
+    .contact-meta { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 400; color: #686873; line-height: 22px; }
+
+    /* ── QWERTY keyboard ── */
+    .kbd-wrap { flex-shrink: 0; width: 100%; }
+    .kbd-gsearch { height: 44px; background: #E3E7EA; display: flex; align-items: center; padding: 0 8px; justify-content: space-between; }
+    .kbd-body { background: #ECEFF0; padding: 4px 3px 2px; }
+    .kbd-row { display: flex; justify-content: center; gap: 6px; margin-bottom: 6px; }
+    .kbd-key { background: #fff; border-radius: 5px; height: 42px; min-width: 32px; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 7px; box-shadow: 0 1px 0 rgba(0,0,0,0.25); position: relative; cursor: pointer; }
+    .kbd-key-num { font-family: 'Roboto', sans-serif; font-size: 10px; font-weight: 700; color: #061D28; position: absolute; top: 4px; left: 50%; transform: translateX(-50%); line-height: 1; }
+    .kbd-key-letter { font-family: 'Roboto', sans-serif; font-size: 23px; font-weight: 400; color: #061D28; line-height: 1; }
+    .kbd-key-action { background: #B5BEC4; border-radius: 5px; height: 42px; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 0 rgba(0,0,0,0.25); min-width: 42px; cursor: pointer; }
+    .kbd-space { background: rgba(6,29,40,0.15); border-radius: 5px; height: 42px; flex: 1; margin: 0 4px; }
+    .kbd-bottom { display: flex; align-items: center; gap: 0; height: 48px; padding: 0 4px; }
+    .kbd-bottom-action { background: #B5BEC4; border-radius: 5px; height: 42px; min-width: 42px; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 0 rgba(0,0,0,0.25); padding: 0 8px; cursor: pointer; }
+    .kbd-bottom-sym { font-family: 'Roboto', sans-serif; font-size: 15px; font-weight: 500; color: #061D28; opacity: 0.8; }
+    .kbd-return-btn { position: relative; width: 34px; height: 34px; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+  <div class="variant active" data-variant-id="chats-find-contacts-v41">
+
+    <!-- ── Screen 1: Chats Empty State ── -->
+    <div class="phone-wrap">
+      <span class="phone-label">Chats</span>
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+        <div class="android-inner">
+          <div class="android-status" style="background:#fff;">
+            <span class="android-time" style="color:#111;">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#111"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#111" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#111"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#111"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#111"/></svg>
+            </div>
+          </div>
+          <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;">
+
+            <!-- Top bar -->
+            <div style="height:56px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;align-items:center;padding:0 16px;gap:8px;flex-shrink:0;">
+              <img src="https://www.figma.com/api/mcp/asset/7d752f0e-46c3-4355-b7a1-862fa1e25af6" alt="Kiwi" style="width:24px;height:24px;flex-shrink:0;" />
+              <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#101010;line-height:28px;">Chats</span>
+            </div>
+
+            <!-- Empty state content -->
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:24px;">
+                <img src="https://www.figma.com/api/mcp/asset/ca1edd34-d3b7-49a5-8525-b65dfa8a4687" alt="No chats" style="width:220px;height:139px;display:block;" />
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;">
+                  <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#101010;line-height:28px;">No chats yet</span>
+                  <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:400;color:#686873;line-height:24px;width:328px;">Start by inviting someone</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Invite FAB -->
+            <div style="position:absolute;bottom:64px;right:16px;display:inline-flex;align-items:center;gap:8px;padding:16px;background:#7247EC;border-radius:999px;box-shadow:0 4px 8px 0 #BFA8FF;overflow:hidden;">
+              <div style="position:relative;width:24px;height:24px;flex-shrink:0;">
+                <img src="https://www.figma.com/api/mcp/asset/0c9d7f9a-0c65-4f07-a149-168d5755dfb4" alt="" style="position:absolute;top:14.58%;left:8.33%;right:8.33%;bottom:14.58%;width:83.34%;height:70.84%;" />
+              </div>
+              <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:#fff;line-height:22px;white-space:nowrap;">Invite</span>
+            </div>
+
+            <!-- Tab bar -->
+            <div class="tab-bar">
+              <div class="tab-item">
+                <img src="https://www.figma.com/api/mcp/asset/a0446ed9-2341-4dad-a023-01cbd855989d" alt="Chats" style="width:24px;height:24px;" />
+                <span class="tab-label" style="color:#7247EC;">Chats</span>
+              </div>
+              <div class="tab-item">
+                <img src="https://www.figma.com/api/mcp/asset/987e20fa-c190-4180-8355-4f1b7a7f8234" alt="Settings" style="width:24px;height:24px;" />
+                <span class="tab-label" style="color:#9191A1;">Settings</span>
+              </div>
+            </div>
+
+          </div>
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div>
+      </div>
+    </div><!-- /phone-wrap 1 -->
+
+    <!-- ── Screen 2: Find Prison Contacts — Loading ── -->
+    <div class="phone-wrap">
+      <span class="phone-label">Find Contacts</span>
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+        <div class="android-inner">
+          <div class="android-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;">
+
+            <!-- Search header -->
+            <div style="background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);flex-shrink:0;">
+              <div class="search-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div style="flex:1;display:flex;align-items:center;padding:0 6px;position:relative;">
+                  <div style="position:absolute;left:22px;width:1px;height:28px;background:#101010;"></div>
+                  <span class="search-input-text" style="padding-left:28px;">Bro<span class="search-cursor"></span></span>
+                </div>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M18 6L6 18M6 6L18 18" stroke="#101010" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+
+            <!-- Loading spinner -->
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="24" stroke="#EBEBEF" stroke-width="4"/><path d="M30 6a24 24 0 0124 24" stroke="#7247EC" stroke-width="4" stroke-linecap="round"/></svg>
+            </div>
+
+            <!-- QWERTY Keyboard -->
+            <div class="kbd-wrap">
+              <div class="kbd-gsearch">
+                <!-- Google G -->
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" r="15" fill="white"/><path d="M23.9999 15.3873C23.9999 14.6322 23.9386 14.0812 23.806 13.5098H15.1836V16.9179H20.2448C20.1428 17.7649 19.5918 19.0404 18.3672 19.8975L18.3501 20.0116L21.0763 22.1236L21.2652 22.1424C22.9999 20.5404 23.9999 18.1832 23.9999 15.3873Z" fill="#4285F4"/><path d="M15.1836 24.3673C17.6632 24.3673 19.7448 23.551 21.2652 22.1429L18.3672 19.8979C17.5918 20.4387 16.5509 20.8163 15.1836 20.8163C12.755 20.8163 10.6938 19.2143 9.95907 17L9.85137 17.0091L7.01656 19.203L6.97949 19.3061C8.48968 22.3061 11.5917 24.3673 15.1836 24.3673Z" fill="#7247EC"/><path d="M9.95914 16.9991C9.76527 16.4277 9.65307 15.8154 9.65307 15.1828C9.65307 14.5501 9.76527 13.9379 9.94894 13.3664L9.94381 13.2447L7.07348 11.0156L6.97957 11.0603C6.35715 12.3052 6 13.7032 6 15.1828C6 16.6624 6.35715 18.0603 6.97957 19.3052L9.95914 16.9991Z" fill="#FBBC05"/><path d="M15.1836 9.551C16.9081 9.551 18.0713 10.2959 18.7346 10.9184L21.3264 8.38776C19.7346 6.90817 17.6632 6 15.1836 6C11.5917 6 8.48968 8.06121 6.97949 11.0612L9.94887 13.3673C10.6938 11.1531 12.755 9.551 15.1836 9.551Z" fill="#EB4335"/></svg>
+                <!-- Microphone -->
+                <svg width="12" height="20" viewBox="0 0 12 20" fill="none"><rect x="3.5" y="0.5" width="5" height="10" rx="2.5" stroke="#061D28" stroke-width="1.3"/><path d="M1 10a5 5 0 0010 0" stroke="#061D28" stroke-width="1.3" stroke-linecap="round"/><line x1="6" y1="15" x2="6" y2="19" stroke="#061D28" stroke-width="1.3" stroke-linecap="round"/></svg>
+              </div>
+              <div class="kbd-body">
+                <div class="kbd-row">
+                  <div class="kbd-key"><span class="kbd-key-num">1</span><span class="kbd-key-letter">q</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">2</span><span class="kbd-key-letter">w</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">3</span><span class="kbd-key-letter">e</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">4</span><span class="kbd-key-letter">r</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">5</span><span class="kbd-key-letter">t</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">6</span><span class="kbd-key-letter">y</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">7</span><span class="kbd-key-letter">u</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">8</span><span class="kbd-key-letter">i</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">9</span><span class="kbd-key-letter">o</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">0</span><span class="kbd-key-letter">p</span></div>
+                </div>
+                <div class="kbd-row" style="padding:0 16px;">
+                  <div class="kbd-key"><span class="kbd-key-letter">a</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">s</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">d</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">f</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">g</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">h</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">j</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">k</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">l</span></div>
+                </div>
+                <div class="kbd-row">
+                  <div class="kbd-key-action" style="min-width:42px;">
+                    <svg width="22" height="18" viewBox="0 0 22 18" fill="none"><path d="M11 1L1 9h4v8h12V9h4L11 1z" stroke="#061D28" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                  </div>
+                  <div class="kbd-key"><span class="kbd-key-letter">z</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">x</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">c</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">v</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">b</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">n</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">m</span></div>
+                  <div class="kbd-key-action" style="min-width:42px;">
+                    <svg width="25" height="18" viewBox="0 0 25 18" fill="none"><path d="M9 1h14a1 1 0 011 1v14a1 1 0 01-1 1H9L1 9l8-8z" stroke="#061D28" stroke-width="1.4" stroke-linejoin="round"/><path d="M16 6l-6 6M10 6l6 6" stroke="#061D28" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  </div>
+                </div>
+                <div class="kbd-bottom">
+                  <div class="kbd-bottom-action"><span class="kbd-bottom-sym">?123</span></div>
+                  <div style="width:6px;"></div>
+                  <div class="kbd-bottom-action" style="min-width:32px;"><span class="kbd-bottom-sym" style="font-size:20px;">/</span></div>
+                  <div style="width:6px;"></div>
+                  <div class="kbd-bottom-action" style="min-width:32px;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#061D28" stroke-width="1.5"/><path d="M8 14.5s1.5 2 4 2 4-2 4-2" stroke="#061D28" stroke-width="1.5" stroke-linecap="round"/><circle cx="9.5" cy="10" r="1.2" fill="#061D28"/><circle cx="14.5" cy="10" r="1.2" fill="#061D28"/></svg>
+                  </div>
+                  <div style="width:6px;"></div>
+                  <div class="kbd-space"></div>
+                  <div style="width:6px;"></div>
+                  <div class="kbd-bottom-action" style="min-width:32px;"><span style="font-family:'Roboto',sans-serif;font-size:15px;font-weight:700;color:#061D28;">.</span></div>
+                  <div style="width:6px;"></div>
+                  <div style="width:34px;height:34px;flex-shrink:0;background:#29B6A8;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M17 1V6c0 1.1-.9 2-2 2H1M1 8l4-4M1 8l4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div>
+      </div>
+    </div><!-- /phone-wrap 2 -->
+
+    <!-- ── Screen 3: Find Prison Contacts — List ── -->
+    <div class="phone-wrap">
+      <span class="phone-label">Search Results</span>
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+        <div class="android-inner">
+          <div class="android-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;">
+
+            <!-- Search header -->
+            <div style="background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);flex-shrink:0;position:relative;z-index:1;">
+              <div class="search-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="#101010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div style="flex:1;display:flex;align-items:center;padding:0 6px;position:relative;">
+                  <div style="position:absolute;left:22px;width:1px;height:28px;background:#101010;"></div>
+                  <span class="search-input-text" style="padding-left:28px;">Bro<span class="search-cursor"></span></span>
+                </div>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M18 6L6 18M6 6L18 18" stroke="#101010" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+
+            <!-- Contact list -->
+            <div style="flex:1;overflow:hidden;">
+              <div class="contact-row">
+                <div class="contact-avatar" style="background:#FBB040;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;">BS</div>
+                <div>
+                  <div class="contact-name">Brooklyn Simmons</div>
+                  <div class="contact-meta">14568-215</div>
+                  <div class="contact-meta">Georgia State Penitentiary</div>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-avatar" style="background:#F5C842;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#101010;">BR</div>
+                <div>
+                  <div class="contact-name">Brooklyn Rogers</div>
+                  <div class="contact-meta">27482-104</div>
+                  <div class="contact-meta">California State Prison</div>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-avatar" style="background:#7B8FE0;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#fff;">BW</div>
+                <div>
+                  <div class="contact-name">Bronx Williams</div>
+                  <div class="contact-meta">82732-174</div>
+                  <div class="contact-meta">Wetumpka State Penitentiary</div>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-avatar" style="background:#5B8DEF;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:#fff;">BL</div>
+                <div>
+                  <div class="contact-name">Brock Luter</div>
+                  <div class="contact-meta">21430-192</div>
+                  <div class="contact-meta">High Desert State Prison</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- QWERTY Keyboard -->
+            <div class="kbd-wrap">
+              <div class="kbd-gsearch">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" r="15" fill="white"/><path d="M23.9999 15.3873C23.9999 14.6322 23.9386 14.0812 23.806 13.5098H15.1836V16.9179H20.2448C20.1428 17.7649 19.5918 19.0404 18.3672 19.8975L18.3501 20.0116L21.0763 22.1236L21.2652 22.1424C22.9999 20.5404 23.9999 18.1832 23.9999 15.3873Z" fill="#4285F4"/><path d="M15.1836 24.3673C17.6632 24.3673 19.7448 23.551 21.2652 22.1429L18.3672 19.8979C17.5918 20.4387 16.5509 20.8163 15.1836 20.8163C12.755 20.8163 10.6938 19.2143 9.95907 17L9.85137 17.0091L7.01656 19.203L6.97949 19.3061C8.48968 22.3061 11.5917 24.3673 15.1836 24.3673Z" fill="#7247EC"/><path d="M9.95914 16.9991C9.76527 16.4277 9.65307 15.8154 9.65307 15.1828C9.65307 14.5501 9.76527 13.9379 9.94894 13.3664L9.94381 13.2447L7.07348 11.0156L6.97957 11.0603C6.35715 12.3052 6 13.7032 6 15.1828C6 16.6624 6.35715 18.0603 6.97957 19.3052L9.95914 16.9991Z" fill="#FBBC05"/><path d="M15.1836 9.551C16.9081 9.551 18.0713 10.2959 18.7346 10.9184L21.3264 8.38776C19.7346 6.90817 17.6632 6 15.1836 6C11.5917 6 8.48968 8.06121 6.97949 11.0612L9.94887 13.3673C10.6938 11.1531 12.755 9.551 15.1836 9.551Z" fill="#EB4335"/></svg>
+                <svg width="12" height="20" viewBox="0 0 12 20" fill="none"><rect x="3.5" y="0.5" width="5" height="10" rx="2.5" stroke="#061D28" stroke-width="1.3"/><path d="M1 10a5 5 0 0010 0" stroke="#061D28" stroke-width="1.3" stroke-linecap="round"/><line x1="6" y1="15" x2="6" y2="19" stroke="#061D28" stroke-width="1.3" stroke-linecap="round"/></svg>
+              </div>
+              <div class="kbd-body">
+                <div class="kbd-row">
+                  <div class="kbd-key"><span class="kbd-key-num">1</span><span class="kbd-key-letter">q</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">2</span><span class="kbd-key-letter">w</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">3</span><span class="kbd-key-letter">e</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">4</span><span class="kbd-key-letter">r</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">5</span><span class="kbd-key-letter">t</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">6</span><span class="kbd-key-letter">y</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">7</span><span class="kbd-key-letter">u</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">8</span><span class="kbd-key-letter">i</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">9</span><span class="kbd-key-letter">o</span></div>
+                  <div class="kbd-key"><span class="kbd-key-num">0</span><span class="kbd-key-letter">p</span></div>
+                </div>
+                <div class="kbd-row" style="padding:0 16px;">
+                  <div class="kbd-key"><span class="kbd-key-letter">a</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">s</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">d</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">f</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">g</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">h</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">j</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">k</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">l</span></div>
+                </div>
+                <div class="kbd-row">
+                  <div class="kbd-key-action" style="min-width:42px;">
+                    <svg width="22" height="18" viewBox="0 0 22 18" fill="none"><path d="M11 1L1 9h4v8h12V9h4L11 1z" stroke="#061D28" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                  </div>
+                  <div class="kbd-key"><span class="kbd-key-letter">z</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">x</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">c</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">v</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">b</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">n</span></div>
+                  <div class="kbd-key"><span class="kbd-key-letter">m</span></div>
+                  <div class="kbd-key-action" style="min-width:42px;">
+                    <svg width="25" height="18" viewBox="0 0 25 18" fill="none"><path d="M9 1h14a1 1 0 011 1v14a1 1 0 01-1 1H9L1 9l8-8z" stroke="#061D28" stroke-width="1.4" stroke-linejoin="round"/><path d="M16 6l-6 6M10 6l6 6" stroke="#061D28" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  </div>
+                </div>
+                <div class="kbd-bottom">
+                  <div class="kbd-bottom-action"><span class="kbd-bottom-sym">?123</span></div>
+                  <div style="width:6px;"></div>
+                  <div class="kbd-bottom-action" style="min-width:32px;"><span class="kbd-bottom-sym" style="font-size:20px;">/</span></div>
+                  <div style="width:6px;"></div>
+                  <div class="kbd-bottom-action" style="min-width:32px;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#061D28" stroke-width="1.5"/><path d="M8 14.5s1.5 2 4 2 4-2 4-2" stroke="#061D28" stroke-width="1.5" stroke-linecap="round"/><circle cx="9.5" cy="10" r="1.2" fill="#061D28"/><circle cx="14.5" cy="10" r="1.2" fill="#061D28"/></svg>
+                  </div>
+                  <div style="width:6px;"></div>
+                  <div class="kbd-space"></div>
+                  <div style="width:6px;"></div>
+                  <div class="kbd-bottom-action" style="min-width:32px;"><span style="font-family:'Roboto',sans-serif;font-size:15px;font-weight:700;color:#061D28;">.</span></div>
+                  <div style="width:6px;"></div>
+                  <div style="width:34px;height:34px;flex-shrink:0;background:#29B6A8;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M17 1V6c0 1.1-.9 2-2 2H1M1 8l4-4M1 8l4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div>
+      </div>
+    </div><!-- /phone-wrap 3 -->
+
+  </div>
+</body>
+</html>

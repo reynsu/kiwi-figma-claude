@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiwi — V42 — Profile Info Flow</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    html, body { background: #fff; }
+    .variant { display: flex !important; flex-direction: row !important; min-height: 100vh; align-items: center; justify-content: center; padding: 60px 40px; gap: 48px; background: #fff !important; }
+    .phone-wrap { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+    .phone-label { font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 400; color: #111827; }
+
+    /* Progress bar */
+    .progress-track { width: 328px; height: 4px; background: #EBEBEF; border-radius: 99px; position: relative; margin: 0 auto; }
+    .progress-fill  { height: 4px; background: #7247EC; border-radius: 99px; }
+
+    /* Input */
+    .input-wrap { position: relative; width: 100%; height: 48px; border: 1px solid #EBEBEF; border-radius: 8px; }
+    .input-placeholder { position: absolute; top: 50%; transform: translateY(-50%); left: 15px; font-family: 'DM Sans', sans-serif; font-size: 16px; color: #9191A1; line-height: 24px; }
+    .input-value { position: absolute; top: 50%; transform: translateY(-50%); left: 15px; font-family: 'DM Sans', sans-serif; font-size: 16px; color: #101010; line-height: 24px; }
+    .input-label { position: absolute; top: -10px; left: 11px; background: #fff; padding: 0 4px; font-family: 'DM Sans', sans-serif; font-size: 12px; color: #101010; line-height: 20px; }
+
+    /* Button */
+    .btn-next { width: 100%; height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; line-height: 24px; }
+    .btn-disabled { background: #EBEBEF; color: #9191A1; }
+    .btn-active   { background: #7247EC; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="variant active" data-variant-id="profile-info-v42">
+
+    <!-- ── Screen 1: Photo ID (empty) ── -->
+    <div class="phone-wrap">
+      <span class="phone-label">Submit ID</span>
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+        <div class="android-inner">
+          <div class="android-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;padding:0 30px;">
+
+            <!-- Section title -->
+            <p style="margin-top:28px;font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;flex-shrink:0;">Photo ID</p>
+
+            <!-- Description -->
+            <p style="margin-top:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;color:#686873;line-height:22px;flex-shrink:0;">Take a photo of your government issued identification</p>
+
+            <!-- Avatar placeholder -->
+            <div style="margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;">
+              <div style="position:relative;width:108px;height:98px;">
+                <!-- Circle placeholder -->
+                <div style="position:absolute;left:18px;top:0;width:72px;height:72px;border-radius:50%;background:#EDE8FF;display:flex;align-items:center;justify-content:center;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#7247EC" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#7247EC" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <!-- Plus badge -->
+                <div style="position:absolute;left:68px;top:44px;width:28px;height:28px;border-radius:50%;background:#7247EC;display:flex;align-items:center;justify-content:center;">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+              </div>
+              <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#7247EC;line-height:20px;">Add Photo ID</span>
+            </div>
+
+            <!-- Inputs -->
+            <div style="margin-top:36px;display:flex;flex-direction:column;gap:16px;flex-shrink:0;">
+              <div class="input-wrap">
+                <span class="input-placeholder">First name</span>
+              </div>
+              <div class="input-wrap">
+                <span class="input-placeholder">Last name</span>
+              </div>
+            </div>
+
+            <!-- Spacer -->
+            <div style="flex:1;"></div>
+
+            <!-- Next button (disabled) -->
+            <div style="padding-bottom:28px;flex-shrink:0;">
+              <div class="btn-next btn-disabled">Next</div>
+            </div>
+
+          </div>
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div>
+      </div>
+    </div><!-- /phone-wrap 1 -->
+
+    <!-- ── Screen 2: Introduce Yourself (filled) ── -->
+    <div class="phone-wrap">
+      <span class="phone-label">Lock User Name</span>
+      <div class="android-frame">
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-dn"></div>
+        <div class="btn-side btn-power"></div>
+        <div class="android-inner">
+          <div class="android-status">
+            <span class="android-time">9:41</span>
+            <div class="android-icons">
+              <svg width="15" height="10" viewBox="0 0 15 10" fill="#fff"><rect x="0" y="5" width="2.5" height="5" rx="0.5"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+              <svg width="16" height="12" viewBox="0 0 20 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M1 10C4 7 7 5.5 10 5.5C13 5.5 16 7 19 10"/><path d="M4 12.5C6.5 10 8.5 9 10 9C11.5 9 13.5 10 16 12.5"/><circle cx="10" cy="14" r="1.2" fill="#fff" stroke="none"/></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="19" height="10" rx="2" stroke="#fff"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#fff"/><path d="M20.5 3.5v4a2 2 0 0 0 0-4z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="android-screen" style="background:#fff;display:flex;flex-direction:column;padding:0 30px;">
+
+            <!-- Section title -->
+            <p style="margin-top:28px;font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;color:#101010;line-height:28px;flex-shrink:0;">Photo ID</p>
+
+            <!-- Description -->
+            <p style="margin-top:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;color:#686873;line-height:22px;flex-shrink:0;">Your contacts will be able to see your picture and name.</p>
+
+            <!-- Avatar with photo -->
+            <div style="margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;">
+              <div style="width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;">
+                <img src="https://www.figma.com/api/mcp/asset/ecde1ad5-41a7-42ef-9163-19526cb6a5ac" alt="Profile" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
+              <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#7247EC;line-height:20px;">Edit profile picture</span>
+            </div>
+
+            <!-- Floating-label inputs (frozen) -->
+            <div style="margin-top:36px;display:flex;flex-direction:column;gap:24px;flex-shrink:0;">
+              <div class="input-wrap" style="background:#F7F7F8;border-color:#EBEBEF;">
+                <span class="input-label" style="color:#9191A1;background:#F7F7F8;">First name</span>
+                <span class="input-value" style="color:#9191A1;">John</span>
+              </div>
+              <div class="input-wrap" style="background:#F7F7F8;border-color:#EBEBEF;">
+                <span class="input-label" style="color:#9191A1;background:#F7F7F8;">Last name</span>
+                <span class="input-value" style="color:#9191A1;">Fox</span>
+              </div>
+            </div>
+
+            <!-- Spacer -->
+            <div style="flex:1;"></div>
+
+            <!-- Next button (active) -->
+            <div style="padding-bottom:28px;flex-shrink:0;">
+              <div class="btn-next btn-active">Next</div>
+            </div>
+
+          </div>
+          <div class="home-bar"><div class="home-bar-pill"></div></div>
+        </div>
+      </div>
+    </div><!-- /phone-wrap 2 -->
+
+  </div>
+</body>
+</html>
